@@ -27,7 +27,7 @@ type PatchTextProps = {
 
 export function PatchText({
   text,
-  duration = 400,
+  duration = 450,
   delay = 0,
   className = "",
   scrambleOnly = false,

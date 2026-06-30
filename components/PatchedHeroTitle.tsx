@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { PatchText } from "./PatchText";
 
-const TOTAL_MS = 2000;
+const TOTAL_MS = 2400;
 
 const asciiFrame = [
   "╔══════════════════════════════════════════╗",
@@ -13,11 +13,11 @@ const asciiFrame = [
 
 const patchLog = [
   { at: 0, prefix: " ", text: "*** applying PNTRSW-2026.patch ***", kind: "meta" as const },
-  { at: 200, prefix: "-", text: "A Settled World", kind: "remove" as const },
-  { at: 550, prefix: "+", text: "Refuse", kind: "add" as const },
-  { at: 900, prefix: " ", text: "patching title strings...", kind: "meta" as const },
-  { at: 1200, prefix: "+", text: "begins elsewhere", kind: "add" as const },
-  { at: 1700, prefix: " ", text: "done. world unsettled.", kind: "done" as const },
+  { at: 210, prefix: "-", text: "A Settled World", kind: "remove" as const },
+  { at: 585, prefix: "+", text: "Refuse", kind: "add" as const },
+  { at: 1065, prefix: " ", text: "patching title strings...", kind: "meta" as const },
+  { at: 1440, prefix: "+", text: "begins elsewhere", kind: "add" as const },
+  { at: 2025, prefix: " ", text: "done. world unsettled.", kind: "done" as const },
 ];
 
 type PatchedHeroTitleProps = {
@@ -85,26 +85,26 @@ export function PatchedHeroTitle({ subtitle }: PatchedHeroTitleProps) {
 
       <div className="uppercase">
         <p className="text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pntrsw-navy">
-          <PatchText text="Patch Notes" delay={300} duration={450} scrambleOnly />
+          <PatchText text="Patch Notes" delay={330} duration={540} scrambleOnly />
         </p>
 
         <p className="mt-1 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
           <span className="text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
             That{" "}
           </span>
-          <PatchText text="Refuse" delay={750} duration={350} scrambleOnly />
+          <PatchText text="Refuse" delay={870} duration={450} scrambleOnly />
         </p>
 
         <p className="mt-0.5 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
           <span className="text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
             A{" "}
           </span>
-          <PatchText text="Settled World" delay={1100} duration={500} scrambleOnly />
+          <PatchText text="Settled World" delay={1290} duration={570} scrambleOnly />
         </p>
       </div>
 
       <p className="label-caps text-pntrsw-moss">
-        <PatchText text={subtitle} delay={1500} duration={350} scrambleOnly />
+        <PatchText text={subtitle} delay={1800} duration={450} scrambleOnly />
       </p>
 
       <pre

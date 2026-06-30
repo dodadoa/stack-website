@@ -29,7 +29,7 @@ export function PatchSectionLabel({ label, index = 0 }: PatchSectionLabelProps) 
   return (
     <p className="label-caps text-pntrsw-moss">
       <span className="font-ascii mr-2 text-pntrsw-blue/60">{`@@ ${index}`}</span>
-      <PatchText text={label} delay={index * 120} duration={280} scrambleOnly />
+      <PatchText text={label} delay={index * 90} duration={260} scrambleOnly />
     </p>
   );
 }

@@ -8,7 +8,7 @@ type TypoWordProps = {
   delay?: number;
 };
 
-export function TypoWord({ wrong, correct, delay = 2000 }: TypoWordProps) {
+export function TypoWord({ wrong, correct, delay = 800 }: TypoWordProps) {
   const [state, setState] = useState<"wrong" | "fixing" | "fixed">("wrong");
   const [display, setDisplay] = useState(wrong);
 
@@ -26,8 +26,8 @@ export function TypoWord({ wrong, correct, delay = 2000 }: TypoWordProps) {
     const fixTimer = window.setTimeout(() => {
       setState("fixing");
 
-      const steps = 12;
-      const stepDuration = 180;
+      const steps = 10;
+      const stepDuration = 72;
 
       for (let i = 0; i <= steps; i++) {
         window.setTimeout(() => {
@@ -55,7 +55,7 @@ export function TypoWord({ wrong, correct, delay = 2000 }: TypoWordProps) {
 
   return (
     <span
-      className={`inline transition-all duration-700 ease-out ${
+      className={`inline transition-all duration-500 ease-out ${
         state === "wrong"
           ? "bg-pntrsw-lime/20 text-pntrsw-navy/70 underline decoration-pntrsw-lime/50 decoration-dotted decoration-[1px] underline-offset-[3px]"
           : state === "fixing"

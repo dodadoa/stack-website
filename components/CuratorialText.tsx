@@ -138,6 +138,8 @@ const thSegments: Segment[][] = [
   ],
 ];
 
+const TYPO_DELAY_SCALE = 0.15;
+
 export function CuratorialText({ paragraphs, locale }: CuratorialTextProps) {
   const segments = locale === "th" ? thSegments : enSegments;
 
@@ -172,7 +174,7 @@ export function CuratorialText({ paragraphs, locale }: CuratorialTextProps) {
                   key={i}
                   wrong={seg.wrong}
                   correct={seg.correct}
-                  delay={seg.delay}
+                  delay={Math.round(seg.delay * TYPO_DELAY_SCALE)}
                 />
               ),
             )}
