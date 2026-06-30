@@ -63,15 +63,17 @@ export function DisplayTitle({
     return header;
   }
 
+  const bloom = size === "hero" || size === "page" ? "title-bloom" : "";
+
   const content = (
     <span className={`block uppercase ${className}`}>
-      <span className={`block ${s.line1} ${ink}`}>Patch Notes</span>
-      <span className={`mt-1 block ${s.line2} ${ink}`}>
-        <span className={`${s.small} ${mute}`}>That </span>
+      <span className={`block ${bloom} ${s.line1} ${ink}`}>Patch Notes</span>
+      <span className={`mt-1 block ${bloom} ${s.line2} ${ink}`}>
+        <span className={`title-bloom-reset ${s.small} ${mute}`}>That </span>
         Refuse
       </span>
-      <span className={`mt-0.5 block ${s.line2} ${ink}`}>
-        <span className={`${s.small} ${mute}`}>A </span>
+      <span className={`mt-0.5 block ${bloom} ${s.line2} ${ink}`}>
+        <span className={`title-bloom-reset ${s.small} ${mute}`}>A </span>
         Settled World
       </span>
     </span>

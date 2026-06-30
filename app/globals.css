@@ -205,6 +205,17 @@ html {
   font-weight: 700;
 }
 
+.title-bloom {
+  text-shadow:
+    0 0 14px rgb(160 216 238 / 0.6),
+    0 0 32px rgb(196 255 0 / 0.22),
+    0 0 56px rgb(30 81 197 / 0.2);
+}
+
+.title-bloom-reset {
+  text-shadow: none;
+}
+
 .prose {
   max-width: 42rem;
 }

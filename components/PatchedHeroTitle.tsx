@@ -84,19 +84,19 @@ export function PatchedHeroTitle({ subtitle }: PatchedHeroTitleProps) {
       </div>
 
       <div className="uppercase">
-        <p className="text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pntrsw-navy">
+        <p className="title-bloom text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pntrsw-navy">
           <PatchText text="Patch Notes" delay={330} duration={540} scrambleOnly />
         </p>
 
-        <p className="mt-1 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
-          <span className="text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
+        <p className="title-bloom mt-1 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
+          <span className="title-bloom-reset text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
             That{" "}
           </span>
           <PatchText text="Refuse" delay={870} duration={450} scrambleOnly />
         </p>
 
-        <p className="mt-0.5 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
-          <span className="text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
+        <p className="title-bloom mt-0.5 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
+          <span className="title-bloom-reset text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
             A{" "}
           </span>
           <PatchText text="Settled World" delay={1290} duration={570} scrambleOnly />
