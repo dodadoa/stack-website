@@ -18,9 +18,7 @@ function typo(
 }
 
 const enSegments: Segment[][] = [
-  // 0: "Worlds do not arrive all at once."
   ["Worlds do not ", typo("arirve", "arrive", 15000), " all at once."],
-  // 1: "They are assembled through stories..."
   [
     "They are ",
     typo("asssembled", "assembled", 25000),
@@ -32,7 +30,6 @@ const enSegments: Segment[][] = [
     typo("overalp", "overlap", 70000),
     ", diverge, and coexist. They are shaped as much by care as by design, as much by inheritance as by invention.",
   ],
-  // 2: "Some worlds seek stability..."
   [
     "Some worlds seek ",
     typo("stabiltiy", "stability", 30000),
@@ -40,7 +37,6 @@ const enSegments: Segment[][] = [
     typo("unfinsihed", "unfinished", 50000),
     ".",
   ],
-  // 3: "Patch Notes That Refuse..."
   [
     "Patch Notes That Refuse a Settled World stays with the latter. Rather than treating the future as a singular horizon, the exhibition turns toward a ",
     typo("pluraility", "plurality", 45000),
@@ -48,7 +44,6 @@ const enSegments: Segment[][] = [
     typo("cosmologeis", "cosmologies", 65000),
     ", and forms of life.",
   ],
-  // 4: 'Borrowed from software...'
   [
     'Borrowed from software and gaming culture, "patch notes" record the changes made as a system continues to ',
     typo("evovle", "evolve", 20000),
@@ -58,7 +53,6 @@ const enSegments: Segment[][] = [
     typo("continaul", "continual", 75000),
     " change rather than moving toward a single future.",
   ],
-  // 5: "A settled world..."
   [
     "A ",
     typo("settlde", "settled", 18000),
@@ -68,7 +62,6 @@ const enSegments: Segment[][] = [
     typo("imagning", "imagining", 85000),
     " otherwise.",
   ],
-  // 6: "Across exhibitions..."
   [
     "Across exhibitions, screenings, ",
     typo("perfromances", "performances", 35000),
@@ -83,13 +76,7 @@ const enSegments: Segment[][] = [
 ];
 
 const thSegments: Segment[][] = [
-  // 0
-  [
-    "โลกไม่ได้",
-    typo("มาถงึ", "มาถึง", 15000),
-    "พร้อมกันทั้งหมด",
-  ],
-  // 1
+  ["โลกไม่ได้", typo("มาถงึ", "มาถึง", 15000), "พร้อมกันทั้งหมด"],
   [
     "โลกถูก",
     typo("ประกอบขนึ้", "ประกอบขึ้น", 25000),
@@ -97,20 +84,17 @@ const thSegments: Segment[][] = [
     typo("เทคโนโลยี", "เทคโนโลยี", 40000),
     " อุบัติเหตุ และการซ่อมแซม โลกเหล่านี้ทับซ้อน แยกทาง และอยู่ร่วมกัน ถูกหล่อหลอมทั้งจากการดูแลและการออกแบบ ทั้งจากมรดกและการคิดค้น",
   ],
-  // 2
   [
     "บางโลกแสวงหาความ",
     typo("มั่นคง", "มั่นคง", 30000),
     " บางโลกยังไม่",
     typo("เสร็จสมบรูณ์", "เสร็จสมบูรณ์", 50000),
   ],
-  // 3
   [
     "Patch Notes That Refuse a Settled World อยู่กับโลกหลัง แทนที่จะมองอนาคตเป็นขอบฟ้าเดียว นิทรรศการหันไปสู่ความ",
     typo("หลากหลาย", "หลากหลาย", 45000),
     "ของโลกที่ถูกหล่อหลอมจากประวัติศาสตร์ จักรวาลวิทยา และรูปแบบชีวิตที่ต่างกัน",
   ],
-  // 4
   [
     'ยืมมาจากวัฒนธรรมซอฟต์แวร์และเกม "patch notes" บันทึกการเปลี่ยนแปลงขณะที่ระบบยังคง',
     typo("พฒันา", "พัฒนา", 20000),
@@ -118,7 +102,6 @@ const thSegments: Segment[][] = [
     typo("อุปมา", "อุปมา", 48000),
     "ของโลกที่คงอยู่ผ่านการซ่อมแซม การอยู่ร่วม และการเปลี่ยนแปลงอย่างต่อเนื่อง มากกว่าก้าวไปสู่อนาคตเดียว",
   ],
-  // 5
   [
     "โลกที่",
     typo("มั่นคง", "มั่นคง", 18000),
@@ -126,7 +109,6 @@ const thSegments: Segment[][] = [
     typo("จินตนากร", "จินตนาการ", 85000),
     "อย่างอื่น",
   ],
-  // 6
   [
     "ผ่านนิทรรศการ การฉายภาพ ",
     typo("การแสดง", "การแสดง", 35000),
@@ -140,47 +122,57 @@ const thSegments: Segment[][] = [
 
 const TYPO_DELAY_SCALE = 0.15;
 
+function renderSegments(segs: Segment[]) {
+  return segs.map((seg, i) =>
+    typeof seg === "string" ? (
+      <span key={i}>{seg}</span>
+    ) : (
+      <TypoWord
+        key={i}
+        wrong={seg.wrong}
+        correct={seg.correct}
+        delay={Math.round(seg.delay * TYPO_DELAY_SCALE)}
+      />
+    ),
+  );
+}
+
 export function CuratorialText({ paragraphs, locale }: CuratorialTextProps) {
   const segments = locale === "th" ? thSegments : enSegments;
+  const isEn = locale === "en";
 
   return (
-    <div className="space-y-5 text-[1.05rem] leading-[1.65] text-pntrsw-navy/85">
-      {paragraphs.map((paragraph, index) => {
-        const segs = segments[index];
+    <section className="max-w-3xl" data-locale={locale}>
+      <p className="type-subheadline label-caps mb-10 text-pntrsw-body/60">
+        Curatorial Statement
+      </p>
 
-        if (!segs) {
+      <div className="space-y-6">
+        {paragraphs.map((paragraph, index) => {
+          const segs = segments[index];
+          const isLead = index === 0;
+
+          const className = isLead
+            ? "type-headline text-[clamp(1.5rem,3.5vw,2rem)] leading-[1.15] text-pntrsw-body"
+            : isEn
+              ? "type-body text-[1.05rem] leading-[1.7] text-pntrsw-body/90"
+              : "text-[1.05rem] leading-[1.7] text-pntrsw-body/90";
+
+          if (!segs) {
+            return (
+              <p key={paragraph.slice(0, 32)} className={className}>
+                {paragraph}
+              </p>
+            );
+          }
+
           return (
-            <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            <p key={paragraph.slice(0, 32)} className={className}>
+              {renderSegments(segs)}
+            </p>
           );
-        }
-
-        return (
-          <p
-            key={paragraph.slice(0, 32)}
-            className={
-              index === 0
-                ? "font-sporting text-[1.5rem] font-bold leading-[1.15] tracking-[-0.02em] text-pntrsw-navy uppercase md:text-[2rem]"
-                : undefined
-            }
-          >
-            {index === 0 && (
-              <span className="font-ascii mr-2 text-sm text-pntrsw-moss">+</span>
-            )}
-            {segs.map((seg, i) =>
-              typeof seg === "string" ? (
-                <span key={i}>{seg}</span>
-              ) : (
-                <TypoWord
-                  key={i}
-                  wrong={seg.wrong}
-                  correct={seg.correct}
-                  delay={Math.round(seg.delay * TYPO_DELAY_SCALE)}
-                />
-              ),
-            )}
-          </p>
-        );
-      })}
-    </div>
+        })}
+      </div>
+    </section>
   );
 }

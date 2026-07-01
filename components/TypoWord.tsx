@@ -57,10 +57,10 @@ export function TypoWord({ wrong, correct, delay = 800 }: TypoWordProps) {
     <span
       className={`inline transition-all duration-500 ease-out ${
         state === "wrong"
-          ? "bg-pntrsw-lime/20 text-pntrsw-navy/70 underline decoration-pntrsw-lime/50 decoration-dotted decoration-[1px] underline-offset-[3px]"
+          ? "bg-pntrsw-lime/20 text-pntrsw-body/70 underline decoration-pntrsw-body/30 decoration-dotted decoration-[1px] underline-offset-[3px]"
           : state === "fixing"
-            ? "bg-pntrsw-lime/10 text-pntrsw-navy/80"
-            : ""
+            ? "bg-pntrsw-lime/10 text-pntrsw-body/80"
+            : "type-body-highlight"
       }`}
       aria-label={correct}
     >

@@ -1,24 +1,6 @@
 @import "tailwindcss";
 
 @font-face {
-  font-family: "Sporting Grotesque";
-  src: url("/assets/FONT/SportingGrotesque/SportingGrotesque-Bold.otf")
-    format("opentype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Sporting Grotesque";
-  src: url("/assets/FONT/SportingGrotesque/SportingGrotesque-Regular.otf")
-    format("opentype");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "General Sans";
   src: url("/assets/FONT/GeneralSans_Complete/WEB/fonts/GeneralSans-Variable.woff2")
     format("woff2");
@@ -57,6 +39,7 @@
   --pntrsw-blue: #1d7ed1;
   --pntrsw-royal: #1e51c5;
   --pntrsw-deep: #191790;
+  --pntrsw-body: #0000ff;
   --pntrsw-navy: #0c0647;
   --pntrsw-black: #010004;
   --pntrsw-forest: #003500;
@@ -67,7 +50,6 @@
   --pntrsw-white: #ffffff;
   --font-sans: "General Sans", system-ui, sans-serif;
   --font-thai: "LINE Seed Sans TH", "General Sans", system-ui, sans-serif;
-  --font-sporting: "Sporting Grotesque", "General Sans", system-ui, sans-serif;
 }
 
 @theme inline {
@@ -75,6 +57,7 @@
   --color-pntrsw-blue: #1d7ed1;
   --color-pntrsw-royal: #1e51c5;
   --color-pntrsw-deep: #191790;
+  --color-pntrsw-body: #0000ff;
   --color-pntrsw-navy: #0c0647;
   --color-pntrsw-black: #010004;
   --color-pntrsw-forest: #003500;
@@ -84,23 +67,22 @@
   --color-pntrsw-stone: #e0ded7;
   --color-pntrsw-white: #ffffff;
   --font-sans: var(--font-sans);
-  --font-sporting: var(--font-sporting);
 }
 
 @layer base {
   html {
     color-scheme: light;
-    background-color: #ffffff;
+    background-color: #e0ded7;
   }
 
   body {
-    background-color: #ffffff;
-    color: #0c0647;
+    background-color: #e0ded7;
+    color: #0000ff;
     font-family: var(--font-sans);
-    font-weight: 400;
+    font-weight: 600;
     font-feature-settings: "ss01", "ss02";
     line-height: 1.5;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
   }
 }
 
@@ -113,36 +95,30 @@ html {
   letter-spacing: 0;
 }
 
+[data-locale="th"] .type-body,
+[data-locale="th"] .type-headline,
+[data-locale="th"] .type-subheadline {
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 ::selection {
   background: #c4ff00;
-  color: #010004;
+  color: #0000ff;
 }
 
-/* transmediale-inspired PNTRSW gradient fields */
-.gradient-hero {
-  background-color: #ffffff;
-  background-image:
-    radial-gradient(ellipse 80% 60% at 15% 20%, rgb(160 216 238 / 0.85), transparent 55%),
-    radial-gradient(ellipse 70% 55% at 85% 15%, rgb(196 255 0 / 0.45), transparent 50%),
-    radial-gradient(ellipse 65% 50% at 70% 85%, rgb(30 81 197 / 0.35), transparent 55%),
-    radial-gradient(ellipse 55% 45% at 25% 75%, rgb(125 146 0 / 0.25), transparent 50%),
-    linear-gradient(145deg, #ffffff 0%, #f8faf5 45%, #eef6fc 100%);
-  background-size: 140% 140%, 130% 130%, 120% 120%, 125% 125%, 100% 100%;
-  animation: gradient-drift 22s ease-in-out infinite;
+/* PNTRSW page surface */
+.gradient-page {
+  background-color: #e0ded7;
 }
 
+.gradient-hero,
 .gradient-soft {
-  background-color: #fafafa;
-  background-image:
-    radial-gradient(ellipse 60% 50% at 10% 50%, rgb(160 216 238 / 0.4), transparent 60%),
-    radial-gradient(ellipse 50% 40% at 90% 30%, rgb(196 255 0 / 0.18), transparent 55%);
+  background: transparent;
 }
 
 .gradient-footer {
-  background-color: #f5f5f3;
-  background-image:
-    radial-gradient(ellipse 80% 80% at 50% 100%, rgb(30 81 197 / 0.08), transparent 60%),
-    linear-gradient(to top, rgb(224 222 215 / 0.5), transparent);
+  background-color: #010004;
 }
 
 .gradient-noise {
@@ -150,32 +126,11 @@ html {
   mix-blend-mode: overlay;
 }
 
-@keyframes gradient-drift {
-  0%,
-  100% {
-    background-position: 0% 30%, 100% 0%, 80% 100%, 20% 80%, 0% 0%;
-  }
-  50% {
-    background-position: 100% 60%, 0% 40%, 20% 20%, 80% 40%, 0% 0%;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .gradient-hero {
-    animation: none;
-  }
-
   .patch-cursor::after {
     animation: none;
     opacity: 0;
   }
-}
-
-.font-ascii {
-  font-family: ui-monospace, "Cascadia Code", "SF Mono", SFMono-Regular, Menlo,
-    Monaco, Consolas, monospace;
-  font-variant-ligatures: none;
-  letter-spacing: 0;
 }
 
 .patch-line-removed {
@@ -186,8 +141,8 @@ html {
 
 .patch-cursor::after {
   animation: patch-blink 0.75s step-end infinite;
-  content: "█";
-  color: #c4ff00;
+  content: "|";
+  color: #0000ff;
 }
 
 @keyframes patch-blink {
@@ -200,16 +155,61 @@ html {
   }
 }
 
-.font-sporting {
-  font-family: var(--font-sporting);
+.font-general {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* PNTRSW type scale
+   Headline:    General Sans 600, tracking -70, title case; highlight → uppercase
+   Subheadline: General Sans 600, tracking -50, uppercase
+   Body (EN):   General Sans 600, tracking -20, title case; highlight → bold
+*/
+.type-headline {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  font-feature-settings: "ss01", "ss02";
+  text-transform: capitalize;
+}
+
+.type-headline-highlight {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.type-subheadline {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.05em;
+  font-feature-settings: "ss01", "ss02";
+  text-transform: uppercase;
+}
+
+.type-body {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-feature-settings: "ss01", "ss02";
+  text-transform: capitalize;
+  color: #0000ff;
+}
+
+.type-body-plain {
+  text-transform: none;
+}
+
+.type-body-highlight,
+.type-body strong,
+.type-body b {
   font-weight: 700;
 }
 
 .title-bloom {
   text-shadow:
-    0 0 14px rgb(160 216 238 / 0.6),
-    0 0 32px rgb(196 255 0 / 0.22),
-    0 0 56px rgb(30 81 197 / 0.2);
+    0 0 18px rgb(196 255 0 / 0.35),
+    0 0 40px rgb(196 255 0 / 0.15),
+    0 0 64px rgb(30 81 197 / 0.25);
 }
 
 .title-bloom-reset {
@@ -218,6 +218,7 @@ html {
 
 .prose {
   max-width: 42rem;
+  color: #0000ff;
 }
 
 .prose p + p {
@@ -225,43 +226,62 @@ html {
 }
 
 .prose p {
-  letter-spacing: -0.01em;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  font-feature-settings: "ss01", "ss02";
+  text-transform: capitalize;
 }
 
 .label-caps {
   font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.28em;
   line-height: 1.3;
-  text-transform: uppercase;
 }
 
 .meta-line {
   font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
   line-height: 1.4;
-  text-transform: uppercase;
 }
 
 .display-brutal {
-  font-weight: 700;
+  font-weight: 600;
   line-height: 0.88;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
+  letter-spacing: -0.07em;
+  text-transform: capitalize;
 }
 
 .display-brutal-sm {
   font-weight: 600;
   line-height: 0.9;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.05em;
   text-transform: uppercase;
 }
 
 .list-row {
-  border-bottom: 2px solid #c4ff00;
+  border-bottom: 1px solid rgb(25 23 144 / 0.2);
 }
 
 .list-row:last-child {
   border-bottom: none;
+}
+
+.schedule-card {
+  border-radius: 45px;
+  background-color: #ffffff;
+  padding: 2.5rem 2rem;
+}
+
+.schedule-time {
+  display: inline-block;
+  margin-right: 0.5rem;
+  border-radius: 6px;
+  background-color: #c8c6bf;
+  padding: 0.2em 0.55em;
+  vertical-align: baseline;
+}
+
+@media (min-width: 768px) {
+  .schedule-card {
+    padding: 3rem 2.5rem;
+  }
 }

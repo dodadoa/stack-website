@@ -12,19 +12,19 @@ type DisplayTitleProps = {
 
 const sizeStyles = {
   hero: {
-    line1: "text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em]",
-    line2: "text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em]",
-    small: "text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em]",
+    line1: "text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.92]",
+    line2: "text-[clamp(1.75rem,5vw,3.25rem)] leading-[0.95]",
+    small: "text-[clamp(0.65rem,1.4vw,0.85rem)]",
   },
   header: {
-    line1: "text-sm font-semibold leading-none tracking-[-0.02em]",
-    line2: "text-sm font-semibold leading-none tracking-[-0.02em]",
-    small: "text-[0.55rem] font-medium tracking-[0.22em]",
+    line1: "text-sm leading-none",
+    line2: "text-sm leading-none",
+    small: "text-[0.55rem]",
   },
   page: {
-    line1: "text-[clamp(2rem,5vw,3.5rem)] font-semibold leading-[0.92] tracking-[-0.03em]",
-    line2: "text-[clamp(1.35rem,3.5vw,2.25rem)] font-semibold leading-[0.95] tracking-[-0.02em]",
-    small: "text-[0.65rem] font-medium tracking-[0.26em]",
+    line1: "text-[clamp(2rem,5vw,3.5rem)] leading-[0.92]",
+    line2: "text-[clamp(1.35rem,3.5vw,2.25rem)] leading-[0.95]",
+    small: "text-[0.65rem]",
   },
 } as const;
 
@@ -36,14 +36,14 @@ export function DisplayTitle({
   onGradient = false,
 }: DisplayTitleProps) {
   const s = sizeStyles[size];
-  const ink = onGradient ? "text-pntrsw-navy" : "text-pntrsw-navy";
-  const mute = onGradient ? "text-pntrsw-olive/80" : "text-pntrsw-olive";
+  const ink = "text-pntrsw-body";
+  const mute = onGradient ? "text-pntrsw-body/60" : "text-pntrsw-body/70";
 
   if (size === "header") {
     const header = (
-      <span className={`block uppercase ${className}`}>
+      <span className={`type-headline block ${className}`}>
         <span className={`block ${s.line1} ${ink}`}>Patch Notes</span>
-        <span className={`mt-1 block ${s.small} ${mute}`}>
+        <span className={`type-subheadline mt-1 block ${s.small} ${mute}`}>
           Refuse a Settled World
         </span>
       </span>
@@ -63,18 +63,16 @@ export function DisplayTitle({
     return header;
   }
 
-  const bloom = size === "hero" || size === "page" ? "title-bloom" : "";
-
   const content = (
-    <span className={`block uppercase ${className}`}>
-      <span className={`block ${bloom} ${s.line1} ${ink}`}>Patch Notes</span>
-      <span className={`mt-1 block ${bloom} ${s.line2} ${ink}`}>
-        <span className={`title-bloom-reset ${s.small} ${mute}`}>That </span>
-        Refuse
+    <span className={`type-headline block ${className}`}>
+      <span className={`block ${s.line1} ${ink}`}>Patch Notes</span>
+      <span className={`mt-1 block ${s.line2} ${ink}`}>
+        <span className={`type-subheadline ${s.small} ${mute}`}>That </span>
+        <span className="type-headline-highlight">Refuse</span>
       </span>
-      <span className={`mt-0.5 block ${bloom} ${s.line2} ${ink}`}>
-        <span className={`title-bloom-reset ${s.small} ${mute}`}>A </span>
-        Settled World
+      <span className={`mt-0.5 block ${s.line2} ${ink}`}>
+        <span className={`type-subheadline ${s.small} ${mute}`}>A </span>
+        <span className="type-headline-highlight">Settled World</span>
       </span>
     </span>
   );

@@ -17,7 +17,6 @@ export type Dictionary = {
     dates: string;
     venue: string;
     curatorial: readonly string[];
-    credits: string;
   };
   screening: {
     title: string;

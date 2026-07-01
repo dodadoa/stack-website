@@ -46,7 +46,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
     <div
       id="top"
       data-locale={locale}
-      className="flex min-h-full flex-col bg-white text-pntrsw-navy"
+      className="flex min-h-full flex-col bg-pntrsw-stone text-pntrsw-body"
     >
       <SetHtmlLang locale={locale} />
       <SiteHeader locale={locale} dict={dict} />

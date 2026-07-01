@@ -5,12 +5,6 @@ import { PatchText } from "./PatchText";
 
 const TOTAL_MS = 2400;
 
-const asciiFrame = [
-  "╔══════════════════════════════════════════╗",
-  "║  PATCH NOTES :: REFUSE A SETTLED WORLD   ║",
-  "╚══════════════════════════════════════════╝",
-];
-
 const patchLog = [
   { at: 0, prefix: " ", text: "*** applying PNTRSW-2026.patch ***", kind: "meta" as const },
   { at: 210, prefix: "-", text: "A Settled World", kind: "remove" as const },
@@ -51,70 +45,58 @@ export function PatchedHeroTitle({ subtitle }: PatchedHeroTitleProps) {
 
   return (
     <div className="space-y-6">
-      <pre
-        className="font-ascii hidden text-[0.55rem] leading-[1.35] text-pntrsw-royal/70 sm:block md:text-[0.625rem]"
-        aria-hidden
-      >
-        {asciiFrame.join("\n")}
-      </pre>
-
-      <div className="font-ascii text-[0.625rem] leading-[1.5] text-pntrsw-olive sm:text-xs">
+      <div className="font-general type-body text-xs leading-relaxed text-pntrsw-body/70 sm:text-sm">
         {patchLog.slice(0, logLines).map((line) => (
           <div
             key={`${line.at}-${line.text}`}
             className={
               line.kind === "remove"
-                ? "patch-line-removed text-pntrsw-moss"
+                ? "patch-line-removed text-pntrsw-body/45"
                 : line.kind === "add"
-                  ? "text-pntrsw-forest"
+                  ? "text-pntrsw-body"
                   : line.kind === "done"
-                    ? "text-pntrsw-royal"
-                    : "text-pntrsw-olive/80"
+                    ? "text-pntrsw-body/80"
+                    : "text-pntrsw-body/60"
             }
           >
-            <span className="select-none text-pntrsw-blue">{line.prefix} </span>
+            <span className="select-none text-pntrsw-royal">{line.prefix} </span>
             {line.text}
           </div>
         ))}
         {cursorOn ? (
-          <span className="patch-cursor text-pntrsw-lime" aria-hidden>
+          <span className="patch-cursor text-pntrsw-body" aria-hidden>
             {" "}
           </span>
         ) : null}
       </div>
 
-      <div className="uppercase">
-        <p className="title-bloom text-[clamp(2.5rem,8vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.03em] text-pntrsw-navy">
+      <div>
+        <p className="type-headline text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.92] text-pntrsw-body">
           <PatchText text="Patch Notes" delay={330} duration={540} scrambleOnly />
         </p>
 
-        <p className="title-bloom mt-1 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
-          <span className="title-bloom-reset text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
+        <p className="type-headline mt-1 text-[clamp(1.75rem,5vw,3.25rem)] leading-[0.95] text-pntrsw-body">
+          <span className="type-subheadline text-[clamp(0.65rem,1.4vw,0.85rem)] text-pntrsw-body/60">
             That{" "}
           </span>
-          <PatchText text="Refuse" delay={870} duration={450} scrambleOnly />
+          <span className="type-headline-highlight">
+            <PatchText text="Refuse" delay={870} duration={450} scrambleOnly />
+          </span>
         </p>
 
-        <p className="title-bloom mt-0.5 text-[clamp(1.75rem,5vw,3.25rem)] font-semibold leading-[0.95] tracking-[-0.02em] text-pntrsw-navy">
-          <span className="title-bloom-reset text-[clamp(0.65rem,1.4vw,0.85rem)] font-medium tracking-[0.28em] text-pntrsw-olive/80">
+        <p className="type-headline mt-0.5 text-[clamp(1.75rem,5vw,3.25rem)] leading-[0.95] text-pntrsw-body">
+          <span className="type-subheadline text-[clamp(0.65rem,1.4vw,0.85rem)] text-pntrsw-body/60">
             A{" "}
           </span>
-          <PatchText text="Settled World" delay={1290} duration={570} scrambleOnly />
+          <span className="type-headline-highlight">
+            <PatchText text="Settled World" delay={1290} duration={570} scrambleOnly />
+          </span>
         </p>
       </div>
 
-      <p className="label-caps text-pntrsw-moss">
+      <p className="type-subheadline label-caps text-pntrsw-body/60">
         <PatchText text={subtitle} delay={1800} duration={450} scrambleOnly />
       </p>
-
-      <pre
-        className="font-ascii text-[0.55rem] leading-none text-pntrsw-navy/25 sm:text-[0.6rem]"
-        aria-hidden
-      >
-        {`┌───┬───┬───┬───┬───┬───┬───┬───┐
-│ ░ │ ▓ │ █ │ + │ - │ ~ │ / │ \\\\ │
-└───┴───┴───┴───┴───┴───┴───┴───┘`}
-      </pre>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
+import Image from "next/image";
 import Link from "next/link";
 
 type StackMarkProps = {
@@ -10,10 +11,17 @@ export function StackMark({ locale }: StackMarkProps) {
   return (
     <Link
       href={localePath(locale)}
-      className="font-sporting text-[1.65rem] leading-none tracking-[-0.05em] text-pntrsw-blue transition-opacity hover:opacity-70 md:text-[1.85rem]"
+      className="inline-flex transition-opacity hover:opacity-70"
       aria-label="Stack"
     >
-      STACK
+      <Image
+        src="/assets/LOGO/Stack_logo.png"
+        alt="Stack"
+        width={360}
+        height={63}
+        className="h-5 w-auto md:h-6"
+        priority
+      />
     </Link>
   );
 }

@@ -30,22 +30,14 @@ export default async function HomePage({ params }: PageProps) {
             <PatchedHeroTitle subtitle={dict.home.subtitle} />
 
             <div className="space-y-6 lg:pt-4">
-              <pre
-                className="font-ascii text-[0.6rem] leading-[1.45] text-pntrsw-royal/60 sm:text-xs"
-                aria-hidden
-              >{`+ Exhibition
-  dates: ${dict.home.dates}
-+ Venue
-  loc: ${dict.home.venue.split("/").join("\n       ")}`}</pre>
-
-              <div className="space-y-6 border-l-2 border-pntrsw-lime pl-5">
+              <div className="space-y-6 border-l-2 border-pntrsw-deep/20 pl-5">
                 <div>
-                  <p className="label-caps mb-2 text-pntrsw-royal">Exhibition</p>
-                  <p className="meta-line text-pntrsw-navy">{dict.home.dates}</p>
+                  <p className="type-subheadline label-caps mb-2 text-pntrsw-body/60">Exhibition</p>
+                  <p className="type-subheadline meta-line text-pntrsw-body">{dict.home.dates}</p>
                 </div>
                 <div>
-                  <p className="label-caps mb-2 text-pntrsw-royal">Venue</p>
-                  <p className="text-base leading-snug text-pntrsw-navy/80">
+                  <p className="type-subheadline label-caps mb-2 text-pntrsw-body/60">Venue</p>
+                  <p className="type-body text-base leading-snug text-pntrsw-body/80">
                     {dict.home.venue}
                   </p>
                 </div>
@@ -56,21 +48,7 @@ export default async function HomePage({ params }: PageProps) {
       </GradientField>
 
       <PageShell wide>
-        <pre
-          className="font-ascii mb-10 text-[0.6rem] text-pntrsw-navy/25 sm:text-xs"
-          aria-hidden
-        >
-          {`--- a/world/narrative.txt
-+++ b/world/narrative.txt
-@@ curatorial @@`}
-        </pre>
-
         <CuratorialText paragraphs={dict.home.curatorial} locale={localeParam} />
-
-        <p className="mt-14 border-t-2 border-pntrsw-lime pt-8 font-ascii text-xs leading-relaxed text-pntrsw-olive sm:text-sm">
-          <span className="text-pntrsw-blue"># </span>
-          {dict.home.credits}
-        </p>
       </PageShell>
     </article>
   );

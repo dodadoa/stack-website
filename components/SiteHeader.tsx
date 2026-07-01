@@ -25,14 +25,12 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-pntrsw-lime bg-white/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-8 px-6 py-5">
+    <header className="sticky top-0 z-50 border-b border-pntrsw-white/10 bg-pntrsw-black">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-2.5">
         <StackMark locale={locale} />
 
-        <div className="flex flex-col items-end gap-4 pt-0.5">
-          <LocaleSwitcher locale={locale} pathname={pathname} />
-
-          <nav className="hidden items-center gap-6 text-[0.6875rem] font-semibold uppercase tracking-[0.22em] md:flex">
+        <div className="flex items-center gap-5 md:gap-6">
+          <nav className="type-subheadline hidden items-center gap-5 text-[0.625rem] md:flex">
             {navItems.map(({ key, href }) => {
               const linkPath = localePath(locale, href);
               const isActive =
@@ -46,8 +44,8 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
                   href={linkPath}
                   className={
                     isActive
-                      ? "text-pntrsw-navy underline decoration-pntrsw-lime decoration-2 underline-offset-[5px]"
-                      : "text-pntrsw-navy/55 transition-colors hover:text-pntrsw-navy"
+                      ? "text-pntrsw-white underline decoration-pntrsw-white decoration-2 underline-offset-[4px]"
+                      : "text-pntrsw-white/60 transition-colors hover:text-pntrsw-white"
                   }
                 >
                   {dict.nav[key]}
@@ -55,10 +53,12 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
               );
             })}
           </nav>
+
+          <LocaleSwitcher locale={locale} pathname={pathname} />
         </div>
       </div>
 
-      <nav className="flex gap-5 overflow-x-auto border-t border-pntrsw-navy/5 px-6 py-3 text-[0.625rem] font-semibold uppercase tracking-[0.22em] md:hidden">
+      <nav className="type-subheadline flex gap-4 overflow-x-auto border-t border-pntrsw-white/25 px-6 py-2 text-[0.6rem] md:hidden">
         {navItems.map(({ key, href }) => {
           const linkPath = localePath(locale, href);
           const isActive =
@@ -72,8 +72,8 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
               href={linkPath}
               className={
                 isActive
-                  ? "shrink-0 text-pntrsw-navy underline decoration-pntrsw-lime decoration-2 underline-offset-[5px]"
-                  : "shrink-0 text-pntrsw-navy/55"
+                  ? "shrink-0 text-pntrsw-white underline decoration-pntrsw-white decoration-2 underline-offset-[4px]"
+                  : "shrink-0 text-pntrsw-white/60 transition-colors hover:text-pntrsw-white"
               }
             >
               {dict.nav[key]}

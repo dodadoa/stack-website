@@ -30,8 +30,6 @@ export const en = {
       "A settled world leaves little room for other stories. Its meanings appear fixed, its future already decided. To refuse a settled world is to remain attentive to worlds that exceed dominant narratives—to ways of living, relating, and imagining otherwise.",
       "Across exhibitions, screenings, performances, and talks, the programme brings together artists from Thailand, Southeast Asia, and beyond, working across moving image, media art, games, digital culture, ecology, and emerging technologies. Drawing from local histories, cosmologies, myths, vernacular knowledge, and lived experiences, their works trace worlds that persist alongside dominant narratives of progress, development, and technological futures.",
     ],
-    credits:
-      "Organised by Stack in collaboration with Goethe-Institut Thailand, with support from Thai Film Archive.",
   },
   screening: {
     title: "Screening",

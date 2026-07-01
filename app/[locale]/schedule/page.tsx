@@ -27,27 +27,21 @@ export default async function SchedulePage({ params }: PageProps) {
           label="Timetable"
         />
 
-        <div className="grid gap-10 md:grid-cols-2">
+        <div className="grid gap-8 md:grid-cols-2 md:gap-10">
           {schedule.days.map((day) => (
-            <section
-              key={day.day}
-              className="border-2 border-pntrsw-lime bg-white p-6 md:p-8"
-            >
-              <header className="mb-8 border-b border-pntrsw-lime/50 pb-6">
-                <h2 className="font-sporting text-2xl font-bold uppercase leading-[0.88] tracking-[-0.03em] text-pntrsw-navy md:text-3xl">
+            <section key={day.day} className="schedule-card text-pntrsw-body">
+              <header className="mb-10">
+                <h2 className="type-headline type-headline-highlight text-[clamp(2rem,5vw,3.25rem)] leading-[0.88]">
                   {day.day}
                 </h2>
-                <p className="meta-line mt-3 text-pntrsw-moss">{day.date}</p>
+                <p className="type-subheadline mt-3">{day.date}</p>
               </header>
 
-              <ul className="space-y-7">
+              <ul className="space-y-6">
                 {day.events.map((event) => (
-                  <li
-                    key={`${day.day}-${event.time}-${event.label}`}
-                    className="grid gap-1.5"
-                  >
-                    <p className="meta-line text-pntrsw-royal">{event.time}</p>
-                    <p className="text-sm leading-snug text-pntrsw-navy">
+                  <li key={`${day.day}-${event.time}-${event.label}`}>
+                    <p className="type-body type-body-plain text-[1.05rem] leading-snug">
+                      <span className="type-subheadline schedule-time">{event.time}</span>
                       {event.label}
                     </p>
                   </li>
