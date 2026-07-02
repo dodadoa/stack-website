@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { CursorRing } from "@/components/CursorRing";
 import { SetHtmlLang } from "@/components/SetHtmlLang";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -49,6 +50,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       className="flex min-h-full flex-col bg-pntrsw-stone text-pntrsw-body"
     >
       <SetHtmlLang locale={locale} />
+      <CursorRing />
       <SiteHeader locale={locale} dict={dict} />
       <main className="w-full flex-1">{children}</main>
       <SiteFooter dict={dict} />

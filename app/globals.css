@@ -127,6 +127,31 @@ html {
   color: #0000ff;
 }
 
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1.5px solid #0000ff;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  will-change: transform;
+}
+
+.cursor-ring-visible {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .cursor-ring {
+    display: none;
+  }
+}
+
 /* PNTRSW page surface */
 .gradient-page {
   background-color: #e0ded7;
