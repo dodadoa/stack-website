@@ -112,13 +112,27 @@ html {
 
 [data-locale="th"] {
   font-family: var(--font-thai);
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 [data-locale="th"] .type-body,
-[data-locale="th"] .type-headline,
-[data-locale="th"] .type-subheadline {
-  letter-spacing: 0;
+[data-locale="th"] .type-headline {
+  font-family: var(--font-thai);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+[data-locale="th"] .type-subheadline,
+[data-locale="th"] .type-headline-highlight,
+[data-locale="th"] .label-caps,
+[data-locale="th"] .type-body-highlight,
+[data-locale="th"] .type-body strong,
+[data-locale="th"] .type-body b {
+  font-family: var(--font-thai);
+  font-weight: 800;
+  letter-spacing: -0.02em;
   text-transform: none;
 }
 
