@@ -1,4 +1,3 @@
-import { AsciiPatchStrip } from "@/components/AsciiPatch";
 import { CuratorialText } from "@/components/CuratorialText";
 import { GradientField } from "@/components/GradientField";
 import { PatchedHeroTitle } from "@/components/PatchedHeroTitle";
@@ -24,23 +23,19 @@ export default async function HomePage({ params }: PageProps) {
     <article>
       <GradientField variant="hero" className="px-6 pb-16 pt-10 md:pb-24 md:pt-14">
         <div className="mx-auto max-w-6xl">
-          <AsciiPatchStrip className="mb-6" />
-
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
             <PatchedHeroTitle subtitle={dict.home.subtitle} />
 
             <div className="space-y-6 lg:pt-4">
-              <div className="space-y-6 border-l-2 border-pntrsw-deep/20 pl-5">
-                <div>
-                  <p className="type-subheadline label-caps mb-2 text-pntrsw-body/60">Exhibition</p>
-                  <p className="type-subheadline meta-line text-pntrsw-body">{dict.home.dates}</p>
-                </div>
-                <div>
-                  <p className="type-subheadline label-caps mb-2 text-pntrsw-body/60">Venue</p>
-                  <p className="type-body text-base leading-snug text-pntrsw-body/80">
-                    {dict.home.venue}
-                  </p>
-                </div>
+              <div className="space-y-8 border-l-2 border-pntrsw-deep/20 pl-5">
+                {dict.home.locations.map((location) => (
+                  <div key={location.venue}>
+                    <p className="type-subheadline meta-line text-pntrsw-body">{location.date}</p>
+                    <p className="type-body mt-2 text-base leading-snug text-pntrsw-body/80">
+                      {location.venue}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

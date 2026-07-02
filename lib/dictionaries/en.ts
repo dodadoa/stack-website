@@ -2,7 +2,7 @@ export const en = {
   meta: {
     title: "PATCH NOTES THAT REFUSE A SETTLED WORLD",
     description:
-      "Exhibition programme at TCDC Bangkok / Goethe-Institut Thailand, 4, 11–12 July 2026.",
+      "Exhibition programme at TCDC Bangkok (4 July) and Goethe-Institut Thailand (11–12 July 2026).",
   },
   nav: {
     exhibition: "Exhibition",
@@ -17,10 +17,15 @@ export const en = {
     sponsors: "Supporters",
     top: "Top",
   },
+  status: {
+    updatesInProgress: "Updates in progress — more to come",
+  },
   home: {
     subtitle: "begins elsewhere",
-    dates: "4, 11–12 July 2026",
-    venue: "TCDC Bangkok / Goethe-Institut Thailand",
+    locations: [
+      { date: "4 July 2026", venue: "TCDC Bangkok" },
+      { date: "11–12 July 2026", venue: "Goethe-Institut Thailand" },
+    ],
     curatorial: [
       "Worlds do not arrive all at once.",
       "They are assembled through stories, infrastructures, migrations, rituals, technologies, accidents, and repairs. They overlap, diverge, and coexist. They are shaped as much by care as by design, as much by inheritance as by invention.",
@@ -78,7 +83,7 @@ export const en = {
       },
       {
         title: "Emulator",
-        meta: "Transmedia Research Institute, Fano, Italy, 2024, 12 min",
+        meta: "Singapore, 2024, 12 min",
         artists: "Brandon Tay (CH/SG)",
       },
     ],
@@ -101,12 +106,6 @@ export const en = {
             "They have received Ars Electronica Honorary Mention, HKADC awards, Arts Council England support, and shown work at Asia Culture Centre (Gwangju), UAAD (NYC), Singapore Art Week (2026) and Diriyah Art Futures (Riyadh). They have co-authored papers in Leonardo (MIT Press), SIGGRAPH, ISEA, and others. Both are Assistant Professors at Hong Kong Baptist University's Academy of Visual Arts.",
           links: "@foreseen_agency @flyingpig.shan @kachi_chan",
         },
-      },
-      {
-        slug: "fate-cmd",
-        title: "Fate_Cmd",
-        year: "2025",
-        artists: "Long Tran, Anurak Tanyapalit",
       },
       {
         slug: "where-the-system-sees-nothing",
@@ -155,7 +154,6 @@ export const en = {
         label: "Installation",
         names: [
           "Foreseen Agency (Shan Wong & Kachi Chan)",
-          "Long Tran",
           "Anurak Tanyapalit",
           "Bee Waritsara",
           "Pasuth",
@@ -164,8 +162,8 @@ export const en = {
         ],
       },
       {
-        label: "Talks & Programme",
-        names: ["Elekhlekha"],
+        label: "Talks",
+        names: ["Ryuta Aoki", "Elekhlekha"],
       },
     ],
   },

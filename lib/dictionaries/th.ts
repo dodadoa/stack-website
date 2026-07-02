@@ -2,7 +2,7 @@ export const th = {
   meta: {
     title: "PATCH NOTES THAT REFUSE A SETTLED WORLD",
     description:
-      "นิทรรศการที่ TCDC Bangkok / Goethe-Institut Thailand 4, 11–12 กรกฎาคม 2026",
+      "นิทรรศการที่ TCDC Bangkok (4 ก.ค.) และ Goethe-Institut Thailand (11–12 ก.ค. 2026)",
   },
   nav: {
     exhibition: "นิทรรศการ",
@@ -17,10 +17,15 @@ export const th = {
     sponsors: "ผู้สนับสนุน",
     top: "กลับด้านบน",
   },
+  status: {
+    updatesInProgress: "กำลังอัปเดต — รายละเอียดเพิ่มเติมเร็วๆ นี้",
+  },
   home: {
     subtitle: "begins elsewhere",
-    dates: "4, 11–12 กรกฎาคม 2026",
-    venue: "TCDC Bangkok / Goethe-Institut Thailand",
+    locations: [
+      { date: "4 กรกฎาคม 2026", venue: "TCDC Bangkok" },
+      { date: "11–12 กรกฎาคม 2026", venue: "Goethe-Institut Thailand" },
+    ],
     curatorial: [
       "โลกไม่ได้มาถึงพร้อมกันทั้งหมด",
       "โลกถูกประกอบขึ้นจากเรื่องเล่า โครงสร้างพื้นฐาน การย้ายถิ่น พิธีกรรม เทคโนโลยี อุบัติเหตุ และการซ่อมแซม โลกเหล่านี้ทับซ้อน แยกทาง และอยู่ร่วมกัน ถูกหล่อหลอมทั้งจากการดูแลและการออกแบบ ทั้งจากมรดกและการคิดค้น",
@@ -78,7 +83,7 @@ export const th = {
       },
       {
         title: "Emulator",
-        meta: "Transmedia Research Institute, Fano, Italy, 2024, 12 min",
+        meta: "Singapore, 2024, 12 min",
         artists: "Brandon Tay (CH/SG)",
       },
     ],
@@ -101,12 +106,6 @@ export const th = {
             "ได้รับ Ars Electronica Honorary Mention รางวัล HKADC การสนับสนุนจาก Arts Council England และจัดแสดงที่ Asia Culture Centre (Gwangju), UAAD (NYC), Singapore Art Week (2026) และ Diriyah Art Futures (Riyadh) ร่วมเขียนบทความใน Leonardo (MIT Press), SIGGRAPH, ISEA และอื่นๆ ทั้งคู่เป็น Assistant Professor ที่ Academy of Visual Arts มหาวิทยาลัย Hong Kong Baptist",
           links: "@foreseen_agency @flyingpig.shan @kachi_chan",
         },
-      },
-      {
-        slug: "fate-cmd",
-        title: "Fate_Cmd",
-        year: "2025",
-        artists: "Long Tran, Anurak Tanyapalit",
       },
       {
         slug: "where-the-system-sees-nothing",
@@ -154,7 +153,6 @@ export const th = {
         label: "งานติดตั้ง",
         names: [
           "Foreseen Agency (Shan Wong & Kachi Chan)",
-          "Long Tran",
           "Anurak Tanyapalit",
           "Bee Waritsara",
           "Pasuth",
@@ -163,8 +161,8 @@ export const th = {
         ],
       },
       {
-        label: "การบรรยายและโปรแกรม",
-        names: ["Elekhlekha"],
+        label: "การบรรยาย",
+        names: ["Ryuta Aoki", "Elekhlekha"],
       },
     ],
   },

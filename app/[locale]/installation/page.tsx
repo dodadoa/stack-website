@@ -19,14 +19,19 @@ export default async function InstallationPage({ params }: PageProps) {
   const locale = localeParam as Locale;
   const dict = getDictionary(locale);
   const { installation } = dict;
+  const visibleWorks = installation.works.filter((work) => work.slug === "hello-world-home");
 
   return (
     <article>
-      <PageShell>
-        <PatchPageHeader title={installation.title} label="Works" />
+      <PageShell full>
+        <PatchPageHeader
+          title={installation.title}
+          label="Works"
+          statusNote={dict.status.updatesInProgress}
+        />
 
         <ul>
-          {installation.works.map((work) => (
+          {visibleWorks.map((work) => (
             <li key={work.slug} className="list-row py-8 first:pt-0">
               <Link
                 href={localePath(locale, `installation/${work.slug}`)}

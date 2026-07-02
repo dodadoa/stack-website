@@ -12,10 +12,10 @@ export type Dictionary = {
     schedule: string;
   };
   footer: { org: string; support: string; sponsors: string; top: string };
+  status: { updatesInProgress: string };
   home: {
     subtitle: string;
-    dates: string;
-    venue: string;
+    locations: readonly { date: string; venue: string }[];
     curatorial: readonly string[];
   };
   screening: {
