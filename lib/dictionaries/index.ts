@@ -30,6 +30,7 @@ export type Dictionary = {
   installation: {
     title: string;
     works: readonly {
+      slug: string;
       title: string;
       year?: string;
       artists: string;

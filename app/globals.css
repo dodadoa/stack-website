@@ -112,7 +112,25 @@ html {
   background-color: #e0ded7;
 }
 
-.gradient-hero,
+.gradient-hero {
+  background: linear-gradient(
+    180deg,
+    #000000 0%,
+    #0c0647 25%,
+    #191790 50%,
+    #1d7ed1 75%,
+    #e0ded7 100%
+  );
+}
+
+.gradient-hero [class*="text-pntrsw-"] {
+  color: #c4ff00;
+}
+
+.gradient-hero .patch-cursor::after {
+  color: #c4ff00;
+}
+
 .gradient-soft {
   background: transparent;
 }
@@ -266,7 +284,7 @@ html {
 }
 
 .schedule-card {
-  border-radius: 45px;
+  border-radius: 22.5px;
   background-color: #ffffff;
   padding: 2.5rem 2rem;
 }

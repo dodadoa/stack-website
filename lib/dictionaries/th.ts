@@ -87,6 +87,7 @@ export const th = {
     title: "งานติดตั้ง",
     works: [
       {
+        slug: "hello-world-home",
         title: "Hello, World Home!",
         year: "2024",
         artists: "Foreseen Agency",
@@ -102,23 +103,28 @@ export const th = {
         },
       },
       {
+        slug: "fate-cmd",
         title: "Fate_Cmd",
         year: "2025",
         artists: "Long Tran, Anurak Tanyapalit",
       },
       {
+        slug: "where-the-system-sees-nothing",
         title: "Where the System Sees Nothing",
         artists: "Bee Waritsara",
       },
       {
+        slug: "pasuth",
         title: "Pasuth",
         artists: "Pasuth",
       },
       {
+        slug: "sahapon",
         title: "Sahapon",
         artists: "Sahapon",
       },
       {
+        slug: "chanida",
         title: "Chanida",
         artists: "Chanida",
       },

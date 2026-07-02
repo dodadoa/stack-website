@@ -68,7 +68,7 @@ export default async function ArtistsPage({ params }: PageProps) {
 
                     key={name}
 
-                    className="type-body type-body-plain bg-pntrsw-white px-4 py-4 text-[0.875rem] leading-snug text-pntrsw-body transition-colors hover:bg-pntrsw-stone/50"
+                    className="type-body type-body-plain bg-pntrsw-stone px-4 py-4 text-[0.875rem] leading-snug text-pntrsw-body transition-colors hover:bg-pntrsw-lime"
 
                   >
 

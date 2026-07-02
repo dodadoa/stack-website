@@ -76,21 +76,17 @@ export function PatchedHeroTitle({ subtitle }: PatchedHeroTitleProps) {
         </p>
 
         <p className="type-headline mt-1 text-[clamp(1.75rem,5vw,3.25rem)] leading-[0.95] text-pntrsw-body">
-          <span className="type-subheadline text-[clamp(0.65rem,1.4vw,0.85rem)] text-pntrsw-body/60">
+          <span className="type-subheadline align-super text-[clamp(0.65rem,1.4vw,0.85rem)] text-pntrsw-body/60">
             That{" "}
           </span>
-          <span className="type-headline-highlight">
-            <PatchText text="Refuse" delay={870} duration={450} scrambleOnly />
-          </span>
+          <PatchText text="Refuse" delay={870} duration={450} scrambleOnly />
         </p>
 
         <p className="type-headline mt-0.5 text-[clamp(1.75rem,5vw,3.25rem)] leading-[0.95] text-pntrsw-body">
-          <span className="type-subheadline text-[clamp(0.65rem,1.4vw,0.85rem)] text-pntrsw-body/60">
+          <span className="type-subheadline align-super text-[clamp(0.65rem,1.4vw,0.85rem)] text-pntrsw-body/60">
             A{" "}
           </span>
-          <span className="type-headline-highlight">
-            <PatchText text="Settled World" delay={1290} duration={570} scrambleOnly />
-          </span>
+          <PatchText text="Settled World" delay={1290} duration={570} scrambleOnly />
         </p>
       </div>
 
