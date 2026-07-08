@@ -47,10 +47,6 @@ export const metadata: Metadata = {
     title: EVENT_TITLE,
     description: DESCRIPTION,
   },
-  icons: {
-    icon: [{ url: "/icon", type: "image/png" }],
-    apple: [{ url: "/apple-icon", type: "image/png" }],
-  },
 };
 
 export default function RootLayout({
