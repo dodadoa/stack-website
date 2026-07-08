@@ -8,6 +8,7 @@ export type Dictionary = {
     exhibition: string;
     screening: string;
     installation: string;
+    talks: string;
     artists: string;
     schedule: string;
   };
@@ -42,6 +43,23 @@ export type Dictionary = {
         text2: string;
         links: string;
       };
+    }[];
+  };
+  talks: {
+    title: string;
+    intro: string;
+    meta: { date: string; time: string; venue: string };
+    items: readonly {
+      slug: string;
+      kind: string;
+      title: string;
+      date: string;
+      time: string;
+      venue: string;
+      description: string;
+      participantsLabel: string;
+      participants: readonly { name: string; bio: string }[];
+      note: string;
     }[];
   };
   artists: {

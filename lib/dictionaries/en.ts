@@ -8,6 +8,7 @@ export const en = {
     exhibition: "Exhibition",
     screening: "Screening",
     installation: "Installation",
+    talks: "Talks",
     artists: "Artists",
     schedule: "Schedule",
   },
@@ -126,6 +127,66 @@ export const en = {
         slug: "chanida",
         title: "Chanida",
         artists: "Chanida",
+      },
+    ],
+  },
+  talks: {
+    title: "Talks",
+    intro:
+      "Conversations and artist talks exploring alternative grammars of worldmaking, technology, and lived experience.",
+    meta: {
+      date: "Date",
+      time: "Time",
+      venue: "Venue",
+    },
+    items: [
+      {
+        slug: "grammars-of-worldmaking",
+        kind: "Conversation",
+        title: "Grammars of Worldmaking",
+        date: "11 July 2026",
+        time: "18:00–19:30",
+        venue: "Liquid Metal",
+        description:
+          "How are worlds made? This conversation explores the different grammars of worldmaking through fiction, technologies, infrastructures, local histories, cosmologies, myths, and lived experiences, opening up other worlds, political possibilities, and new ways of living beyond settled narratives.",
+        participantsLabel: "In Conversation",
+        participants: [
+          {
+            name: "Podcharakrit To-im",
+            bio: "Author of At-sa-jaan: Writings on the Grammar of Being, Siamese Political Philosophy, and Tropical Ontology",
+          },
+          {
+            name: "Chanida Voraphitak",
+            bio: "Artist whose practice explores worldbuilding through digital media and games",
+          },
+          {
+            name: "Alisa Limpaiboon",
+            bio: "Translator of The Dispossessed by Ursula K. Le Guin",
+          },
+        ],
+        note: "Please note: This conversation will be held in Thai with auto-generated English subtitles.",
+      },
+      {
+        slug: "patching-with-an-alternative-system",
+        kind: "Artist Talk",
+        title: "Patching with an Alternative System",
+        date: "12 July 2026",
+        time: "16:30–18:30",
+        venue: "Goethe Saal",
+        description:
+          "Bringing together two artists working across computation, sound, and artistic research, this conversation explores how alternative systems of knowledge—from indigenous mathematics to musical traditions—can reshape how technology is imagined beyond dominant narratives of innovation and progress.",
+        participantsLabel: "In Conversation",
+        participants: [
+          {
+            name: "Ryuta Aoki",
+            bio: "Tokyo-based artist working across art, science, and technology. His piece Alternative Computations uses a quantum computer to revive wasan, an indigenous Japanese mathematics abandoned for western calculation.",
+          },
+          {
+            name: "elekhlekha",
+            bio: "Nitcha Tothong and Kengchakaj, a Bangkok-born, Brooklyn-based practice decoding suppressed Southeast Asian histories through research. Their project Jitr (จิตร) rebuilds a Southeast Asian gong tradition displaced by western tuning systems, running it as a live-coded and improvisation, networked instrument that refuses that standard and refuses translating into it.",
+          },
+        ],
+        note: "Please note: This programme will be held in English.",
       },
     ],
   },

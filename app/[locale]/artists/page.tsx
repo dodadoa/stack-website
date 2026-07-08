@@ -20,7 +20,7 @@ export default async function ArtistsPage({ params }: PageProps) {
 
   return (
     <article>
-      <PageShell>
+      <PageShell full>
         <PatchPageHeader
           title={artists.title}
           intro={artists.intro}
@@ -34,7 +34,7 @@ export default async function ArtistsPage({ params }: PageProps) {
               <h2 className="type-subheadline mb-6 inline-block rounded-full bg-pntrsw-white px-4 py-1.5 text-sm text-pntrsw-body">
                 {group.label}
               </h2>
-              <ul className="grid gap-px bg-pntrsw-deep/15 sm:grid-cols-2 lg:grid-cols-3">
+              <ul className="grid gap-px sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 {group.names.map((name) => (
                   <li
                     key={name}

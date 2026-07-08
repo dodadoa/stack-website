@@ -17,6 +17,7 @@ const navItems = [
   { key: "exhibition" as const, href: "" },
   { key: "screening" as const, href: "screening" },
   { key: "installation" as const, href: "installation" },
+  { key: "talks" as const, href: "talks" },
   { key: "artists" as const, href: "artists" },
   { key: "schedule" as const, href: "schedule" },
 ];
