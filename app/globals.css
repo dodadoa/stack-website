@@ -7,6 +7,7 @@
   font-weight: 200 700;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0000-0DFF, U+0E80-10FFFF;
 }
 
 @font-face {
@@ -16,14 +17,16 @@
   font-weight: 200 700;
   font-style: italic;
   font-display: swap;
+  unicode-range: U+0000-0DFF, U+0E80-10FFFF;
 }
 
 @font-face {
   font-family: "LINE Seed Sans TH";
   src: url("/assets/FONT/LINESeedSansTH_Bd.otf") format("opentype");
-  font-weight: 700;
+  font-weight: 600 700;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0E00-0E7F;
 }
 
 @font-face {
@@ -32,6 +35,7 @@
   font-weight: 800;
   font-style: normal;
   font-display: swap;
+  unicode-range: U+0E00-0E7F;
 }
 
 :root {
@@ -48,7 +52,7 @@
   --pntrsw-lime: #c4ff00;
   --pntrsw-stone: #e0ded7;
   --pntrsw-white: #ffffff;
-  --font-sans: "General Sans", system-ui, sans-serif;
+  --font-sans: "General Sans", "LINE Seed Sans TH", system-ui, sans-serif;
   --font-thai: "LINE Seed Sans TH", "General Sans", system-ui, sans-serif;
 }
 
