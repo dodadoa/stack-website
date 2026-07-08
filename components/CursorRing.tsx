@@ -2,15 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export function CursorRing() {
-  const ringRef = useRef<HTMLDivElement>(null);
-  const [active, setActive] = useState(false);
+function useCustomCursorEnabled() {
+  const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const noHover = window.matchMedia("(hover: none)").matches;
+    setEnabled(!reduced && !coarse && !noHover);
+  }, []);
 
-    if (reduced || coarse) {
+  return enabled;
+}
+
+export function CursorRing() {
+  const enabled = useCustomCursorEnabled();
+  const ringRef = useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+
+  useEffect(() => {
+    if (!enabled) {
       return;
     }
 
@@ -36,7 +47,11 @@ export function CursorRing() {
       document.documentElement.removeEventListener("mouseleave", hide);
       document.documentElement.removeEventListener("mouseenter", show);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) {
+    return null;
+  }
 
   return (
     <div

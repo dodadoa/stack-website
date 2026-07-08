@@ -5,15 +5,26 @@ import { useEffect, useRef, useState } from "react";
 const CURSOR_CHARS = ["+", "x", "#", "@", "%", "~", "░", "▒", "▓", "_"];
 const SWAP_MS = 5000;
 
+function useCustomCursorEnabled() {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
+    const noHover = window.matchMedia("(hover: none)").matches;
+    setEnabled(!reduced && !coarse && !noHover);
+  }, []);
+
+  return enabled;
+}
+
 export function AsciiCursor() {
+  const enabled = useCustomCursorEnabled();
   const [char, setChar] = useState(CURSOR_CHARS[0]);
   const glyphRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
-
-    if (reduced || coarsePointer) {
+    if (!enabled) {
       return;
     }
 
@@ -38,7 +49,11 @@ export function AsciiCursor() {
       window.removeEventListener("mousemove", handleMove);
       window.clearInterval(interval);
     };
-  }, []);
+  }, [enabled]);
+
+  if (!enabled) {
+    return null;
+  }
 
   return (
     <span ref={glyphRef} className="ascii-cursor" aria-hidden>

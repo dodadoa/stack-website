@@ -1,9 +1,12 @@
+import { getStackLogoDataUrl } from "@/lib/stackLogo";
 import { ImageResponse } from "next/og";
 
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 
-export default function AppleIcon() {
+export default async function AppleIcon() {
+  const logo = await getStackLogoDataUrl();
+
   return new ImageResponse(
     (
       <div
@@ -16,34 +19,7 @@ export default function AppleIcon() {
           background: "#010004",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <span
-            style={{
-              fontSize: 104,
-              fontWeight: 700,
-              color: "#ffffff",
-              letterSpacing: -4,
-              lineHeight: 1,
-            }}
-          >
-            S
-          </span>
-          <span
-            style={{
-              marginTop: 12,
-              width: 64,
-              height: 14,
-              background: "#c4ff00",
-            }}
-          />
-        </div>
+        <img src={logo} width={148} height={26} alt="" />
       </div>
     ),
     { ...size },

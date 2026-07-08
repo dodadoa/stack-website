@@ -129,11 +129,6 @@ export const en = {
             description:
               "Emulator imagines an alternative technological history in which biological processes replace silicon as the foundation of computation. Combining speculative fiction with machinic animism, the work explores hybrid forms of life, intelligence, and technology.",
             image: "/assets/SCREENINGS/Ecologies of Becoming/emulator1.jpg",
-            images: [
-              "/assets/SCREENINGS/Ecologies of Becoming/emulator1.jpg",
-              "/assets/SCREENINGS/Ecologies of Becoming/emulator2.jpg",
-              "/assets/SCREENINGS/Ecologies of Becoming/emulator3.jpg",
-            ],
           },
           {
             slug: "alternative-computations",
@@ -402,27 +397,23 @@ export const en = {
     intro: "Programme timetable for 11–12 July 2026.",
     days: [
       {
-        day: "Saturday",
+        day: "Sat",
         date: "11 July 2026",
         events: [
-          { time: "16:00–17:10", label: "Stack V_Circuits#3: Countermapping" },
-          { time: "18:00–19:30", label: "Grammars of Worldmaking" },
-          {
-            time: "19:00–21:00",
-            label: "Opening Ceremony and Game Event",
-          },
+          { time: "15:00–22:00", label: "Exhibition", kind: "exhibition" },
+          { time: "16:00–17:10", label: "Stack V_Circuits#3: Countermapping", kind: "programme" },
+          { time: "18:00–19:30", label: "Grammars of Worldmaking", kind: "programme" },
+          { time: "19:30–22:00", label: "Opening Ceremony and Game Event", kind: "programme" },
         ],
       },
       {
-        day: "Sunday",
+        day: "Sun",
         date: "12 July 2026",
         events: [
-          { time: "15:00–16:00", label: "Stack V_Circuits#4: Ecologies of Becoming" },
-          { time: "16:30–18:30", label: "Patching with an Alternative System" },
-          {
-            time: "19:00–21:00",
-            label: "Electronic Music Party, Closing Ceremony",
-          },
+          { time: "15:00–21:30", label: "Exhibition", kind: "exhibition" },
+          { time: "15:00–16:00", label: "Stack V_Circuits#4: Ecologies of Becoming", kind: "programme" },
+          { time: "16:30–18:30", label: "Patching with an Alternative System", kind: "programme" },
+          { time: "19:00–21:30", label: "Closing Ceremony", kind: "programme" },
         ],
       },
     ],

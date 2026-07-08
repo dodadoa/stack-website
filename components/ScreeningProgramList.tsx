@@ -50,12 +50,12 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
                 >
                   <Link
                     href={localePath(locale, `screening/${program.slug}/${film.slug}`)}
-                    className="group flex items-start justify-between gap-6 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:px-5"
+                    className="group flex flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-5"
                   >
-                    <h3 className="type-headline min-w-0 flex-1 text-base leading-snug text-pntrsw-body sm:text-lg">
+                    <h3 className="type-headline min-w-0 text-base leading-snug text-pntrsw-body sm:flex-1 sm:text-lg">
                       {film.title}
                     </h3>
-                    <div className="type-body shrink-0 text-right">
+                    <div className="type-body shrink-0 self-end text-right sm:self-auto">
                       <p className="type-body-plain text-sm text-pntrsw-body/70">{film.artists}</p>
                       <p className="type-subheadline meta-line mt-2 text-xs text-pntrsw-body/60">
                         {film.meta}

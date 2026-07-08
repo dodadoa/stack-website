@@ -160,9 +160,15 @@ html {
   opacity: 1;
 }
 
-@media (prefers-reduced-motion: reduce), (pointer: coarse) {
-  .cursor-ring {
+@media (prefers-reduced-motion: reduce), (pointer: coarse), (hover: none) {
+  .cursor-ring,
+  .ascii-cursor {
     display: none;
+  }
+
+  .ascii-cursor-active,
+  .ascii-cursor-active * {
+    cursor: auto !important;
   }
 }
 
@@ -377,9 +383,21 @@ html {
   display: inline-block;
   margin-right: 0.5rem;
   border-radius: 6px;
-  background-color: #c8c6bf;
+  background-color: #e5e3de;
+  color: rgb(0 0 255 / 0.72);
   padding: 0.2em 0.55em;
   vertical-align: baseline;
+}
+
+.schedule-exhibition-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 14px;
+  border: 1.5px solid rgb(25 23 144 / 0.18);
+  background: linear-gradient(90deg, #c4ff00 0%, #d8ff66 100%);
+  padding: 1rem 1.15rem;
 }
 
 @media (min-width: 768px) {

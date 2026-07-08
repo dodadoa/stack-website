@@ -96,7 +96,7 @@ export type Dictionary = {
     days: readonly {
       day: string;
       date: string;
-      events: readonly { time: string; label: string }[];
+      events: readonly { time: string; label: string; kind?: "exhibition" | "programme" }[];
     }[];
   };
 };
