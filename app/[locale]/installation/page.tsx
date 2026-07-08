@@ -2,12 +2,33 @@ import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { buildAlternates } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  if (!isLocale(localeParam)) {
+    return {};
+  }
+
+  const { installation } = getDictionary(localeParam);
+  const description = `Installation works showing as part of ${installation.title.toLowerCase() === "installation" ? "the exhibition" : installation.title}, featuring ${installation.works.map((work) => work.artists).join(", ")}.`;
+
+  return {
+    title: installation.title,
+    description,
+    alternates: buildAlternates(localeParam, "installation"),
+    openGraph: { title: installation.title, description },
+    twitter: { title: installation.title, description },
+  };
+}
 
 export default async function InstallationPage({ params }: PageProps) {
   const { locale: localeParam } = await params;

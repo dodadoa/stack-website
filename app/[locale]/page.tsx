@@ -1,4 +1,5 @@
 import { CuratorialText } from "@/components/CuratorialText";
+import { GlobeScene } from "@/components/GlobeScene";
 import { GradientField } from "@/components/GradientField";
 import { PatchedHeroTitle } from "@/components/PatchedHeroTitle";
 import { PageShell } from "@/components/PageShell";
@@ -18,26 +19,29 @@ export default async function HomePage({ params }: PageProps) {
   }
 
   const dict = getDictionary(localeParam);
+  const globeText = dict.home.curatorial.join("   //   ");
 
   return (
     <article>
-      <GradientField variant="hero" className="px-6 pb-16 pt-10 md:pb-24 md:pt-14">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-16">
-            <PatchedHeroTitle subtitle={dict.home.subtitle} />
+      <GradientField
+        variant="hero"
+        className="flex min-h-[80svh] flex-col justify-center px-6 pb-16 pt-24 md:pb-24 md:pt-24"
+      >
+        <GlobeScene text={globeText} className="globe-veil" />
+        <div className="globe-legibility-veil pointer-events-none absolute inset-0 z-[5]" aria-hidden />
 
-            <div className="space-y-6 lg:pt-4">
-              <div className="space-y-8 border-l-2 border-pntrsw-deep/20 pl-5">
-                {dict.home.locations.map((location) => (
-                  <div key={location.venue}>
-                    <p className="type-subheadline meta-line text-pntrsw-body">{location.date}</p>
-                    <p className="type-body mt-2 text-base leading-snug text-pntrsw-body/80">
-                      {location.venue}
-                    </p>
-                  </div>
-                ))}
+        <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center gap-12">
+          <PatchedHeroTitle subtitle={dict.home.subtitle} />
+
+          <div className="flex flex-wrap items-start justify-center gap-x-12 gap-y-8">
+            {dict.home.locations.map((location) => (
+              <div key={location.venue} className="text-center">
+                <p className="type-subheadline meta-line text-pntrsw-body">{location.date}</p>
+                <p className="type-body mt-2 text-base leading-snug text-pntrsw-body/80">
+                  {location.venue}
+                </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </GradientField>

@@ -6,7 +6,7 @@ type PatchedHeroTitleProps = {
 
 export function PatchedHeroTitle({ subtitle }: PatchedHeroTitleProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 text-center">
       <div>
         <p className="type-headline text-[clamp(2.5rem,8vw,5.5rem)] leading-[0.92] text-pntrsw-body">
           <PatchText text="Patch Notes" delay={330} duration={540} scrambleOnly />

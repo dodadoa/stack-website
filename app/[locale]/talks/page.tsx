@@ -2,12 +2,32 @@ import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { buildAlternates } from "@/lib/seo";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  if (!isLocale(localeParam)) {
+    return {};
+  }
+
+  const { talks } = getDictionary(localeParam);
+
+  return {
+    title: talks.title,
+    description: talks.intro,
+    alternates: buildAlternates(localeParam, "talks"),
+    openGraph: { title: talks.title, description: talks.intro },
+    twitter: { title: talks.title, description: talks.intro },
+  };
+}
 
 export default async function TalksPage({ params }: PageProps) {
   const { locale: localeParam } = await params;

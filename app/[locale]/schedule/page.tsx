@@ -2,11 +2,31 @@ import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
+import { buildAlternates } from "@/lib/seo";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  if (!isLocale(localeParam)) {
+    return {};
+  }
+
+  const { schedule } = getDictionary(localeParam);
+
+  return {
+    title: schedule.title,
+    description: schedule.intro,
+    alternates: buildAlternates(localeParam, "schedule"),
+    openGraph: { title: schedule.title, description: schedule.intro },
+    twitter: { title: schedule.title, description: schedule.intro },
+  };
+}
 
 export default async function SchedulePage({ params }: PageProps) {
   const { locale: localeParam } = await params;

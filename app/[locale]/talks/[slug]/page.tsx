@@ -2,6 +2,7 @@ import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { getAllTalkParams, getTalk } from "@/lib/talks";
+import { buildAlternates } from "@/lib/seo";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -27,9 +28,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
+  const description = talk.description.slice(0, 160);
+
   return {
     title: talk.title,
-    description: talk.description.slice(0, 160),
+    description,
+    alternates: buildAlternates(localeParam, `talks/${slug}`),
+    openGraph: { title: talk.title, description },
+    twitter: { title: talk.title, description },
   };
 }
 

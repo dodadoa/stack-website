@@ -186,6 +186,38 @@ html {
   color: #c4ff00;
 }
 
+.globe-veil {
+  mix-blend-mode: screen;
+  opacity: 0.85;
+  -webkit-mask-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.75) 55%,
+    rgba(0, 0, 0, 0) 92%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.75) 55%,
+    rgba(0, 0, 0, 0) 92%
+  );
+}
+
+.globe-legibility-veil {
+  background: radial-gradient(
+    ellipse 60% 65% at 24% 34%,
+    rgba(1, 0, 4, 0.55),
+    rgba(1, 0, 4, 0.2) 55%,
+    rgba(1, 0, 4, 0) 80%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-veil {
+    opacity: 0.35;
+  }
+}
+
 .gradient-hero .patch-cursor::after {
   color: #c4ff00;
 }

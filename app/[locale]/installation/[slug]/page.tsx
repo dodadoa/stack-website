@@ -2,6 +2,7 @@ import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { getAllInstallationParams, getInstallationWork } from "@/lib/installation";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { buildAlternates } from "@/lib/seo";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -27,9 +28,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
+  const description = work.description?.slice(0, 160) ?? `${work.title} by ${work.artists}.`;
+
   return {
     title: work.title,
-    description: work.description?.slice(0, 160),
+    description,
+    alternates: buildAlternates(localeParam, `installation/${slug}`),
+    openGraph: { title: work.title, description },
+    twitter: { title: work.title, description },
   };
 }
 

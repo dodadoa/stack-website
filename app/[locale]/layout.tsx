@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
+import { buildAlternates, ogLocale } from "@/lib/seo";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -30,6 +31,16 @@ export async function generateMetadata({
   return {
     title: dict.meta.title,
     description: dict.meta.description,
+    alternates: buildAlternates(localeParam),
+    openGraph: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+      locale: ogLocale(localeParam),
+    },
+    twitter: {
+      title: dict.meta.title,
+      description: dict.meta.description,
+    },
   };
 }
 

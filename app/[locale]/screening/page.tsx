@@ -2,11 +2,31 @@ import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale } from "@/lib/i18n";
+import { buildAlternates } from "@/lib/seo";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 type PageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+
+  if (!isLocale(localeParam)) {
+    return {};
+  }
+
+  const { screening } = getDictionary(localeParam);
+
+  return {
+    title: screening.title,
+    description: screening.intro,
+    alternates: buildAlternates(localeParam, "screening"),
+    openGraph: { title: screening.title, description: screening.intro },
+    twitter: { title: screening.title, description: screening.intro },
+  };
+}
 
 export default async function ScreeningPage({ params }: PageProps) {
   const { locale: localeParam } = await params;
