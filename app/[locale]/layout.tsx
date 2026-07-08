@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CursorRing } from "@/components/CursorRing";
+import { PageTransition } from "@/components/PageTransition";
 import { SetHtmlLang } from "@/components/SetHtmlLang";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -14,7 +15,7 @@ type LayoutProps = {
 };
 
 export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "th" }];
+  return [{ locale: "en" }];
 }
 
 export async function generateMetadata({
@@ -61,6 +62,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       className="flex min-h-full flex-col bg-pntrsw-stone text-pntrsw-body"
     >
       <SetHtmlLang locale={locale} />
+      <PageTransition />
       <CursorRing />
       <SiteHeader locale={locale} dict={dict} />
       <main className="w-full flex-1">{children}</main>

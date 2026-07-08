@@ -19,7 +19,6 @@ export default async function HomePage({ params }: PageProps) {
   }
 
   const dict = getDictionary(localeParam);
-  const globeText = dict.home.curatorial.join("   //   ");
 
   return (
     <article>
@@ -27,7 +26,7 @@ export default async function HomePage({ params }: PageProps) {
         variant="hero"
         className="flex min-h-[80svh] flex-col justify-center px-6 pb-16 pt-24 md:pb-24 md:pt-24"
       >
-        <GlobeScene text={globeText} className="globe-veil" />
+        <GlobeScene paragraphs={dict.home.curatorial} className="globe-veil" />
         <div className="globe-legibility-veil pointer-events-none absolute inset-0 z-[5]" aria-hidden />
 
         <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center gap-12">
@@ -47,7 +46,7 @@ export default async function HomePage({ params }: PageProps) {
       </GradientField>
 
       <PageShell wide>
-        <CuratorialText paragraphs={dict.home.curatorial} locale={localeParam} />
+        <CuratorialText paragraphs={dict.home.curatorial} />
       </PageShell>
     </article>
   );

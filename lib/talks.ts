@@ -1,4 +1,5 @@
 import type { Locale } from "./i18n";
+import { locales } from "./i18n";
 import { getDictionary } from "./dictionaries";
 
 export type Talk = ReturnType<typeof getDictionary>["talks"]["items"][number];
@@ -12,7 +13,7 @@ export function getTalkSlugs(locale: Locale): string[] {
 }
 
 export function getAllTalkParams() {
-  return (["en", "th"] as const).flatMap((locale) =>
+  return locales.flatMap((locale) =>
     getTalkSlugs(locale).map((slug) => ({ locale, slug })),
   );
 }

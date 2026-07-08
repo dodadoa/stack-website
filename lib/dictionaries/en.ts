@@ -40,52 +40,139 @@ export const en = {
   screening: {
     title: "Screening",
     intro:
-      "A programme of moving-image works tracing worlds that persist alongside dominant narratives of progress and technological futures.",
-    films: [
+      "A two-part screening programme at Goethe Saal, 11–12 July 2026, tracing worlds that persist alongside dominant narratives of progress and technological futures.",
+    programs: [
       {
-        title: "DZATA: The Institute of Technological Consciousness",
-        meta: "South Africa, 2022, 8:00 min",
-        artists: "Russel Hlongwane, Francois Knoetze and Amy Wilson",
+        slug: "countermapping",
+        code: "Stack V_Circuits#3",
+        title: "Countermapping: Territory, Memory, Technology",
+        date: "11 July 2026",
+        time: "16:00–17:10",
+        venue: "Goethe Saal",
+        intro:
+          "How are places, histories, and technologies mapped differently? These films redraw dominant coordinates through vernacular knowledge, myth, political memory, and speculative imagination, proposing other ways of inhabiting contested territories.",
+        films: [
+          {
+            slug: "dzata",
+            title: "Dzata: The Institute of Technological Consciousness",
+            meta: "South Africa, 2023, 9 min",
+            artists:
+              "Lo-Def Film Factory (Amy Louise Wilson, Francois Knoetze) and Russel Hlongwane",
+            description:
+              "Through a fictional institute and its archive, Dzata reimagines vernacular technological practices from across the African continent. Blending speculative storytelling with game-engine and AI-generated landscapes, the work challenges dominant histories of technology and proposes alternative futures grounded in African knowledge systems.",
+            image:
+              "/assets/SCREENINGS/Countermapping/Dzata (production still 7) 2022 - ongoing. Courtesy of Knoetze, Hlongwane and Wilson.jpg",
+          },
+          {
+            slug: "primate-visions-macaque-macabre",
+            title: "Primate Visions: Macaque Macabre",
+            meta: "Indonesia, 2024, 33 min",
+            artists: "Natasha Tontey",
+            description:
+              "Drawing on the myths of the Minahasa people in Indonesia, Primate Visions: Macaque Macabre explores relationships between humans and endangered macaques through speculative fiction, ritual, and ethnographic research. The film reflects on environmental change, memory, and indigenous cosmologies through a hyper-stylised visual language.",
+            image: "/assets/SCREENINGS/Countermapping/Primate Visions-Macaque Macabre.jpg",
+            note: "This work was made possible with the support of Audemars Piguet Contemporary.",
+          },
+          {
+            slug: "cartography-in-the-metaverse",
+            title: "Cartography in the Metaverse",
+            meta: "Vietnam, 2025, 3 min",
+            artists: "Giang Nguyen Hoan",
+            description:
+              "The work translates insights from research interviews into speculative maps and cartographic artifacts, tracing connections between ancient mythologies and contemporary spatial systems. It frames the metaverse as both an extension of human spatial occupation and a parallel world suspended between utopian and dystopian visions. Moving beyond conventional geography, the project suggests that the metaverse enters psychological and metaphysical realms, where inner states, collective consciousness, and speculative realities become new landscapes to be mapped and interpreted.",
+            image: "/assets/SCREENINGS/Countermapping/Cartography in the Metaverse.jpg",
+          },
+          {
+            slug: "why-isnt-it-a-straight-line",
+            title: "Why isn't it a straight line?",
+            meta: "Thailand, 2024, 5 min",
+            artists: "Bee Waritsara",
+            description:
+              "Inspired by Buddhist philosophy, Why Isn't It a Straight Line? unfolds through looping temporal structures and the metaphor of centrifugal force. Structured around the Noble Eightfold Path, the work reflects on impermanence, cyclical time, and the continuous process of becoming.",
+            image: "/assets/SCREENINGS/Countermapping/Why isn't it a straight line.png",
+          },
+          {
+            slug: "a-mechanism-that-repeats-death",
+            title: "A Mechanism That Repeats Death",
+            meta: "Thailand, 2026, 14 min",
+            artists: "Fais Hadsaram",
+            description:
+              "Drawing from lived experience in Thailand's Deep South, A Mechanism That Repeats Death examines how surveillance and state violence transform human lives into data and evidence. Blending fiction with lived reality, the work questions how identity, memory, and life itself are shaped under regimes of security and control.",
+            image: "/assets/SCREENINGS/Countermapping/A Mechanism That Repeats Death.jpg",
+          },
+        ],
       },
       {
-        title: "Flesh Nest",
-        meta: "2018, 10 min",
-        artists: "Andrew Thomas Huang",
-      },
-      {
-        title: "Their Eyes",
-        meta: "France, 2025, 23 min",
-        artists: "Nicolas Gourault",
-      },
-      {
-        title: "The Red City of the Planet of Capitalism",
-        meta: "12 min",
-        artists: "Bahar Noorizadeh",
-      },
-      {
-        title: "Symbiosyn",
-        meta: "Thailand, 2025, 9 min",
-        artists: "Nattawin Musigul ณัฐวินท์ มุสิกุล",
-      },
-      {
-        title: "Hydra Decapita",
-        meta: "UK, 2010, 31 min",
-        artists: "The Otolith Group",
-      },
-      {
-        title: "Wa'anak Witu Watu",
-        meta: "Indonesia, 2021, 24 min",
-        artists: "Natasha Tontey",
-      },
-      {
-        title: "Alternative Computations",
-        meta: "Japan, 2026, 2 min",
-        artists: "Ryuta Aoki",
-      },
-      {
-        title: "Emulator",
-        meta: "Singapore, 2024, 12 min",
-        artists: "Brandon Tay (CH/SG)",
+        slug: "ecologies-of-becoming",
+        code: "Stack V_Circuits#4",
+        title: "Ecologies of Becoming",
+        date: "12 July 2026",
+        time: "15:00–16:00",
+        venue: "Goethe Saal",
+        intro:
+          "Nothing exists in isolation. Across speculative fiction, artificial life, simulation, and virtual ecologies, these works explore how humans, machines, organisms, and environments continually shape one another through processes of becoming.",
+        films: [
+          {
+            slug: "a-trip-to-the-moon-tardigrade",
+            title: "A Trip to the Moon (Tardigrade)",
+            meta: "Thailand, 2025, 14 min",
+            artists: "Anurak Tanyapalit",
+            description:
+              "Blending science fiction with microscopic imagination, A Trip to the Moon (Tardigrade) follows the extraordinary journey of a tardigrade beyond Earth. The work reflects on survival, adaptation, and the fragile relationship between life and planetary environments through speculative storytelling.",
+          },
+          {
+            slug: "emulator",
+            title: "Emulator",
+            meta: "Singapore, 2024, 12 min",
+            artists: "Brandon Tay",
+            artistSlug: "brandon-tay",
+            description:
+              "Emulator imagines an alternative technological history in which biological processes replace silicon as the foundation of computation. Combining speculative fiction with machinic animism, the work explores hybrid forms of life, intelligence, and technology.",
+            image: "/assets/SCREENINGS/Ecologies of Becoming/emulator1.jpg",
+            images: [
+              "/assets/SCREENINGS/Ecologies of Becoming/emulator1.jpg",
+              "/assets/SCREENINGS/Ecologies of Becoming/emulator2.jpg",
+              "/assets/SCREENINGS/Ecologies of Becoming/emulator3.jpg",
+            ],
+          },
+          {
+            slug: "alternative-computations",
+            title: "Alternative Computations",
+            meta: "Japan, 2026, 2 min",
+            artists: "Ryuta Aoki",
+            description:
+              "Drawing on quantum computing and wasan—Japan's indigenous mathematical tradition—Alternative Computations reimagines calculation as a cultural and ecological practice rather than a tool of efficiency. The work proposes alternative ways of imagining technology through play, ritual, and collective knowledge.",
+            image:
+              "/assets/SCREENINGS/Ecologies of Becoming/Alternative Computations — Worlds Otherwise Calculated.jpg",
+          },
+          {
+            slug: "symbiosyn",
+            title: "Symbiosyn",
+            meta: "Thailand, 2026, 9 min",
+            artists: "Nattawin Musigul",
+            description:
+              "Synthetic lifeforms created by humans to save the planet gradually learn, adapt, and evolve alongside a changing environment. As human civilization collapses, they emerge as a new species that inherits the Earth, questioning humanity's place in a world where life is no longer defined by its creators.",
+            image: "/assets/SCREENINGS/Ecologies of Becoming/Symbiosyn.png",
+          },
+          {
+            slug: "elysium-without-shores",
+            title: "Elysium Without Shores",
+            meta: "Vietnam, 2024, 10 min",
+            artists: "Arlette Quynh-Anh Tran",
+            description:
+              "Set within a speculative virtual landscape, Elysium Without Shores reflects on memory, migration, and digital afterlives. Blending game environments with poetic narration, the work imagines fragile spaces where identity and belonging remain in constant transformation.",
+            image: "/assets/SCREENINGS/Ecologies of Becoming/Elysium Without Shores.jpg",
+          },
+          {
+            slug: "rola-rolls",
+            title: "Rola Rolls",
+            meta: "South Korea, 2024, 10 min",
+            artists: "업체eobchae",
+            description:
+              "Set in a post-petroleum future, Rola Rolls imagines humans evolving into a hybrid species in order to survive ecological collapse. Combining AI-generated imagery, body horror, and speculative fiction, the work questions humanity's relationship with technology, energy, and adaptation.",
+            image: "/assets/SCREENINGS/Ecologies of Becoming/ROLA ROLLS.webp",
+          },
+        ],
       },
     ],
   },
@@ -182,8 +269,8 @@ export const en = {
             bio: "Tokyo-based artist working across art, science, and technology. His piece Alternative Computations uses a quantum computer to revive wasan, an indigenous Japanese mathematics abandoned for western calculation.",
           },
           {
-            name: "elekhlekha",
-            bio: "Nitcha Tothong and Kengchakaj, a Bangkok-born, Brooklyn-based practice decoding suppressed Southeast Asian histories through research. Their project Jitr (จิตร) rebuilds a Southeast Asian gong tradition displaced by western tuning systems, running it as a live-coded and improvisation, networked instrument that refuses that standard and refuses translating into it.",
+            name: "elekhlekha อิเหละเขละขละ (Nitcha Fame Tothong & Kengchakaj)",
+            bio: "A Thai diaspora, Brooklyn-based collaborative artist practice rooted in research that decodes contested histories and memories of Southeast Asia. Their body of work explores the region's political complexities, grounding algorithmic experimentation in ancestral knowledge and aural/oral history through live coding, participatory performance, audiovisual installation, communal digital archives, and Western instruments altered to echo Southeast Asian sounds.",
           },
         ],
         note: "Please note: This programme will be held in English.",
@@ -194,37 +281,119 @@ export const en = {
     title: "Artists",
     intro:
       "Artists participating across screening, installation, and live programme.",
+    people: [
+      {
+        slug: "amy-louise-wilson",
+        name: "Amy Louise Wilson",
+      },
+      {
+        slug: "francois-knoetze",
+        name: "Francois Knoetze",
+      },
+      {
+        slug: "russel-hlongwane",
+        name: "Russel Hlongwane",
+      },
+      {
+        slug: "natasha-tontey",
+        name: "Natasha Tontey",
+      },
+      {
+        slug: "giang-nguyen-hoan",
+        name: "Giang Nguyen Hoan",
+      },
+      {
+        slug: "bee-waritsara",
+        name: "Bee Waritsara",
+      },
+      {
+        slug: "fais-hadsaram",
+        name: "Fais Hadsaram",
+      },
+      {
+        slug: "anurak-tanyapalit",
+        name: "Anurak Tanyapalit",
+      },
+      {
+        slug: "brandon-tay",
+        name: "Brandon Tay",
+        image: "/assets/ARTISTS/brandon_tay.jpg",
+        bio: [
+          "Brandon Tay is a Singapore-born, Shanghai-based artist working across sculpture, installation, moving image, and speculative systems. His practice explores how myth, technology, and historical knowledge become entangled through interfaces, infrastructures, and symbolic forms.",
+          "Drawing on sources that range from scientific revelation and occult traditions to computational logics and vernacular media, he builds works that stage reality as recursive, unstable, and continually rewritten.",
+          "Working through biomorphic sculpture, simulation, text, and networked imagery, Tay creates environments that blur the line between system and symbol, archaeology and speculation.",
+        ],
+      },
+      {
+        slug: "ryuta-aoki",
+        name: "Ryuta Aoki",
+      },
+      {
+        slug: "nattawin-musigul",
+        name: "Nattawin Musigul",
+      },
+      {
+        slug: "arlette-quynh-anh-tran",
+        name: "Arlette Quynh-Anh Tran",
+      },
+      {
+        slug: "eobchae",
+        name: "업체eobchae",
+      },
+      {
+        slug: "foreseen-agency",
+        name: "Foreseen Agency (Shan Wong & Kachi Chan)",
+      },
+      {
+        slug: "pasuth",
+        name: "Pasuth",
+      },
+      {
+        slug: "sahapon",
+        name: "Sahapon",
+      },
+      {
+        slug: "chanida",
+        name: "Chanida",
+      },
+      {
+        slug: "elekhlekha",
+        name: "elekhlekha อิเหละเขละขละ",
+      },
+    ],
     groups: [
       {
         label: "Screening",
-        names: [
-          "Russel Hlongwane",
-          "Francois Knoetze",
-          "Amy Wilson",
-          "Andrew Thomas Huang",
-          "Nicolas Gourault",
-          "Bahar Noorizadeh",
-          "Nattawin Musigul ณัฐวินท์ มุสิกุล",
-          "The Otolith Group",
-          "Natasha Tontey",
-          "Ryuta Aoki",
-          "Brandon Tay",
+        slugs: [
+          "amy-louise-wilson",
+          "francois-knoetze",
+          "russel-hlongwane",
+          "natasha-tontey",
+          "giang-nguyen-hoan",
+          "bee-waritsara",
+          "fais-hadsaram",
+          "anurak-tanyapalit",
+          "brandon-tay",
+          "ryuta-aoki",
+          "nattawin-musigul",
+          "arlette-quynh-anh-tran",
+          "eobchae",
         ],
       },
       {
         label: "Installation",
-        names: [
-          "Foreseen Agency (Shan Wong & Kachi Chan)",
-          "Anurak Tanyapalit",
-          "Bee Waritsara",
-          "Pasuth",
-          "Sahapon",
-          "Chanida",
+        slugs: [
+          "foreseen-agency",
+          "anurak-tanyapalit",
+          "bee-waritsara",
+          "pasuth",
+          "sahapon",
+          "chanida",
         ],
       },
       {
         label: "Talks",
-        names: ["Ryuta Aoki", "Elekhlekha"],
+        slugs: ["ryuta-aoki", "elekhlekha"],
       },
     ],
   },
@@ -236,11 +405,10 @@ export const en = {
         day: "Saturday",
         date: "11 July 2026",
         events: [
-          { time: "2.30–4 PM", label: "Screening" },
-          { time: "4–5 PM", label: "Artist Talk" },
-          { time: "5–6 PM", label: "Panel" },
+          { time: "16:00–17:10", label: "Stack V_Circuits#3: Countermapping" },
+          { time: "18:00–19:30", label: "Grammars of Worldmaking" },
           {
-            time: "7–9 PM",
+            time: "19:00–21:00",
             label: "Opening Ceremony and Game Event",
           },
         ],
@@ -249,12 +417,10 @@ export const en = {
         day: "Sunday",
         date: "12 July 2026",
         events: [
-          { time: "2.30–4 PM", label: "Screening" },
-          { time: "4–4.30 PM", label: "Artist Talk: Ryuta Aoki" },
-          { time: "4.30–5 PM", label: "Artist Talk: Elekhlekha" },
-          { time: "5–6 PM", label: "Panel" },
+          { time: "15:00–16:00", label: "Stack V_Circuits#4: Ecologies of Becoming" },
+          { time: "16:30–18:30", label: "Patching with an Alternative System" },
           {
-            time: "7–9 PM",
+            time: "19:00–21:00",
             label: "Electronic Music Party, Closing Ceremony",
           },
         ],

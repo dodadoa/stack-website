@@ -5,7 +5,6 @@ import type { Locale } from "@/lib/i18n";
 import { localePath } from "@/lib/i18n";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LocaleSwitcher } from "./LocaleSwitcher";
 import { StackMark } from "./StackMark";
 
 type SiteHeaderProps = {
@@ -54,8 +53,6 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
               );
             })}
           </nav>
-
-          <LocaleSwitcher locale={locale} pathname={pathname} />
         </div>
       </div>
 

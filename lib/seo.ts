@@ -1,4 +1,4 @@
-import { defaultLocale, locales, localePath, type Locale } from "./i18n";
+import { localePath, type Locale } from "./i18n";
 
 const FALLBACK_SITE_URL = "http://localhost:3000";
 
@@ -22,7 +22,6 @@ export const EVENT_END_DATE = "2026-07-12";
 
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
-  th: "th_TH",
 };
 
 export function ogLocale(locale: Locale): string {
@@ -30,11 +29,12 @@ export function ogLocale(locale: Locale): string {
 }
 
 export function buildAlternates(locale: Locale, segment = "") {
+  const path = localePath(locale, segment);
   return {
-    canonical: localePath(locale, segment),
-    languages: Object.fromEntries([
-      ...locales.map((entry) => [entry, localePath(entry, segment)] as const),
-      ["x-default", localePath(defaultLocale, segment)] as const,
-    ]),
+    canonical: path,
+    languages: {
+      en: path,
+      "x-default": path,
+    },
   };
 }

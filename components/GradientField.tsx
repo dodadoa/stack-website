@@ -20,7 +20,7 @@ export function GradientField({
   return (
     <div className={`relative overflow-hidden ${variantClass} ${className}`}>
       <div className="gradient-noise pointer-events-none absolute inset-0 opacity-[0.18]" aria-hidden />
-      <div className="relative">{children}</div>
+      {children}
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Locale } from "./i18n";
+import { locales } from "./i18n";
 import { getDictionary } from "./dictionaries";
 
 export type InstallationWork = ReturnType<
@@ -17,7 +18,7 @@ export function getInstallationSlugs(locale: Locale): string[] {
 }
 
 export function getAllInstallationParams() {
-  return (["en", "th"] as const).flatMap((locale) =>
+  return locales.flatMap((locale) =>
     getInstallationSlugs(locale).map((slug) => ({ locale, slug })),
   );
 }

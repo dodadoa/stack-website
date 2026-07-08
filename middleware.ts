@@ -13,6 +13,12 @@ export function middleware(request: NextRequest) {
   }
 
   const pathnameLocale = pathname.split("/")[1];
+  if (pathnameLocale === "th") {
+    const url = request.nextUrl.clone();
+    url.pathname = pathname.replace(/^\/th/, `/${defaultLocale}`) || `/${defaultLocale}`;
+    return NextResponse.redirect(url);
+  }
+
   if (isLocale(pathnameLocale)) {
     return NextResponse.next();
   }

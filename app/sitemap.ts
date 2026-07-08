@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 import { locales, localePath, type Locale } from "@/lib/i18n";
+import { getAllArtistParams } from "@/lib/artists";
 import { getAllInstallationParams } from "@/lib/installation";
+import { getAllScreeningFilmParams } from "@/lib/screening";
 import { getAllTalkParams } from "@/lib/talks";
 import { SITE_URL } from "@/lib/seo";
 
@@ -47,6 +49,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.6,
       alternates: { languages: languageAlternates(`talks/${slug}`) },
+    });
+  }
+
+  for (const { locale, programSlug, filmSlug } of getAllScreeningFilmParams()) {
+    entries.push({
+      url: absoluteUrl(locale, `screening/${programSlug}/${filmSlug}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+      alternates: {
+        languages: languageAlternates(`screening/${programSlug}/${filmSlug}`),
+      },
+    });
+  }
+
+  for (const { locale, slug } of getAllArtistParams()) {
+    entries.push({
+      url: absoluteUrl(locale, `artists/${slug}`),
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.6,
+      alternates: { languages: languageAlternates(`artists/${slug}`) },
     });
   }
 

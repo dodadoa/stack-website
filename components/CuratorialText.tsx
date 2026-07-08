@@ -4,7 +4,6 @@ import { TypoWord } from "./TypoWord";
 
 type CuratorialTextProps = {
   paragraphs: readonly string[];
-  locale: string;
 };
 
 type Segment = string | { wrong: string; correct: string; delay: number };
@@ -75,51 +74,6 @@ const enSegments: Segment[][] = [
   ],
 ];
 
-const thSegments: Segment[][] = [
-  ["โลกไม่ได้", typo("มาถงึ", "มาถึง", 15000), "พร้อมกันทั้งหมด"],
-  [
-    "โลกถูก",
-    typo("ประกอบขนึ้", "ประกอบขึ้น", 25000),
-    "จากเรื่องเล่า โครงสร้างพื้นฐาน การย้ายถิ่น พิธีกรรม ",
-    typo("เทคโนโลยี", "เทคโนโลยี", 40000),
-    " อุบัติเหตุ และการซ่อมแซม โลกเหล่านี้ทับซ้อน แยกทาง และอยู่ร่วมกัน ถูกหล่อหลอมทั้งจากการดูแลและการออกแบบ ทั้งจากมรดกและการคิดค้น",
-  ],
-  [
-    "บางโลกแสวงหาความ",
-    typo("มั่นคง", "มั่นคง", 30000),
-    " บางโลกยังไม่",
-    typo("เสร็จสมบรูณ์", "เสร็จสมบูรณ์", 50000),
-  ],
-  [
-    "Patch Notes That Refuse a Settled World อยู่กับโลกหลัง แทนที่จะมองอนาคตเป็นขอบฟ้าเดียว นิทรรศการหันไปสู่ความ",
-    typo("หลากหลาย", "หลากหลาย", 45000),
-    "ของโลกที่ถูกหล่อหลอมจากประวัติศาสตร์ จักรวาลวิทยา และรูปแบบชีวิตที่ต่างกัน",
-  ],
-  [
-    'ยืมมาจากวัฒนธรรมซอฟต์แวร์และเกม "patch notes" บันทึกการเปลี่ยนแปลงขณะที่ระบบยังคง',
-    typo("พฒันา", "พัฒนา", 20000),
-    " มันกลายเป็น",
-    typo("อุปมา", "อุปมา", 48000),
-    "ของโลกที่คงอยู่ผ่านการซ่อมแซม การอยู่ร่วม และการเปลี่ยนแปลงอย่างต่อเนื่อง มากกว่าก้าวไปสู่อนาคตเดียว",
-  ],
-  [
-    "โลกที่",
-    typo("มั่นคง", "มั่นคง", 18000),
-    "ไม่เหลือที่ว่างให้เรื่องเล่าอื่น ความหมายดูตายตัว อนาคตถูกตัดสินไว้แล้ว การปฏิเสธโลกที่มั่นคงคือการยังคงตั้งใจฟังโลกที่เกินกว่าเรื่องเล่าเด่น—วิธีการอยู่ สัมพันธ์ และ",
-    typo("จินตนากร", "จินตนาการ", 85000),
-    "อย่างอื่น",
-  ],
-  [
-    "ผ่านนิทรรศการ การฉายภาพ ",
-    typo("การแสดง", "การแสดง", 35000),
-    " และการบรรยาย โปรแกรมรวมศิลปินจากไทย เอเชียตะวันออกเฉียงใต้ และที่อื่นๆ ที่ทำงานกับภาพเคลื่อนไหว ศิลปะสื่อ เกม วัฒนธรรมดิจิทัล ",
-    typo("นิเวศวทิยา", "นิเวศวิทยา", 58000),
-    " และเทคโนโลยีใหม่ ดึงจากประวัติศาสตร์ท้องถิ่น จักรวาลวิทยา ตำนาน ความรู้พื้นบ้าน และประสบการณ์ชีวิต ผลงานของพวกเขาไล่รอยโลกที่ดำรงอยู่คู่กับเรื่องเล่าเด่นเรื่องความ",
-    typo("ก้าวหนา้", "ก้าวหน้า", 90000),
-    " การพัฒนา และอนาคตเทคโนโลยี",
-  ],
-];
-
 const TYPO_DELAY_SCALE = 0.15;
 
 function renderSegments(segs: Segment[]) {
@@ -137,38 +91,30 @@ function renderSegments(segs: Segment[]) {
   );
 }
 
-export function CuratorialText({ paragraphs, locale }: CuratorialTextProps) {
-  const segments = locale === "th" ? thSegments : enSegments;
-  const isEn = locale === "en";
+export function CuratorialText({ paragraphs }: CuratorialTextProps) {
+  const [lead, ...body] = paragraphs;
+  const leadSeg = enSegments[0];
+  const leadClass = "type-headline text-[clamp(1.5rem,3.5vw,2rem)] leading-[1.15] text-pntrsw-body";
+  const bodyClass = "type-body text-[1.05rem] leading-[1.7] text-pntrsw-body/90";
 
   return (
-    <section className="max-w-3xl" data-locale={locale}>
+    <section className="max-w-5xl">
       <p className="type-subheadline label-caps mb-10 text-pntrsw-body/60">
         Curatorial Statement
       </p>
 
-      <div className="space-y-6">
-        {paragraphs.map((paragraph, index) => {
-          const segs = segments[index];
-          const isLead = index === 0;
+      {/* Lead paragraph — full width */}
+      <p className={`mb-10 ${leadClass}`}>
+        {leadSeg ? renderSegments(leadSeg) : lead}
+      </p>
 
-          const className = isLead
-            ? "type-headline text-[clamp(1.5rem,3.5vw,2rem)] leading-[1.15] text-pntrsw-body"
-            : isEn
-              ? "type-body text-[1.05rem] leading-[1.7] text-pntrsw-body/90"
-              : "text-[1.05rem] leading-[1.7] text-pntrsw-body/90";
-
-          if (!segs) {
-            return (
-              <p key={paragraph.slice(0, 32)} className={className}>
-                {paragraph}
-              </p>
-            );
-          }
-
+      {/* Body — two columns */}
+      <div className="columns-1 gap-10 space-y-6 md:columns-2">
+        {body.map((paragraph, i) => {
+          const segs = enSegments[i + 1];
           return (
-            <p key={paragraph.slice(0, 32)} className={className}>
-              {renderSegments(segs)}
+            <p key={paragraph.slice(0, 32)} className={`break-inside-avoid ${bodyClass}`}>
+              {segs ? renderSegments(segs) : paragraph}
             </p>
           );
         })}

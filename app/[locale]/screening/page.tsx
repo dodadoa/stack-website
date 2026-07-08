@@ -1,7 +1,8 @@
 import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
+import { ScreeningProgramList } from "@/components/ScreeningProgramList";
 import { getDictionary } from "@/lib/dictionaries";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, type Locale } from "@/lib/i18n";
 import { buildAlternates } from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -35,38 +36,15 @@ export default async function ScreeningPage({ params }: PageProps) {
     notFound();
   }
 
-  const dict = getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dict = getDictionary(locale);
   const { screening } = dict;
 
   return (
     <article>
       <PageShell full>
-        <PatchPageHeader
-          title={screening.title}
-          intro={screening.intro}
-          label="Program"
-          statusNote={dict.status.updatesInProgress}
-        />
-
-        <ul>
-          {screening.films.map((film) => (
-            <li key={film.title} className="list-row py-8 first:pt-0">
-              <div className="grid gap-3 md:grid-cols-[1fr_auto] md:items-start md:gap-10">
-                <div>
-                  <h2 className="type-headline text-xl leading-snug text-pntrsw-body">
-                    {film.title}
-                  </h2>
-                  <p className="type-body type-body-plain mt-2 text-sm text-pntrsw-body/70">
-                    {film.artists}
-                  </p>
-                </div>
-                <p className="type-subheadline meta-line text-pntrsw-body/60 md:pt-1 md:text-right">
-                  {film.meta}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        <PatchPageHeader title={screening.title} intro={screening.intro} label="Program" />
+        <ScreeningProgramList programs={screening.programs} locale={locale} />
       </PageShell>
     </article>
   );

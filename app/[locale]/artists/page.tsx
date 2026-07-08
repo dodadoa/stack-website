@@ -1,9 +1,11 @@
 import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
+import { getArtistName } from "@/lib/artists";
 import { getDictionary } from "@/lib/dictionaries";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { buildAlternates } from "@/lib/seo";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type PageProps = {
@@ -35,7 +37,8 @@ export default async function ArtistsPage({ params }: PageProps) {
     notFound();
   }
 
-  const dict = getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dict = getDictionary(locale);
   const { artists } = dict;
 
   return (
@@ -55,12 +58,14 @@ export default async function ArtistsPage({ params }: PageProps) {
                 {group.label}
               </h2>
               <ul className="grid gap-px sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-                {group.names.map((name) => (
-                  <li
-                    key={name}
-                    className="type-body type-body-plain bg-pntrsw-stone px-4 py-4 text-[0.875rem] leading-snug text-pntrsw-body transition-colors hover:bg-pntrsw-lime"
-                  >
-                    {name}
+                {group.slugs.map((slug) => (
+                  <li key={slug}>
+                    <Link
+                      href={localePath(locale, `artists/${slug}`)}
+                      className="type-body type-body-plain block bg-pntrsw-stone px-4 py-4 text-[0.875rem] leading-snug text-pntrsw-body transition-colors hover:bg-pntrsw-lime"
+                    >
+                      {getArtistName(locale, slug)}
+                    </Link>
                   </li>
                 ))}
               </ul>

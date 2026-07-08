@@ -1,6 +1,5 @@
 import type { Locale } from "../i18n";
 import { en } from "./en";
-import { th } from "./th";
 
 export type Dictionary = {
   meta: { title: string; description: string };
@@ -22,10 +21,25 @@ export type Dictionary = {
   screening: {
     title: string;
     intro: string;
-    films: readonly {
+    programs: readonly {
+      slug: string;
+      code: string;
       title: string;
-      meta: string;
-      artists: string;
+      date: string;
+      time: string;
+      venue: string;
+      intro: string;
+      films: readonly {
+        slug: string;
+        title: string;
+        meta: string;
+        artists: string;
+        description: string;
+        image?: string;
+        images?: readonly string[];
+        artistSlug?: string;
+        note?: string;
+      }[];
     }[];
   };
   installation: {
@@ -67,7 +81,13 @@ export type Dictionary = {
     intro: string;
     groups: readonly {
       label: string;
-      names: readonly string[];
+      slugs: readonly string[];
+    }[];
+    people: readonly {
+      slug: string;
+      name: string;
+      image?: string;
+      bio?: readonly string[];
     }[];
   };
   schedule: {
@@ -81,8 +101,6 @@ export type Dictionary = {
   };
 };
 
-const dictionaries: Record<Locale, Dictionary> = { en, th };
-
-export function getDictionary(locale: Locale): Dictionary {
-  return dictionaries[locale];
+export function getDictionary(_locale: Locale): Dictionary {
+  return en;
 }
