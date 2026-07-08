@@ -42,7 +42,7 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
             <p className="type-body mb-8 max-w-3xl text-base leading-[1.7] text-pntrsw-body/85">
               {program.intro}
             </p>
-            <ul className="space-y-0">
+            <ul className="-mx-4 space-y-0 sm:-mx-6 lg:-mx-8">
               {program.films.map((film) => (
                 <li
                   key={film.slug}
@@ -50,14 +50,14 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
                 >
                   <Link
                     href={localePath(locale, `screening/${program.slug}/${film.slug}`)}
-                    className="group flex flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-5"
+                    className="flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8"
                   >
-                    <h3 className="type-headline min-w-0 text-base leading-snug text-pntrsw-body sm:flex-1 sm:text-lg">
+                    <h3 className="type-headline w-full min-w-0 text-left text-base leading-snug tracking-[-0.03em] text-pntrsw-body sm:flex-1 sm:text-lg">
                       {film.title}
                     </h3>
-                    <div className="type-body shrink-0 self-end text-right sm:self-auto">
-                      <p className="type-body-plain text-sm text-pntrsw-body/70">{film.artists}</p>
-                      <p className="type-subheadline meta-line mt-2 text-xs text-pntrsw-body/60">
+                    <div className="type-body w-full text-left sm:w-auto sm:shrink-0 sm:text-right">
+                      <p className="type-body-plain text-sm text-pntrsw-body">{film.artists}</p>
+                      <p className="type-subheadline meta-line mt-2 text-xs text-pntrsw-body/70">
                         {film.meta}
                       </p>
                     </div>

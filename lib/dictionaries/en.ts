@@ -128,7 +128,7 @@ export const en = {
             artistSlug: "brandon-tay",
             description:
               "Emulator imagines an alternative technological history in which biological processes replace silicon as the foundation of computation. Combining speculative fiction with machinic animism, the work explores hybrid forms of life, intelligence, and technology.",
-            image: "/assets/SCREENINGS/Ecologies of Becoming/emulator1.jpg",
+            image: "/assets/SCREENINGS/Ecologies of Becoming/emulator2.jpg",
           },
           {
             slug: "alternative-computations",
