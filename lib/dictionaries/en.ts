@@ -378,12 +378,9 @@ export const en = {
       "Artists participating across screening, installation, and live programme.",
     people: [
       {
-        slug: "amy-louise-wilson",
-        name: "Amy Louise Wilson",
-      },
-      {
-        slug: "francois-knoetze",
-        name: "Francois Knoetze",
+        slug: "lo-def-film-factory",
+        name: "Lo-Def Film Factory",
+        creditAs: "Lo-Def Film Factory (Amy Louise Wilson, Francois Knoetze)",
       },
       {
         slug: "russel-hlongwane",
@@ -498,8 +495,7 @@ export const en = {
       {
         label: "Screening",
         slugs: [
-          "amy-louise-wilson",
-          "francois-knoetze",
+          "lo-def-film-factory",
           "russel-hlongwane",
           "natasha-tontey",
           "giang-nguyen-hoan",

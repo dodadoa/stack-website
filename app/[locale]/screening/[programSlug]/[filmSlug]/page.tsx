@@ -86,7 +86,7 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
           </div>
         ) : null}
 
-        <header className="mb-10 w-full max-w-4xl border-b border-pntrsw-deep/20 pb-10">
+        <header className="detail-text-width mb-10 border-b border-pntrsw-deep/20 pb-10">
           <p className="type-subheadline label-caps text-pntrsw-body/60">{program.code}</p>
           <h1 className="type-headline mt-3 text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
             {film.title}
@@ -96,6 +96,7 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
             artists={film.artists}
             artistSlug={film.artistSlug}
             locale={locale}
+            showTba={false}
             className="type-body mt-4 text-base text-pntrsw-body/70"
           />
           <p className="type-body type-body-plain mt-3 text-sm text-pntrsw-body/55">
@@ -103,7 +104,7 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
           </p>
         </header>
 
-        <div className="type-body max-w-4xl space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
+        <div className="type-body detail-text-width space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
           <p>{film.description}</p>
           {film.note ? (
             <p className="type-subheadline text-xs leading-relaxed text-pntrsw-body/55">

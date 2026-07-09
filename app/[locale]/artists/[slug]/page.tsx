@@ -76,9 +76,24 @@ export default async function ArtistPage({ params }: PageProps) {
           ← {artists.title}
         </Link>
 
-        <div className="w-full">
-          <header className="mb-10 w-full border-b border-pntrsw-deep/20 pb-10">
-            <h1 className="type-headline max-w-full text-balance text-[clamp(2rem,5vw,3.5rem)] leading-[0.92] text-pntrsw-body">
+        {artist.image ? (
+          <div className="mb-10 w-full max-w-[520px]">
+            <Image
+              src={artist.image}
+              alt={artist.name}
+              width={720}
+              height={900}
+              className="h-auto w-full"
+              sizes="(max-width: 768px) 100vw, 520px"
+              quality={92}
+              priority
+            />
+          </div>
+        ) : null}
+
+        <div className="detail-text-width">
+          <header className="mb-10 border-b border-pntrsw-deep/20 pb-10">
+            <h1 className="type-headline min-w-0 max-w-full text-balance break-words text-[clamp(2rem,5vw,3.5rem)] leading-[0.92] text-pntrsw-body">
               <ArtistName name={artist.name} />
             </h1>
             {groups.length > 0 ? (
@@ -95,31 +110,13 @@ export default async function ArtistPage({ params }: PageProps) {
             ) : null}
           </header>
 
-          <div className="grid gap-10 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] md:items-start md:gap-12 lg:gap-16">
-            {artist.image ? (
-              <div className="relative aspect-[4/5] w-full max-w-[360px] overflow-hidden bg-pntrsw-black/5 md:max-w-none">
-                <Image
-                  src={artist.image}
-                  alt={artist.name}
-                  fill
-                  className="object-contain object-top"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                  quality={92}
-                  priority
-                />
-              </div>
-            ) : null}
-
-            {artist.bio ? (
-              <div className="type-body min-w-0 space-y-5 text-base leading-[1.7] text-pntrsw-body/90 md:mt-0">
-                {artist.bio.map((paragraph) => (
-                  <p key={paragraph.slice(0, 32)}>{paragraph}</p>
-                ))}
-              </div>
-            ) : !artist.image ? (
-              <p className="type-subheadline text-base text-pntrsw-body/60">(TBA)</p>
-            ) : null}
-          </div>
+          {artist.bio ? (
+            <div className="type-body space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
+              {artist.bio.map((paragraph) => (
+                <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+              ))}
+            </div>
+          ) : null}
         </div>
       </PageShell>
     </article>

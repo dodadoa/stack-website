@@ -92,6 +92,7 @@ export type Dictionary = {
     people: readonly {
       slug: string;
       name: string;
+      creditAs?: string;
       image?: string;
       bio?: readonly string[];
     }[];

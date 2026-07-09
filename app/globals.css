@@ -409,3 +409,15 @@ html {
     padding: 3rem 2.5rem;
   }
 }
+
+.detail-text-width {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .detail-text-width {
+    width: 60%;
+    max-width: 60%;
+  }
+}

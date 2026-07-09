@@ -67,7 +67,7 @@ export default async function TalkPage({ params }: PageProps) {
           ← {talks.title}
         </Link>
 
-        <header className="mb-10 w-full max-w-4xl border-b border-pntrsw-deep/20 pb-10">
+        <header className="detail-text-width mb-10 border-b border-pntrsw-deep/20 pb-10">
           <p className="type-subheadline label-caps mb-4 text-pntrsw-body/60">{talk.kind}</p>
           <h1 className="type-headline text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
             {talk.title}
@@ -88,11 +88,11 @@ export default async function TalkPage({ params }: PageProps) {
           </dl>
         </header>
 
-        <div className="type-body prose max-w-4xl text-base leading-[1.65] text-pntrsw-body/85">
+        <div className="type-body prose detail-text-width text-base leading-[1.65] text-pntrsw-body/85">
           <p>{talk.description}</p>
         </div>
 
-        <section className="mt-12 max-w-4xl border-t border-pntrsw-deep/20 pt-10">
+        <section className="detail-text-width mt-12 border-t border-pntrsw-deep/20 pt-10">
           <h2 className="type-subheadline label-caps mb-6 text-pntrsw-body/70">
             {talk.participantsLabel}
           </h2>
@@ -123,7 +123,7 @@ export default async function TalkPage({ params }: PageProps) {
           </ul>
         </section>
 
-        <p className="type-body mt-10 max-w-4xl text-sm leading-relaxed text-pntrsw-body/60">
+        <p className="type-body detail-text-width mt-10 text-sm leading-relaxed text-pntrsw-body/60">
           {talk.note}
         </p>
       </PageShell>

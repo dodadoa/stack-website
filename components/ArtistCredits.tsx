@@ -1,4 +1,4 @@
-import { hasArtistDetail, parseArtistCreditSegments, resolveArtistSlugFromCredit } from "@/lib/artists";
+import { getArtist, parseArtistCreditSegments, resolveArtistSlugFromCredit } from "@/lib/artists";
 import { localePath, type Locale } from "@/lib/i18n";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -14,6 +14,12 @@ type ArtistCreditsProps = {
 };
 
 const tbaClassName = "type-subheadline text-pntrsw-body/60";
+const linkClassName =
+  "relative z-20 pointer-events-auto cursor-pointer underline decoration-pntrsw-body/30 underline-offset-[3px] transition-opacity hover:opacity-70";
+
+function canLinkArtist(locale: Locale, slug: string): boolean {
+  return Boolean(getArtist(locale, slug));
+}
 
 function renderResolvedCredit(
   displayText: string,
@@ -25,14 +31,11 @@ function renderResolvedCredit(
   const segments = parseArtistCreditSegments(locale, resolveFrom, artistSlug);
 
   if (segments.length === 1 && segments[0]?.slug) {
-    const { slug, hasDetail } = segments[0];
+    const { slug } = segments[0];
 
-    if (hasDetail) {
+    if (canLinkArtist(locale, slug)) {
       return (
-        <Link
-          href={localePath(locale, `artists/${slug}`)}
-          className="relative z-20 pointer-events-auto transition-opacity hover:opacity-70"
-        >
+        <Link href={localePath(locale, `artists/${slug}`)} className={linkClassName}>
           {displayText}
         </Link>
       );
@@ -48,12 +51,9 @@ function renderResolvedCredit(
 
   const slug = artistSlug ?? resolveArtistSlugFromCredit(locale, resolveFrom);
 
-  if (slug && hasArtistDetail(locale, slug)) {
+  if (slug && canLinkArtist(locale, slug)) {
     return (
-      <Link
-        href={localePath(locale, `artists/${slug}`)}
-        className="relative z-20 pointer-events-auto transition-opacity hover:opacity-70"
-      >
+      <Link href={localePath(locale, `artists/${slug}`)} className={linkClassName}>
         {displayText}
       </Link>
     );
@@ -80,12 +80,12 @@ function renderCreditLine(
   const segments = parseArtistCreditSegments(locale, artists, artistSlug);
 
   return segments.map((segment, index) => {
-    if (segment.slug && segment.hasDetail) {
+    if (segment.slug && canLinkArtist(locale, segment.slug)) {
       return (
         <Link
           key={`${segment.slug}-${index}`}
           href={localePath(locale, `artists/${segment.slug}`)}
-          className="relative z-20 pointer-events-auto transition-opacity hover:opacity-70"
+          className={linkClassName}
         >
           {segment.text}
         </Link>

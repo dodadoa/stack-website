@@ -98,6 +98,29 @@ export function resolveArtistSlugFromCredit(locale: Locale, credit: string): str
   return pickArtistSlug(locale, findPeopleByCredit(locale, credit));
 }
 
+function isExactArtistCredit(locale: Locale, credit: string, slug: string): boolean {
+  const person = getDictionary(locale).artists.people.find((entry) => entry.slug === slug);
+
+  if (!person) {
+    return false;
+  }
+
+  const trimmed = credit.trim();
+
+  if (person.creditAs === trimmed || person.name === trimmed) {
+    return true;
+  }
+
+  if (/\band\b/i.test(trimmed)) {
+    return false;
+  }
+
+  const personBase = getArtistPrimaryName(person.name);
+  const creditBase = getArtistPrimaryName(trimmed);
+
+  return personBase === creditBase || personBase === trimmed;
+}
+
 export type ArtistCreditSegment = {
   text: string;
   slug?: string;
@@ -120,7 +143,7 @@ export function parseArtistCreditSegments(
   }
 
   const resolvedSlug = resolveArtistSlugFromCredit(locale, artists);
-  if (resolvedSlug) {
+  if (resolvedSlug && isExactArtistCredit(locale, artists, resolvedSlug)) {
     return [
       {
         text: artists,
@@ -137,7 +160,14 @@ export function parseArtistCreditSegments(
 
   for (const person of getDictionary(locale).artists.people) {
     const base = getArtistPrimaryName(person.name);
-    const needles = base === person.name ? [person.name] : [person.name, base];
+    const needles =
+      base === person.name
+        ? person.creditAs
+          ? [person.creditAs, person.name]
+          : [person.name]
+        : person.creditAs
+          ? [person.creditAs, person.name, base]
+          : [person.name, base];
 
     for (const name of [...new Set(needles)]) {
       const existing = needleMap.get(name);

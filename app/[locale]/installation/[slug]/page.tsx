@@ -66,7 +66,7 @@ export default async function InstallationWorkPage({ params }: PageProps) {
           ← {installation.title}
         </Link>
 
-        <header className="mb-10 w-full max-w-4xl border-b border-pntrsw-deep/20 pb-10">
+        <header className="detail-text-width mb-10 border-b border-pntrsw-deep/20 pb-10">
           <h1 className="type-headline text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
             {work.title}
             {work.year ? ` (${work.year})` : ""}
@@ -84,14 +84,14 @@ export default async function InstallationWorkPage({ params }: PageProps) {
         </header>
 
         {work.description ? (
-          <div className="type-body prose max-w-4xl space-y-4 text-base leading-[1.65] text-pntrsw-body/85">
+          <div className="type-body prose detail-text-width space-y-4 text-base leading-[1.65] text-pntrsw-body/85">
             <p>{work.description}</p>
             {work.note ? <p className="text-pntrsw-body/70">{work.note}</p> : null}
           </div>
         ) : null}
 
         {work.bio ? (
-          <div className="mt-12 max-w-4xl border-t border-pntrsw-deep/20 pt-10">
+          <div className="detail-text-width mt-12 border-t border-pntrsw-deep/20 pt-10">
             <h2 className="type-subheadline label-caps mb-5 text-pntrsw-body/70">
               {work.bio.title}
             </h2>
