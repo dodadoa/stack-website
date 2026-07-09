@@ -198,13 +198,6 @@ export const en = {
         medium: "CRT monitor, VR headset, AI-powered camera",
         description:
           "Hello, World Home! (2024) is a speculative art project exploring data capitalism, artificial life, and the merging of physical and digital realms. It critiques systems like World ID, which categorise entities into bio-humans and non-humans, exposing ethical risks in commodifying identity and decentralising personal data. Using an AI-powered camera and mixed-reality (XR) installations, the project visualises a world where personal data evolves into autonomous digital life forms. The project has two components: The Transmitter, an AI camera that captures real-world imagery, processes it through image-to-text and text-to-3D modelling, and removes human figures to create a humanless landscape. Extracted data is transformed into digital entities, animated to reflect confusion and curiosity, symbolising fragmented identity in a data-driven world. The Portal is an immersive XR environment where users interact with these entities via VR, creating a disorienting feedback loop between physical and digital spaces. Developed during a residency in Gwangju, South Korea—a city symbolising democracy and resistance—the project contrasts historical struggles for freedom with modern digital control. As Koreans increasingly rely on apps like Kakao and Naver, algorithmic governance grows. Hello, World Home! critiques this shift, questioning autonomy and identity in a world dominated by data capitalism, urging reflection on the ethical implications of emerging technologies and human-digital coexistence.",
-        bio: {
-          title: "Bio",
-          text: "Foreseen Agency is an artist duo by Shan Wong and Kachi Chan. Their practice examines the intersecting capitalist, technological, and social systems through participatory research and speculative design, revealing the invisible logics of control, value generation, and techno-social infrastructures.",
-          text2:
-            "They have received Ars Electronica Honorary Mention, HKADC awards, Arts Council England support, and shown work at Asia Culture Centre (Gwangju), UAAD (NYC), Singapore Art Week (2026) and Diriyah Art Futures (Riyadh). They have co-authored papers in Leonardo (MIT Press), SIGGRAPH, ISEA, and others. Both are Assistant Professors at Hong Kong Baptist University's Academy of Visual Arts.",
-          links: "@foreseen_agency @flyingpig.shan @kachi_chan",
-        },
       },
       {
         slug: "hollow-hare-wallaby",
