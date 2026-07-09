@@ -1,6 +1,7 @@
 import { PageShell } from "@/components/PageShell";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
+import { getArtist } from "@/lib/artists";
 import { getAllTalkParams, getTalk } from "@/lib/talks";
 import { buildAlternates } from "@/lib/seo";
 import Link from "next/link";
@@ -95,14 +96,27 @@ export default async function TalkPage({ params }: PageProps) {
             {talk.participantsLabel}
           </h2>
           <ul className="space-y-6">
-            {talk.participants.map((participant) => (
-              <li key={participant.name}>
-                <p className="type-headline text-lg text-pntrsw-body">{participant.name}</p>
-                <p className="type-body mt-2 text-sm leading-relaxed text-pntrsw-body/75">
-                  {participant.bio}
-                </p>
-              </li>
-            ))}
+            {talk.participants.map((participant) => {
+              const artist = getArtist(locale, participant.slug);
+
+              return (
+                <li key={participant.slug}>
+                  {artist ? (
+                    <Link
+                      href={localePath(locale, `artists/${participant.slug}`)}
+                      className="type-headline text-lg text-pntrsw-body transition-opacity hover:opacity-70"
+                    >
+                      {participant.name}
+                    </Link>
+                  ) : (
+                    <p className="type-headline text-lg text-pntrsw-body">{participant.name}</p>
+                  )}
+                  <p className="type-body mt-2 text-sm leading-relaxed text-pntrsw-body/75">
+                    {participant.bio}
+                  </p>
+                </li>
+              );
+            })}
           </ul>
         </section>
 

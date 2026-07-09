@@ -72,7 +72,7 @@ export type Dictionary = {
       venue: string;
       description: string;
       participantsLabel: string;
-      participants: readonly { name: string; bio: string }[];
+      participants: readonly { slug: string; name: string; bio: string }[];
       note: string;
     }[];
   };

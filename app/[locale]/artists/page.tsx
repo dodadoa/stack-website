@@ -1,6 +1,6 @@
 import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
-import { getArtistName } from "@/lib/artists";
+import { getArtistGroupsForPage, getArtistName } from "@/lib/artists";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { buildAlternates } from "@/lib/seo";
@@ -52,7 +52,7 @@ export default async function ArtistsPage({ params }: PageProps) {
         />
 
         <div className="space-y-14">
-          {artists.groups.map((group) => (
+          {getArtistGroupsForPage(locale).map((group) => (
             <section key={group.label}>
               <h2 className="type-subheadline mb-6 inline-block rounded-full bg-pntrsw-white px-4 py-1.5 text-sm text-pntrsw-body">
                 {group.label}

@@ -234,14 +234,17 @@ export const en = {
         participantsLabel: "In Conversation",
         participants: [
           {
+            slug: "podcharakrit-to-im",
             name: "Podcharakrit To-im",
             bio: "Author of At-sa-jaan: Writings on the Grammar of Being, Siamese Political Philosophy, and Tropical Ontology",
           },
           {
+            slug: "chanida-voraphitak",
             name: "Chanida Voraphitak",
             bio: "Artist whose practice explores worldbuilding through digital media and games",
           },
           {
+            slug: "alisa-limpaiboon",
             name: "Alisa Limpaiboon",
             bio: "Translator of The Dispossessed by Ursula K. Le Guin",
           },
@@ -260,10 +263,12 @@ export const en = {
         participantsLabel: "In Conversation",
         participants: [
           {
+            slug: "ryuta-aoki",
             name: "Ryuta Aoki",
             bio: "Tokyo-based artist working across art, science, and technology. His piece Alternative Computations uses a quantum computer to revive wasan, an indigenous Japanese mathematics abandoned for western calculation.",
           },
           {
+            slug: "elekhlekha",
             name: "elekhlekha อิเหละเขละขละ (Nitcha Fame Tothong & Kengchakaj)",
             bio: "A Thai diaspora, Brooklyn-based collaborative artist practice rooted in research that decodes contested histories and memories of Southeast Asia. Their body of work explores the region's political complexities, grounding algorithmic experimentation in ancestral knowledge and aural/oral history through live coding, participatory performance, audiovisual installation, communal digital archives, and Western instruments altered to echo Southeast Asian sounds.",
           },
@@ -353,7 +358,19 @@ export const en = {
       },
       {
         slug: "elekhlekha",
-        name: "elekhlekha อิเหละเขละขละ",
+        name: "elekhlekha อิเหละเขละขละ (Nitcha Fame Tothong & Kengchakaj)",
+      },
+      {
+        slug: "podcharakrit-to-im",
+        name: "Podcharakrit To-im",
+      },
+      {
+        slug: "chanida-voraphitak",
+        name: "Chanida Voraphitak",
+      },
+      {
+        slug: "alisa-limpaiboon",
+        name: "Alisa Limpaiboon",
       },
     ],
     groups: [
@@ -388,7 +405,7 @@ export const en = {
       },
       {
         label: "Talks",
-        slugs: ["ryuta-aoki", "elekhlekha"],
+        slugs: [],
       },
     ],
   },
