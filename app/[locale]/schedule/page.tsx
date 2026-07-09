@@ -2,7 +2,7 @@ import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
 import { ScheduleDayCard } from "@/components/ScheduleDayCard";
 import { getDictionary } from "@/lib/dictionaries";
-import { isLocale } from "@/lib/i18n";
+import { isLocale, type Locale } from "@/lib/i18n";
 import { buildAlternates } from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -36,7 +36,8 @@ export default async function SchedulePage({ params }: PageProps) {
     notFound();
   }
 
-  const dict = getDictionary(localeParam);
+  const locale = localeParam as Locale;
+  const dict = getDictionary(locale);
   const { schedule } = dict;
 
   return (
@@ -50,7 +51,7 @@ export default async function SchedulePage({ params }: PageProps) {
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-10">
           {schedule.days.map((day) => (
-            <ScheduleDayCard key={day.day} day={day} />
+            <ScheduleDayCard key={day.day} day={day} locale={locale} />
           ))}
         </div>
       </PageShell>

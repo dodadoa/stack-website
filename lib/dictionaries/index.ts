@@ -34,7 +34,7 @@ export type Dictionary = {
         title: string;
         meta: string;
         artists: string;
-        description: string;
+        description: string | readonly string[];
         image?: string;
         images?: readonly string[];
         artistSlug?: string;
@@ -85,6 +85,7 @@ export type Dictionary = {
   artists: {
     title: string;
     intro: string;
+    detailComingSoon: string;
     groups: readonly {
       label: string;
       slugs: readonly string[];
@@ -94,6 +95,11 @@ export type Dictionary = {
       name: string;
       creditAs?: string;
       image?: string;
+      imageCredit?: {
+        prefix: string;
+        photographer: string;
+        photographerUrl?: string;
+      };
       bio?: readonly string[];
     }[];
   };
@@ -103,7 +109,15 @@ export type Dictionary = {
     days: readonly {
       day: string;
       date: string;
-      events: readonly { time: string; label: string; kind?: "exhibition" | "programme" }[];
+      events: readonly {
+        time: string;
+        label: string;
+        kind?: "exhibition" | "programme";
+        link?: {
+          type: "installation" | "screening" | "talks";
+          slug?: string;
+        };
+      }[];
     }[];
   };
 };

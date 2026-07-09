@@ -50,7 +50,7 @@ export default async function InstallationWorkPage({ params }: PageProps) {
   const locale = localeParam as Locale;
   const work = getInstallationWork(locale, slug);
 
-  if (!work) {
+  if (!work || !work.description) {
     notFound();
   }
 

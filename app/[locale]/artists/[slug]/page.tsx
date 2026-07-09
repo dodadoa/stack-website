@@ -1,6 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { ArtistName } from "@/components/ArtistName";
-import { getAllArtistParams, getArtist, getArtistGroups } from "@/lib/artists";
+import { getAllArtistParams, getArtist, getArtistGroups, hasArtistDetail } from "@/lib/artists";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { buildAlternates } from "@/lib/seo";
@@ -65,6 +65,7 @@ export default async function ArtistPage({ params }: PageProps) {
 
   const { artists } = getDictionary(locale);
   const groups = getArtistGroups(locale, slug);
+  const hasDetail = hasArtistDetail(locale, slug);
 
   return (
     <article>
@@ -77,7 +78,7 @@ export default async function ArtistPage({ params }: PageProps) {
         </Link>
 
         {artist.image ? (
-          <div className="mb-10 w-full max-w-[520px]">
+          <figure className="mb-10 w-full max-w-[520px]">
             <Image
               src={artist.image}
               alt={artist.name}
@@ -88,7 +89,22 @@ export default async function ArtistPage({ params }: PageProps) {
               quality={92}
               priority
             />
-          </div>
+            {artist.imageCredit ? (
+              <figcaption className="type-subheadline meta-line mt-3 text-xs text-pntrsw-body/55">
+                {artist.imageCredit.prefix}
+                {artist.imageCredit.photographerUrl ? (
+                  <Link
+                    href={artist.imageCredit.photographerUrl}
+                    className="transition-opacity hover:opacity-70"
+                  >
+                    {artist.imageCredit.photographer}
+                  </Link>
+                ) : (
+                  artist.imageCredit.photographer
+                )}
+              </figcaption>
+            ) : null}
+          </figure>
         ) : null}
 
         <div className="detail-text-width">
@@ -110,7 +126,11 @@ export default async function ArtistPage({ params }: PageProps) {
             ) : null}
           </header>
 
-          {artist.bio ? (
+          {!hasDetail ? (
+            <p className="type-subheadline rounded-2xl border border-pntrsw-deep/15 bg-pntrsw-white px-5 py-4 text-sm leading-relaxed text-pntrsw-body/70">
+              {artists.detailComingSoon}
+            </p>
+          ) : artist.bio ? (
             <div className="type-body space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
               {artist.bio.map((paragraph) => (
                 <p key={paragraph.slice(0, 32)}>{paragraph}</p>

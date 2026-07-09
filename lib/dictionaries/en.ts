@@ -15,7 +15,7 @@ export const en = {
   footer: {
     org: "Organised by Stack in collaboration with Goethe-Institut Thailand",
     support: "With support from Thai Film Archive",
-    sponsors: "Supporters",
+    sponsors: "Sponsors",
     top: "Top",
   },
   status: {
@@ -135,8 +135,13 @@ export const en = {
             title: "Alternative Computations",
             meta: "Japan, 2026, 2 min",
             artists: "Ryuta Aoki",
-            description:
-              "Drawing on quantum computing and wasan—Japan's indigenous mathematical tradition—Alternative Computations reimagines calculation as a cultural and ecological practice rather than a tool of efficiency. The work proposes alternative ways of imagining technology through play, ritual, and collective knowledge.",
+            artistSlug: "ryuta-aoki",
+            description: [
+              "The universe computes. Life is computation. Mathematics is the language for this understanding. Change the language, the universe changes — the way of seeing changes. Sometimes, those in power choose which way of seeing prevails. What falls outside that choice is named error — and vanishes.",
+              "Japan once possessed a distinctive mathematics — wasan. Calculation practised as beauty, play, and offering to shrines: festive knowledge comparable to haiku and the tea ceremony. In the late nineteenth century, the Meiji government introduced Western mathematics in pursuit of national strength. Wasan was expelled. The cosmos its culture alone could see was closed. At the destination Western mathematics has since reached stands quantum computing. But its development is governed by utility and optimisation. Quantum noise is expelled as error. Yet quantum noise interferes, entangles, carries the past. There is another cosmos. This work recaptures it through the play and festivity of wasan.",
+              "The Alternative Computations series sculpts the cosmologies of lost vernacular mathematics. Built from quantum noise — discarded by mainstream quantum computing — this automated instrument takes sky, earth, and human as its three-layer structure. Twenty-eight sangi (counting rods) orbit overhead as the Twenty-Eight Lunar Mansions. A tatami floor defines the sacred threshold. More than four thousand reeds fill the space.",
+              "In a corner of Tokyo's concrete forest, in dry reed fragrance, the dancer's movements and tea master's gestures, audience presence, and meteorological data are thrown into a quantum computer embedded in the ceiling's sangi mechanism. High-dimensional dynamics set the sangi's orbits and descend as rain sound. Mechanical creaking holds the weight of matter, anchoring experience between dream and waking. Thunder, wind, insects, cranes and frogs — a 28-minute sound collage. Each cycle ends a universe; another begins.",
+            ],
             image:
               "/assets/SCREENINGS/Ecologies of Becoming/Alternative Computations — Worlds Otherwise Calculated.jpg",
           },
@@ -179,7 +184,6 @@ export const en = {
       { name: "Foreseen Agency" },
       { name: "Long Tran" },
       { name: "Sahapon Chootinan" },
-      { name: "Pasuth Sa-ingthong" },
       { name: "Bee Waritsara" },
       { name: "Rei Hayama" },
       { name: "Nuttanai Supukdee" },
@@ -305,6 +309,12 @@ export const en = {
           "We Finds Our Late Selves \"Ghost\" ตั้งคำถามว่า NPC (Non-Player Character) สามารถนับเป็นรูปแบบหนึ่งของชีวิตได้หรือไม่ แทนที่จะมองจิตใจว่าเป็นสิ่งที่ดำรงอยู่ภายในร่างกาย ผลงานเสนอให้มองว่ามันเกิดขึ้นผ่านแบบแผนของพฤติกรรมที่เรียนรู้และทำซ้ำ ภายในโลกของวิดีโอเกม ผลงานวิพากษ์ตรรกะแบบอาณานิคมที่กำหนดขอบเขตของพื้นที่ ความทรงจำ และการดำรงอยู่ของตัวละคร พร้อมชี้ให้เห็นถึงผู้ที่ถูกทำให้ไร้เสียงหรือถูกลบเลือนภายใต้โครงสร้างของโลกที่ถูกออกแบบไว้ ชวนให้ผู้ชมตั้งคำถามต่ออำนาจ การดำรงอยู่ และการประกอบสร้างโลกในพื้นที่ดิจิทัล",
         ],
       },
+      {
+        slug: "pasuth",
+        title: "To Be Updated",
+        artists: "Pasuth Sa-ingthong",
+        artistSlug: "pasuth",
+      },
     ],
   },
   talks: {
@@ -360,12 +370,12 @@ export const en = {
           {
             slug: "ryuta-aoki",
             name: "Ryuta Aoki",
-            bio: "Tokyo-based artist working across art, science, and technology. His piece Alternative Computations uses a quantum computer to revive wasan, an indigenous Japanese mathematics abandoned for western calculation.",
+            bio: "Ryuta Aoki is a Tokyo-based Japanese artist and artistic director. Through large-scale installations and the collectives he gathers, he intervenes in the invisible structures that shape society and opens spaces where another world can take hold. His work Alternative Computations recaptures Japan's lost wasan mathematics through quantum noise discarded by mainstream quantum computing.",
           },
           {
             slug: "elekhlekha",
-            name: "elekhlekha อิเหละเขละขละ (Nitcha Fame Tothong & Kengchakaj)",
-            bio: "A Thai diaspora, Brooklyn-based collaborative artist practice rooted in research that decodes contested histories and memories of Southeast Asia. Their body of work explores the region's political complexities, grounding algorithmic experimentation in ancestral knowledge and aural/oral history through live coding, participatory performance, audiovisual installation, communal digital archives, and Western instruments altered to echo Southeast Asian sounds.",
+            name: "elekhlekha อีเหละเขละขละ (Nitcha Tothong & Kengchakaj Kengkarnka)",
+            bio: "elekhlekha อีเหละเขละขละ is a collaborative research-based group consisting of Bangkok-born, Brooklyn-based artists, Kengchakaj Kengkarnka–เก่งฉกาจ and Nitcha Tothong (fame)–ณิชชา(เฟม). They examine, decode, explore, and define decolonized possibilities by creating with code, algorithm, multimedia, and technology.",
           },
         ],
         note: "Please note: This programme will be held in English.",
@@ -376,6 +386,7 @@ export const en = {
     title: "Artists",
     intro:
       "Artists participating across screening, installation, and live programme.",
+    detailComingSoon: "Detail coming soon",
     people: [
       {
         slug: "lo-def-film-factory",
@@ -419,6 +430,12 @@ export const en = {
       {
         slug: "ryuta-aoki",
         name: "Ryuta Aoki",
+        image: "/assets/ARTISTS/Portrait_RyutaAoki.jpg",
+        bio: [
+          "Ryuta Aoki is a Tokyo-based Japanese artist and artistic director. Through large-scale installations and the collectives and communities he gathers, he intervenes in the invisible structures that shape society and opens spaces where another world can take hold.",
+          "Bio Sculpture received the Social Impact Award (Minister of Education Prize) at the 25th Japan Media Arts Festival. He was selected for the inaugural cohort of WAN: Art & Tech Creators Global Network (Japan Arts Council) and for the Ethereum Foundation's first artist scholarship (Devcon 7 Scholars Program). His work has been presented at the National Asia Culture Center (South Korea), 21_21 DESIGN SIGHT, DESIGNART, MUTEK.JP, and Science Gallery Melbourne (Australia), among others.",
+          "He founded Art Hack Day, Japan's first art hackathon, and launched Japan's first TEDxKids. He has also served as Creative Producer of the Japan Media Arts Distributed Museum, Artistic Director of the exhibition Jack into the Noösphere, and Director of the international conference ALIFE 2018.",
+        ],
       },
       {
         slug: "nattawin-musigul",
@@ -476,7 +493,18 @@ export const en = {
       },
       {
         slug: "elekhlekha",
-        name: "elekhlekha อิเหละเขละขละ (Nitcha Fame Tothong & Kengchakaj)",
+        name: "elekhlekha อีเหละเขละขละ (Nitcha Tothong & Kengchakaj Kengkarnka)",
+        image: "/assets/ARTISTS/elekhlekha.jpg",
+        imageCredit: {
+          prefix: "Photography by ",
+          photographer: "Geoff Robertson",
+        },
+        bio: [
+          "elekhlekha อีเหละเขละขละ is a collaborative research-based group consisting of Bangkok-born, Brooklyn-based artists, Kengchakaj Kengkarnka–เก่งฉกาจ and Nitcha Tothong (fame)–ณิชชา(เฟม) that examines, decodes, explores, and defines decolonized possibilities by creating, using code, algorithm, multimedia, and technology. They are interested in subversive storytelling using non-dominance sound and visual archives, historical research–decoding and unlearning biases, performing documents, multimedia, and technology to experiment, explore, and define decolonized possibilities.",
+          "elekhlekha has performed and exhibited in small communities, larger institutional spaces, and music festivals, including Barbican Centre (UK); Smithsonian Hirshhorn Museum and Sculpture Garden (US); CultureHub (NY); Wonderfruit Festival (Thailand); Int-Act Festival 2022 (Thailand); Wonderville NYC (as a part of LiveCode.NYC); Harvestworks (NY); Flux Factory (NY); Jamaica Center for the Arts & Learning (NY); The Jazz Gallery (NY); WSA (NY); Lume Studio (NY).",
+          "In 2022, they were awarded The Lumen Prize Gold Award—the first Gold Award winner to come out of the Global Majority category. In addition, the artists have received grants and development funds from Rhizome, the Processing Foundation, the Institute for Electronic Arts (iea), a City Artist Corps Grant, Queens Council on the Arts, and Babycastles for their projects. elekhlekha is former Artist-in-Residence at Babycastles, members of NEW INC Y10 Art & Code track, 2023–2024 Artist-in-Residence at CultureHub and Eyebeam Democracy Machine Fellows 2024. elekhlekha is currently the NEW INC Y11 Extended Realities track members.",
+          "Tothong holds an MFA from the Parsons School of Design, and Kengkarnka holds an MM from the Manhattan School of Music. They're currently based in Occupied Lenapehoking (Brooklyn, NYC), the unceded lands of the Lenni-Lenape and home for many Indigenous peoples past, present, and future.",
+        ],
       },
       {
         slug: "podcharakrit-to-im",
@@ -538,9 +566,19 @@ export const en = {
         day: "Sat",
         date: "11 July 2026",
         events: [
-          { time: "15:00–22:00", label: "Exhibition", kind: "exhibition" },
-          { time: "16:00–17:10", label: "Stack V_Circuits#3: Countermapping", kind: "programme" },
-          { time: "18:00–19:30", label: "Grammars of Worldmaking", kind: "programme" },
+          { time: "15:00–22:00", label: "Exhibition", kind: "exhibition", link: { type: "installation" } },
+          {
+            time: "16:00–17:10",
+            label: "Stack V_Circuits#3: Countermapping",
+            kind: "programme",
+            link: { type: "screening", slug: "countermapping" },
+          },
+          {
+            time: "18:00–19:30",
+            label: "Grammars of Worldmaking",
+            kind: "programme",
+            link: { type: "talks", slug: "grammars-of-worldmaking" },
+          },
           { time: "19:30–22:00", label: "Opening Ceremony and Game Event", kind: "programme" },
         ],
       },
@@ -548,9 +586,19 @@ export const en = {
         day: "Sun",
         date: "12 July 2026",
         events: [
-          { time: "15:00–21:30", label: "Exhibition", kind: "exhibition" },
-          { time: "15:00–16:00", label: "Stack V_Circuits#4: Ecologies of Becoming", kind: "programme" },
-          { time: "16:30–18:30", label: "Patching with an Alternative System", kind: "programme" },
+          { time: "15:00–21:30", label: "Exhibition", kind: "exhibition", link: { type: "installation" } },
+          {
+            time: "15:00–16:00",
+            label: "Stack V_Circuits#4: Ecologies of Becoming",
+            kind: "programme",
+            link: { type: "screening", slug: "ecologies-of-becoming" },
+          },
+          {
+            time: "16:30–18:30",
+            label: "Patching with an Alternative System",
+            kind: "programme",
+            link: { type: "talks", slug: "patching-with-an-alternative-system" },
+          },
           { time: "19:00–21:30", label: "Closing Ceremony", kind: "programme" },
         ],
       },

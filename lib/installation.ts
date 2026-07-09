@@ -27,7 +27,9 @@ export function getInstallationWork(
 }
 
 export function getInstallationSlugs(locale: Locale): string[] {
-  return getDictionary(locale).installation.works.map((work) => work.slug);
+  return getDictionary(locale).installation.works
+    .filter((work) => work.description)
+    .map((work) => work.slug);
 }
 
 export function getAllInstallationParams() {

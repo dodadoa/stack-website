@@ -13,7 +13,12 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
   return (
     <div className="divide-y divide-pntrsw-deep/15">
       {programs.map((program) => (
-        <details key={program.slug} className="group py-8 first:pt-0">
+        <details
+          key={program.slug}
+          id={program.slug}
+          data-cursor-hint="custom"
+          className="group scroll-mt-28 py-8 first:pt-0"
+        >
           <summary className="cursor-pointer list-none [&::-webkit-details-marker]:hidden">
             <CursorHint hintClosed="Click to expand" hintOpen="Click to collapse">
               <div className="flex items-start justify-between gap-6">
@@ -49,7 +54,7 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
                   key={film.slug}
                   className="list-row border-t border-pntrsw-deep/10 first:border-t-0"
                 >
-                  <div className="group relative flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8">
+                  <div className="clickable-row group relative flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8">
                     <Link
                       href={localePath(locale, `screening/${program.slug}/${film.slug}`)}
                       className="absolute inset-0 z-0"

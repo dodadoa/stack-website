@@ -30,7 +30,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
-  const description = film.description.slice(0, 160);
+  const descriptionText = Array.isArray(film.description)
+    ? film.description.join(" ")
+    : film.description;
+  const description = descriptionText.slice(0, 160);
   const segment = `screening/${programSlug}/${filmSlug}`;
   const ogImage = film.image ?? film.images?.[0];
 
@@ -105,7 +108,11 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
         </header>
 
         <div className="type-body detail-text-width space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
-          <p>{film.description}</p>
+          {(Array.isArray(film.description) ? film.description : [film.description]).map(
+            (paragraph) => (
+              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            ),
+          )}
           {film.note ? (
             <p className="type-subheadline text-xs leading-relaxed text-pntrsw-body/55">
               {film.note}

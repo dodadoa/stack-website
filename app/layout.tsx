@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { AsciiCursor } from "@/components/AsciiCursor";
+import { ClickableCursorHint } from "@/components/ClickableCursorHint";
 import { EVENT_TITLE, SITE_NAME, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -58,6 +59,7 @@ export default function RootLayout({
     <html lang="en" className="min-h-dvh antialiased">
       <body className="gradient-page min-h-dvh bg-pntrsw-stone text-pntrsw-body">
         <AsciiCursor />
+        <ClickableCursorHint />
         {children}
       </body>
     </html>

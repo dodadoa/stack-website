@@ -1,5 +1,6 @@
 import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
+import { ScreeningHashSync } from "@/components/ScreeningHashSync";
 import { ScreeningProgramList } from "@/components/ScreeningProgramList";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, type Locale } from "@/lib/i18n";
@@ -43,6 +44,7 @@ export default async function ScreeningPage({ params }: PageProps) {
   return (
     <article>
       <PageShell full>
+        <ScreeningHashSync />
         <PatchPageHeader title={screening.title} intro={screening.intro} label="Program" />
         <ScreeningProgramList programs={screening.programs} locale={locale} />
       </PageShell>
