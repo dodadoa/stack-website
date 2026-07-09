@@ -173,6 +173,18 @@ export const en = {
   },
   installation: {
     title: "Installation",
+    artists: [
+      { name: "Anurak Tanyapalit" },
+      { name: "Chanida Voraphitak" },
+      { name: "Foreseen Agency" },
+      { name: "Long Tran" },
+      { name: "Sahapon Chootinan" },
+      { name: "Pasuth Sa-ingthong" },
+      { name: "Bee Waritsara" },
+      { name: "Rei Hayama" },
+      { name: "Nuttanai Supukdee" },
+      { name: "Saroot Supasuthivech" },
+    ],
     works: [
       {
         slug: "hello-world-home",
@@ -189,26 +201,6 @@ export const en = {
             "They have received Ars Electronica Honorary Mention, HKADC awards, Arts Council England support, and shown work at Asia Culture Centre (Gwangju), UAAD (NYC), Singapore Art Week (2026) and Diriyah Art Futures (Riyadh). They have co-authored papers in Leonardo (MIT Press), SIGGRAPH, ISEA, and others. Both are Assistant Professors at Hong Kong Baptist University's Academy of Visual Arts.",
           links: "@foreseen_agency @flyingpig.shan @kachi_chan",
         },
-      },
-      {
-        slug: "where-the-system-sees-nothing",
-        title: "Where the System Sees Nothing",
-        artists: "Bee Waritsara",
-      },
-      {
-        slug: "pasuth",
-        title: "Pasuth",
-        artists: "Pasuth",
-      },
-      {
-        slug: "sahapon",
-        title: "Sahapon",
-        artists: "Sahapon",
-      },
-      {
-        slug: "chanida",
-        title: "Chanida",
-        artists: "Chanida",
       },
     ],
   },
@@ -343,18 +335,39 @@ export const en = {
       {
         slug: "foreseen-agency",
         name: "Foreseen Agency (Shan Wong & Kachi Chan)",
+        image: "/assets/ARTISTS/Foreseen.jpg",
+        bio: [
+          "Foreseen Agency is an artist duo by Shan Wong and Kachi Chan. Their practice examines the intersecting capitalist, technological, and social systems through participatory research and speculative design, revealing the invisible logics of control, value generation, and techno-social infrastructures.",
+          "They have received Ars Electronica Honorary Mention, HKADC awards, Arts Council England support, and shown work at Asia Culture Centre (Gwangju), UAAD (NYC), Singapore Art Week (2026) and Diriyah Art Futures (Riyadh). They have co-authored papers in Leonardo (MIT Press), SIGGRAPH, ISEA, and others. Both are Assistant Professors at Hong Kong Baptist University's Academy of Visual Arts.",
+        ],
       },
       {
         slug: "pasuth",
-        name: "Pasuth",
+        name: "Pasuth Sa-ingthong",
       },
       {
         slug: "sahapon",
-        name: "Sahapon",
+        name: "Sahapon Chootinan",
       },
       {
         slug: "chanida",
-        name: "Chanida",
+        name: "Chanida Voraphitak",
+      },
+      {
+        slug: "long-tran",
+        name: "Long Tran",
+      },
+      {
+        slug: "rei-hayama",
+        name: "Rei Hayama",
+      },
+      {
+        slug: "nuttanai-supukdee",
+        name: "Nuttanai Supukdee",
+      },
+      {
+        slug: "saroot-supasuthivech",
+        name: "Saroot Supasuthivech",
       },
       {
         slug: "elekhlekha",
@@ -395,12 +408,16 @@ export const en = {
       {
         label: "Installation",
         slugs: [
-          "foreseen-agency",
           "anurak-tanyapalit",
-          "bee-waritsara",
-          "pasuth",
-          "sahapon",
           "chanida",
+          "foreseen-agency",
+          "long-tran",
+          "sahapon",
+          "pasuth",
+          "bee-waritsara",
+          "rei-hayama",
+          "nuttanai-supukdee",
+          "saroot-supasuthivech",
         ],
       },
       {

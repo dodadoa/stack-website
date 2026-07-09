@@ -44,6 +44,7 @@ export type Dictionary = {
   };
   installation: {
     title: string;
+    artists: readonly { name: string }[];
     works: readonly {
       slug: string;
       title: string;

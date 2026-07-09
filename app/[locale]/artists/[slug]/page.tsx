@@ -94,15 +94,15 @@ export default async function ArtistPage({ params }: PageProps) {
             ) : null}
           </header>
 
-          <div className="grid gap-10 md:grid-cols-[minmax(0,400px)_1fr] md:items-start">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,360px)_1fr] md:items-start">
             {artist.image ? (
-              <div className="relative aspect-[3/2] w-full max-w-[400px] overflow-hidden bg-pntrsw-black/5">
+              <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-pntrsw-black/5 md:max-w-[360px]">
                 <Image
                   src={artist.image}
                   alt={artist.name}
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 400px"
+                  className="object-contain object-top"
+                  sizes="(max-width: 768px) 100vw, 360px"
                   quality={92}
                   priority
                 />
