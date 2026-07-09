@@ -30,10 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
-  const descriptionText = Array.isArray(film.description)
-    ? film.description.join(" ")
-    : film.description;
-  const description = descriptionText.slice(0, 160);
+  const plainDescription =
+    typeof film.description === "string"
+      ? film.description
+      : film.description.join(" ");
+  const description = plainDescription.slice(0, 160);
   const segment = `screening/${programSlug}/${filmSlug}`;
   const ogImage = film.image ?? film.images?.[0];
 
