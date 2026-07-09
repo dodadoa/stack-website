@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { ArtistName } from "@/components/ArtistName";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { getArtist } from "@/lib/artists";
@@ -58,7 +59,7 @@ export default async function TalkPage({ params }: PageProps) {
 
   return (
     <article>
-      <PageShell>
+      <PageShell full>
         <Link
           href={localePath(locale, "talks")}
           className="type-subheadline label-caps mb-10 inline-block text-pntrsw-body/60 transition-opacity hover:opacity-70"
@@ -66,7 +67,7 @@ export default async function TalkPage({ params }: PageProps) {
           ← {talks.title}
         </Link>
 
-        <header className="mb-10 max-w-3xl border-b border-pntrsw-deep/20 pb-10">
+        <header className="mb-10 w-full max-w-4xl border-b border-pntrsw-deep/20 pb-10">
           <p className="type-subheadline label-caps mb-4 text-pntrsw-body/60">{talk.kind}</p>
           <h1 className="type-headline text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
             {talk.title}
@@ -87,11 +88,11 @@ export default async function TalkPage({ params }: PageProps) {
           </dl>
         </header>
 
-        <div className="type-body prose max-w-3xl text-base leading-[1.65] text-pntrsw-body/85">
+        <div className="type-body prose max-w-4xl text-base leading-[1.65] text-pntrsw-body/85">
           <p>{talk.description}</p>
         </div>
 
-        <section className="mt-12 max-w-3xl border-t border-pntrsw-deep/20 pt-10">
+        <section className="mt-12 max-w-4xl border-t border-pntrsw-deep/20 pt-10">
           <h2 className="type-subheadline label-caps mb-6 text-pntrsw-body/70">
             {talk.participantsLabel}
           </h2>
@@ -106,10 +107,12 @@ export default async function TalkPage({ params }: PageProps) {
                       href={localePath(locale, `artists/${participant.slug}`)}
                       className="type-headline text-lg text-pntrsw-body transition-opacity hover:opacity-70"
                     >
-                      {participant.name}
+                      <ArtistName name={participant.name} />
                     </Link>
                   ) : (
-                    <p className="type-headline text-lg text-pntrsw-body">{participant.name}</p>
+                    <p className="type-headline text-lg text-pntrsw-body">
+                      <ArtistName name={participant.name} />
+                    </p>
                   )}
                   <p className="type-body mt-2 text-sm leading-relaxed text-pntrsw-body/75">
                     {participant.bio}
@@ -120,7 +123,7 @@ export default async function TalkPage({ params }: PageProps) {
           </ul>
         </section>
 
-        <p className="type-body mt-10 max-w-3xl text-sm leading-relaxed text-pntrsw-body/60">
+        <p className="type-body mt-10 max-w-4xl text-sm leading-relaxed text-pntrsw-body/60">
           {talk.note}
         </p>
       </PageShell>

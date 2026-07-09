@@ -1,5 +1,5 @@
 import { PageShell } from "@/components/PageShell";
-import { getArtist } from "@/lib/artists";
+import { ArtistCredits } from "@/components/ArtistCredits";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { getAllScreeningFilmParams, getScreeningFilm, getScreeningProgram } from "@/lib/screening";
@@ -62,11 +62,10 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
   const gallery = film.images ?? (film.image ? [film.image] : []);
   const heroImage = gallery[0];
   const extraImages = gallery.slice(1);
-  const linkedArtist = film.artistSlug ? getArtist(locale, film.artistSlug) : undefined;
 
   return (
     <article>
-      <PageShell>
+      <PageShell full>
         <Link
           href={localePath(locale, "screening")}
           className="type-subheadline label-caps mb-10 inline-block text-pntrsw-body/60 transition-opacity hover:opacity-70"
@@ -87,30 +86,24 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
           </div>
         ) : null}
 
-        <header className="mb-10 max-w-3xl border-b border-pntrsw-deep/20 pb-10">
+        <header className="mb-10 w-full max-w-4xl border-b border-pntrsw-deep/20 pb-10">
           <p className="type-subheadline label-caps text-pntrsw-body/60">{program.code}</p>
           <h1 className="type-headline mt-3 text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
             {film.title}
           </h1>
           <p className="type-subheadline meta-line mt-4 text-pntrsw-body/70">{film.meta}</p>
-          <p className="type-body mt-4 text-base text-pntrsw-body/70">
-            {linkedArtist ? (
-              <Link
-                href={localePath(locale, `artists/${linkedArtist.slug}`)}
-                className="transition-opacity hover:opacity-70"
-              >
-                {film.artists}
-              </Link>
-            ) : (
-              film.artists
-            )}
-          </p>
+          <ArtistCredits
+            artists={film.artists}
+            artistSlug={film.artistSlug}
+            locale={locale}
+            className="type-body mt-4 text-base text-pntrsw-body/70"
+          />
           <p className="type-body type-body-plain mt-3 text-sm text-pntrsw-body/55">
             {program.title} · {program.date}
           </p>
         </header>
 
-        <div className="type-body max-w-3xl space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
+        <div className="type-body max-w-4xl space-y-5 text-base leading-[1.7] text-pntrsw-body/90">
           <p>{film.description}</p>
           {film.note ? (
             <p className="type-subheadline text-xs leading-relaxed text-pntrsw-body/55">

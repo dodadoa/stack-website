@@ -55,8 +55,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="gradient-page min-h-full bg-pntrsw-stone text-pntrsw-body">
+    <html lang="en" className="min-h-dvh antialiased">
+      <body className="gradient-page min-h-dvh bg-pntrsw-stone text-pntrsw-body">
         <AsciiCursor />
         {children}
       </body>

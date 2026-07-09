@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { ArtistName } from "@/components/ArtistName";
 import { getAllArtistParams, getArtist, getArtistGroups } from "@/lib/artists";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
@@ -67,7 +68,7 @@ export default async function ArtistPage({ params }: PageProps) {
 
   return (
     <article>
-      <PageShell>
+      <PageShell full>
         <Link
           href={localePath(locale, "artists")}
           className="type-subheadline label-caps mb-10 inline-block text-pntrsw-body/60 transition-opacity hover:opacity-70"
@@ -75,10 +76,10 @@ export default async function ArtistPage({ params }: PageProps) {
           ← {artists.title}
         </Link>
 
-        <div className="max-w-4xl">
-          <header className="mb-10 max-w-3xl border-b border-pntrsw-deep/20 pb-10">
-            <h1 className="type-headline whitespace-nowrap text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
-              {artist.name}
+        <div className="w-full">
+          <header className="mb-10 w-full border-b border-pntrsw-deep/20 pb-10">
+            <h1 className="type-headline max-w-full text-balance text-[clamp(2rem,5vw,3.5rem)] leading-[0.92] text-pntrsw-body">
+              <ArtistName name={artist.name} />
             </h1>
             {groups.length > 0 ? (
               <div className="mt-5 flex flex-wrap gap-2">
@@ -94,15 +95,15 @@ export default async function ArtistPage({ params }: PageProps) {
             ) : null}
           </header>
 
-          <div className="grid gap-10 md:grid-cols-[minmax(0,360px)_1fr] md:items-start">
+          <div className="grid gap-10 md:grid-cols-[minmax(0,400px)_minmax(0,1fr)] md:items-start md:gap-12 lg:gap-16">
             {artist.image ? (
-              <div className="relative aspect-[4/5] w-full max-w-[320px] overflow-hidden bg-pntrsw-black/5 md:max-w-[360px]">
+              <div className="relative aspect-[4/5] w-full max-w-[360px] overflow-hidden bg-pntrsw-black/5 md:max-w-none">
                 <Image
                   src={artist.image}
                   alt={artist.name}
                   fill
                   className="object-contain object-top"
-                  sizes="(max-width: 768px) 100vw, 360px"
+                  sizes="(max-width: 768px) 100vw, 400px"
                   quality={92}
                   priority
                 />
@@ -110,11 +111,13 @@ export default async function ArtistPage({ params }: PageProps) {
             ) : null}
 
             {artist.bio ? (
-              <div className="type-body max-w-3xl space-y-5 text-base leading-[1.7] text-pntrsw-body/90 md:mt-0">
+              <div className="type-body min-w-0 space-y-5 text-base leading-[1.7] text-pntrsw-body/90 md:mt-0">
                 {artist.bio.map((paragraph) => (
                   <p key={paragraph.slice(0, 32)}>{paragraph}</p>
                 ))}
               </div>
+            ) : !artist.image ? (
+              <p className="type-subheadline text-base text-pntrsw-body/60">(TBA)</p>
             ) : null}
           </div>
         </div>

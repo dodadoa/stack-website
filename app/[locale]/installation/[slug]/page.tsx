@@ -1,4 +1,5 @@
 import { PageShell } from "@/components/PageShell";
+import { ArtistCredits } from "@/components/ArtistCredits";
 import { getDictionary } from "@/lib/dictionaries";
 import { getAllInstallationParams, getInstallationWork } from "@/lib/installation";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
@@ -57,7 +58,7 @@ export default async function InstallationWorkPage({ params }: PageProps) {
 
   return (
     <article>
-      <PageShell>
+      <PageShell full>
         <Link
           href={localePath(locale, "installation")}
           className="type-subheadline label-caps mb-10 inline-block text-pntrsw-body/60 transition-opacity hover:opacity-70"
@@ -65,25 +66,32 @@ export default async function InstallationWorkPage({ params }: PageProps) {
           ← {installation.title}
         </Link>
 
-        <header className="mb-10 max-w-3xl border-b border-pntrsw-deep/20 pb-10">
+        <header className="mb-10 w-full max-w-4xl border-b border-pntrsw-deep/20 pb-10">
           <h1 className="type-headline text-[clamp(2rem,5vw,3.5rem)] leading-[0.88] text-pntrsw-body">
             {work.title}
             {work.year ? ` (${work.year})` : ""}
           </h1>
-          <p className="type-body mt-4 text-base text-pntrsw-body/70">{work.artists}</p>
+          <ArtistCredits
+            artists={work.artists}
+            artistSlug={work.artistSlug}
+            locale={locale}
+            showTba={false}
+            className="type-body mt-4 text-base text-pntrsw-body/70"
+          />
           {work.medium ? (
             <p className="type-subheadline label-caps mt-5 text-pntrsw-body/60">{work.medium}</p>
           ) : null}
         </header>
 
         {work.description ? (
-          <div className="type-body prose max-w-3xl text-base leading-[1.65] text-pntrsw-body/85">
+          <div className="type-body prose max-w-4xl space-y-4 text-base leading-[1.65] text-pntrsw-body/85">
             <p>{work.description}</p>
+            {work.note ? <p className="text-pntrsw-body/70">{work.note}</p> : null}
           </div>
         ) : null}
 
         {work.bio ? (
-          <div className="mt-12 max-w-3xl border-t border-pntrsw-deep/20 pt-10">
+          <div className="mt-12 max-w-4xl border-t border-pntrsw-deep/20 pt-10">
             <h2 className="type-subheadline label-caps mb-5 text-pntrsw-body/70">
               {work.bio.title}
             </h2>

@@ -1,5 +1,6 @@
 import { PatchPageHeader } from "@/components/PatchPageHeader";
 import { PageShell } from "@/components/PageShell";
+import { ArtistName } from "@/components/ArtistName";
 import { getArtistGroupsForPage, getArtistName } from "@/lib/artists";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
@@ -64,7 +65,7 @@ export default async function ArtistsPage({ params }: PageProps) {
                       href={localePath(locale, `artists/${slug}`)}
                       className="type-body type-body-plain block bg-pntrsw-stone px-4 py-4 text-[0.875rem] leading-snug text-pntrsw-body transition-colors hover:bg-pntrsw-lime"
                     >
-                      {getArtistName(locale, slug)}
+                      <ArtistName name={getArtistName(locale, slug)} />
                     </Link>
                   </li>
                 ))}

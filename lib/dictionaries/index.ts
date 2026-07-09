@@ -50,8 +50,13 @@ export type Dictionary = {
       title: string;
       year?: string;
       artists: string;
+      artistsTh?: string;
       medium?: string;
       description?: string;
+      descriptionTh?: readonly string[];
+      note?: string;
+      noteTh?: string;
+      artistSlug?: string;
       bio?: {
         title: string;
         text: string;

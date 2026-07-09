@@ -6,6 +6,19 @@ export type InstallationWork = ReturnType<
   typeof getDictionary
 >["installation"]["works"][number];
 
+export function getInstallationArtistName(artists: string): string {
+  return artists.trim();
+}
+
+export function artistHasPublishedWork(
+  artistName: string,
+  works: readonly InstallationWork[],
+): boolean {
+  return works.some(
+    (work) => work.description && getInstallationArtistName(work.artists) === artistName,
+  );
+}
+
 export function getInstallationWork(
   locale: Locale,
   slug: string,

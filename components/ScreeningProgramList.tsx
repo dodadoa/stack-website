@@ -1,4 +1,5 @@
 import { CursorHint } from "@/components/CursorHint";
+import { ArtistCredits } from "@/components/ArtistCredits";
 import { localePath, type Locale } from "@/lib/i18n";
 import type { ScreeningProgram } from "@/lib/screening";
 import Link from "next/link";
@@ -48,20 +49,27 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
                   key={film.slug}
                   className="list-row border-t border-pntrsw-deep/10 first:border-t-0"
                 >
-                  <Link
-                    href={localePath(locale, `screening/${program.slug}/${film.slug}`)}
-                    className="flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8"
-                  >
-                    <h3 className="type-headline w-full min-w-0 text-left text-base leading-snug tracking-[-0.03em] text-pntrsw-body sm:flex-1 sm:text-lg">
+                  <div className="group relative flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8">
+                    <Link
+                      href={localePath(locale, `screening/${program.slug}/${film.slug}`)}
+                      className="absolute inset-0 z-0"
+                      aria-label={`${film.title} — ${film.artists}`}
+                    />
+                    <h3 className="type-headline pointer-events-none relative z-10 w-full min-w-0 text-left text-base leading-snug tracking-[-0.03em] text-pntrsw-body sm:flex-1 sm:text-lg">
                       {film.title}
                     </h3>
-                    <div className="type-body w-full text-left sm:w-auto sm:shrink-0 sm:text-right">
-                      <p className="type-body-plain text-sm text-pntrsw-body">{film.artists}</p>
+                    <div className="type-body pointer-events-none relative z-10 w-full text-left sm:w-auto sm:shrink-0 sm:text-right">
+                      <ArtistCredits
+                        artists={film.artists}
+                        artistSlug={film.artistSlug}
+                        locale={locale}
+                        className="type-body-plain text-sm text-pntrsw-body"
+                      />
                       <p className="type-subheadline meta-line mt-2 text-xs text-pntrsw-body/70">
                         {film.meta}
                       </p>
                     </div>
-                  </Link>
+                  </div>
                 </li>
               ))}
             </ul>

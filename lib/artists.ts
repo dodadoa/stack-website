@@ -56,8 +56,154 @@ export function getArtist(locale: Locale, slug: string): Artist | undefined {
   return enrichArtistFromTalks(locale, person, slug);
 }
 
+export function hasArtistDetail(locale: Locale, slug: string): boolean {
+  const artist = getArtist(locale, slug);
+
+  if (!artist) {
+    return false;
+  }
+
+  return Boolean(artist.bio?.length || artist.image);
+}
+
+function getArtistPrimaryName(name: string): string {
+  return name.split(" / ")[0]?.split(" (")[0]?.trim() ?? name.trim();
+}
+
 export function getArtistName(locale: Locale, slug: string): string {
   return getArtist(locale, slug)?.name ?? slug;
+}
+
+function findPeopleByCredit(locale: Locale, credit: string) {
+  const primary = getArtistPrimaryName(credit);
+
+  return getDictionary(locale).artists.people.filter((person) => {
+    const base = getArtistPrimaryName(person.name);
+
+    return person.name === credit.trim() || base === primary || person.name.startsWith(primary);
+  });
+}
+
+function pickArtistSlug(locale: Locale, matches: ArtistPerson[]): string | undefined {
+  if (matches.length === 0) {
+    return undefined;
+  }
+
+  const withDetail = matches.find((person) => hasArtistDetail(locale, person.slug));
+
+  return withDetail?.slug ?? matches[0]?.slug;
+}
+
+export function resolveArtistSlugFromCredit(locale: Locale, credit: string): string | undefined {
+  return pickArtistSlug(locale, findPeopleByCredit(locale, credit));
+}
+
+export type ArtistCreditSegment = {
+  text: string;
+  slug?: string;
+  hasDetail?: boolean;
+};
+
+export function parseArtistCreditSegments(
+  locale: Locale,
+  artists: string,
+  explicitSlug?: string,
+): ArtistCreditSegment[] {
+  if (explicitSlug && getArtist(locale, explicitSlug)) {
+    return [
+      {
+        text: artists,
+        slug: explicitSlug,
+        hasDetail: hasArtistDetail(locale, explicitSlug),
+      },
+    ];
+  }
+
+  const resolvedSlug = resolveArtistSlugFromCredit(locale, artists);
+  if (resolvedSlug) {
+    return [
+      {
+        text: artists,
+        slug: resolvedSlug,
+        hasDetail: hasArtistDetail(locale, resolvedSlug),
+      },
+    ];
+  }
+
+  type Match = { start: number; end: number; slug: string; text: string };
+  const matches: Match[] = [];
+
+  const needleMap = new Map<string, { slug: string; name: string }>();
+
+  for (const person of getDictionary(locale).artists.people) {
+    const base = getArtistPrimaryName(person.name);
+    const needles = base === person.name ? [person.name] : [person.name, base];
+
+    for (const name of [...new Set(needles)]) {
+      const existing = needleMap.get(name);
+
+      if (
+        !existing ||
+        (hasArtistDetail(locale, person.slug) && !hasArtistDetail(locale, existing.slug))
+      ) {
+        needleMap.set(name, { slug: person.slug, name });
+      }
+    }
+  }
+
+  for (const { slug, name } of needleMap.values()) {
+    let from = 0;
+
+    while (from < artists.length) {
+      const index = artists.indexOf(name, from);
+      if (index === -1) {
+        break;
+      }
+
+      matches.push({ start: index, end: index + name.length, slug, text: name });
+      from = index + name.length;
+    }
+  }
+
+  if (matches.length === 0) {
+    return [{ text: artists }];
+  }
+
+  matches.sort(
+    (a, b) => a.start - b.start || b.text.length - a.text.length || a.end - b.end,
+  );
+
+  const filtered: Match[] = [];
+  let cursor = -1;
+
+  for (const match of matches) {
+    if (match.start >= cursor) {
+      filtered.push(match);
+      cursor = match.end;
+    }
+  }
+
+  const segments: ArtistCreditSegment[] = [];
+  let position = 0;
+
+  for (const match of filtered) {
+    if (match.start > position) {
+      segments.push({ text: artists.slice(position, match.start) });
+    }
+
+    segments.push({
+      text: match.text,
+      slug: match.slug,
+      hasDetail: hasArtistDetail(locale, match.slug),
+    });
+    position = match.end;
+  }
+
+  if (position < artists.length) {
+    segments.push({ text: artists.slice(position) });
+  }
+
+  return segments.length > 0 ? segments : [{ text: artists }];
 }
 
 export function getArtistSlugs(locale: Locale): string[] {
