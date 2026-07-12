@@ -42,11 +42,25 @@ export default async function HomePage({ params }: PageProps) {
               </div>
             ))}
           </div>
+
+          {dict.home.locationsTh ? (
+            <div className="thai-text text-center">
+              <p className="type-subheadline meta-line text-pntrsw-body">
+                {dict.home.locationsTh.dates}
+              </p>
+              <p className="type-body mt-2 text-base leading-snug text-pntrsw-body/80">
+                {dict.home.locationsTh.venues}
+              </p>
+            </div>
+          ) : null}
         </div>
       </GradientField>
 
       <PageShell wide>
-        <CuratorialText paragraphs={dict.home.curatorial} />
+        <CuratorialText
+          paragraphs={dict.home.curatorial}
+          paragraphsTh={dict.home.curatorialTh}
+        />
       </PageShell>
     </article>
   );

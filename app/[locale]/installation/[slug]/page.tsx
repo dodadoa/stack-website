@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { ArtistCredits } from "@/components/ArtistCredits";
+import { WorkDescription } from "@/components/WorkDescription";
 import { getDictionary } from "@/lib/dictionaries";
 import { getAllInstallationParams, getInstallationWork } from "@/lib/installation";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
@@ -73,6 +74,7 @@ export default async function InstallationWorkPage({ params }: PageProps) {
           </h1>
           <ArtistCredits
             artists={work.artists}
+            artistsTh={work.artistsTh}
             artistSlug={work.artistSlug}
             locale={locale}
             showTba={false}
@@ -83,14 +85,12 @@ export default async function InstallationWorkPage({ params }: PageProps) {
           ) : null}
         </header>
 
-        {work.description ? (
-          <div className="type-body prose detail-text-width space-y-4 text-base leading-[1.65] text-pntrsw-body/85">
-            {work.description.split("\n\n").map((paragraph) => (
-              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
-            ))}
-            {work.note ? <p className="text-pntrsw-body/70">{work.note}</p> : null}
-          </div>
-        ) : null}
+        <WorkDescription
+          description={work.description}
+          descriptionTh={work.descriptionTh}
+          note={work.note}
+          noteTh={work.noteTh}
+        />
 
         {work.bio ? (
           <div className="detail-text-width mt-12 border-t border-pntrsw-deep/20 pt-10">

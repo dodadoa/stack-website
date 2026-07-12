@@ -114,6 +114,13 @@ html {
   will-change: transform;
 }
 
+.thai-text {
+  font-family: var(--font-thai);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
 [data-locale="th"] {
   font-family: var(--font-thai);
   font-weight: 700;

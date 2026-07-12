@@ -1,3 +1,5 @@
+import { screeningPrograms } from "./screening-programs";
+
 export const en = {
   meta: {
     title: "PATCH NOTES THAT REFUSE A SETTLED WORLD",
@@ -27,6 +29,10 @@ export const en = {
       { date: "4 July 2026", venue: "TCDC Bangkok" },
       { date: "11–12 July 2026", venue: "Goethe-Institut Thailand" },
     ],
+    locationsTh: {
+      dates: "4, 11–12 กรกฎาคม 2026",
+      venues: "TCDC กรุงเทพฯ / สถาบันเกอเธ่ ประเทศไทย",
+    },
     curatorial: [
       "Worlds do not arrive all at once.",
       "They are assembled through stories, infrastructures, migrations, rituals, technologies, accidents, and repairs. They overlap, diverge, and coexist. They are shaped as much by care as by design, as much by inheritance as by invention.",
@@ -36,145 +42,26 @@ export const en = {
       "A settled world leaves little room for other stories. Its meanings appear fixed, its future already decided. To refuse a settled world is to remain attentive to worlds that exceed dominant narratives—to ways of living, relating, and imagining otherwise.",
       "Across exhibitions, screenings, performances, and talks, the programme brings together artists from Thailand, Southeast Asia, and beyond, working across moving image, media art, games, digital culture, ecology, and emerging technologies. Drawing from local histories, cosmologies, myths, vernacular knowledge, and lived experiences, their works trace worlds that persist alongside dominant narratives of progress, development, and technological futures.",
     ],
+    curatorialTh: [
+      "โลกไม่ได้อุบัติขึ้นอย่างสมบูรณ์ในคราวเดียว",
+      "หากค่อย ๆ ถูกประกอบสร้างผ่านเรื่องเล่า ความทรงจำ การโยกย้ายถิ่นฐาน พิธีกรรม เทคโนโลยี โครงสร้างการดำรงชีวิต ตลอดจนอุบัติการณ์และการฟื้นฟู โลกเหล่านั้นทับซ้อน แตกแขนง และดำรงอยู่ร่วมกัน พวกมันถูกหล่อหลอมจากการดูแลรักษาไม่ต่างจากการถูกออกแบบ และจากสิ่งที่สืบทอดส่งต่อไม่ต่างจากการประดิษฐ์สร้างใหม่",
+      "ในขณะที่บางโลกแสวงหาความมั่นคง ทว่ายังมีโลกอีกหลายใบที่เลือกจะเผชิญความไม่เสร็จสมบูรณ์",
+      "Patch Notes That Refuse a Settled World สนใจในโลกแบบหลัง แทนที่จะมองอนาคตเป็นเพียงเส้นขอบฟ้าเดี่ยวที่ทุกสิ่งมุ่งหน้าไป นิทรรศการนี้หันมาโอบรับความหลากหลายของโลกที่ถูกถักทอขึ้นจากประวัติศาสตร์ จักรวาลวิทยา นิเวศวิทยา ความเชื่อ และวิถีแห่งการรับรู้ที่แตกต่างกัน",
+      "คำว่า “patch notes” หยิบยืมมาจากวัฒนธรรมซอฟต์แวร์และวิดีโอเกม เพื่อบันทึกร่องรอยการเปลี่ยนแปลงในยามที่ระบบค่อย ๆ วิวัฒน์ไป ในบริบทของนิทรรศการ คำนี้จึงเป็นภาพเปรียบเปรยของโลกที่ค้ำจุนไว้ด้วยการเยียวยา การซ่อมแซม การอยู่ร่วมกัน และการแปรเปลี่ยนอยู่ตลอดเวลา แทนที่จะเป็นเพียงการเดินหน้าไปสู่อนาคตที่เป็นคำตอบสุดท้าย",
+      "โลกที่ถูกทำให้ “settled” คือโลกที่เหลือพื้นที่เพียงน้อยนิดให้แก่เรื่องเล่าอื่น เมื่อความหมายถูกแช่แข็ง และอนาคตถูกขีดเส้นไว้เสร็จสรรพ การปฏิเสธโลกที่ settled คือการหันมาใส่ใจโลกใบอื่น ๆ ที่ยังคงยืนหยัดอยู่นอกเหนือเรื่องเล่ากระแสหลัก โลกที่ยังเปิดกว้างต่อความสัมพันธ์ ความเป็นไปได้ และวิธีการดำรงอยู่ในรูปแบบที่แตกต่างออกไป",
+      "นิทรรศการนี้นำเสนอผลงานของศิลปินจากประเทศไทย เอเชียตะวันออกเฉียงใต้ และภูมิภาคอื่นๆ ที่ทำงานข้ามสื่อระหว่างภาพเคลื่อนไหว มีเดียอาร์ต เกม วัฒนธรรมดิจิทัล นิเวศวิทยา และเทคโนโลยีใหม่ โดยหยิบยืมประวัติศาสตร์ท้องถิ่น จักรวาลวิทยา ตำนาน ความรู้พื้นถิ่น และประสบการณ์ชีวิตมาเป็นวัสดุในการจินตนาการโลก ผลงานเหล่านี้เผยให้เห็นโลกที่ดำรงอยู่เคียงข้างเรื่องเล่าหลักว่าด้วยความก้าวหน้า การพัฒนา และอนาคตทางเทคโนโลยี พร้อมชี้ให้เห็นความเป็นไปได้อื่นๆ ในการดำรงอยู่ร่วมกัน",
+    ],
   },
   screening: {
     title: "Screening",
     intro:
       "A two-part screening programme at Goethe Saal, 11–12 July 2026, tracing worlds that persist alongside dominant narratives of progress and technological futures.",
-    programs: [
-      {
-        slug: "countermapping",
-        code: "Stack V_Circuits#3",
-        title: "Countermapping: Territory, Memory, Technology",
-        date: "11 July 2026",
-        time: "16:00–17:10",
-        venue: "Goethe Saal",
-        intro:
-          "How are places, histories, and technologies mapped differently? These films redraw dominant coordinates through vernacular knowledge, myth, political memory, and speculative imagination, proposing other ways of inhabiting contested territories.",
-        films: [
-          {
-            slug: "dzata",
-            title: "Dzata: The Institute of Technological Consciousness",
-            meta: "South Africa, 2023, 9 min",
-            artists:
-              "Lo-Def Film Factory (Amy Louise Wilson, Francois Knoetze) and Russel Hlongwane",
-            description:
-              "Through a fictional institute and its archive, Dzata reimagines vernacular technological practices from across the African continent. Blending speculative storytelling with game-engine and AI-generated landscapes, the work challenges dominant histories of technology and proposes alternative futures grounded in African knowledge systems.",
-            image:
-              "/assets/SCREENINGS/Countermapping/Dzata (production still 7) 2022 - ongoing. Courtesy of Knoetze, Hlongwane and Wilson.jpg",
-          },
-          {
-            slug: "primate-visions-macaque-macabre",
-            title: "Primate Visions: Macaque Macabre",
-            meta: "Indonesia, 2024, 33 min",
-            artists: "Natasha Tontey",
-            description:
-              "Drawing on the myths of the Minahasa people in Indonesia, Primate Visions: Macaque Macabre explores relationships between humans and endangered macaques through speculative fiction, ritual, and ethnographic research. The film reflects on environmental change, memory, and indigenous cosmologies through a hyper-stylised visual language.",
-            image: "/assets/SCREENINGS/Countermapping/Primate Visions-Macaque Macabre.jpg",
-            note: "This work was made possible with the support of Audemars Piguet Contemporary.",
-          },
-          {
-            slug: "cartography-in-the-metaverse",
-            title: "Cartography in the Metaverse",
-            meta: "Vietnam, 2025, 3 min",
-            artists: "Giang Nguyen Hoan",
-            description:
-              "The work translates insights from research interviews into speculative maps and cartographic artifacts, tracing connections between ancient mythologies and contemporary spatial systems. It frames the metaverse as both an extension of human spatial occupation and a parallel world suspended between utopian and dystopian visions. Moving beyond conventional geography, the project suggests that the metaverse enters psychological and metaphysical realms, where inner states, collective consciousness, and speculative realities become new landscapes to be mapped and interpreted.",
-            image: "/assets/SCREENINGS/Countermapping/Cartography in the Metaverse.jpg",
-          },
-          {
-            slug: "why-isnt-it-a-straight-line",
-            title: "Why isn't it a straight line?",
-            meta: "Thailand, 2024, 5 min",
-            artists: "Bee Waritsara",
-            description:
-              "Inspired by Buddhist philosophy, Why Isn't It a Straight Line? unfolds through looping temporal structures and the metaphor of centrifugal force. Structured around the Noble Eightfold Path, the work reflects on impermanence, cyclical time, and the continuous process of becoming.",
-            image: "/assets/SCREENINGS/Countermapping/Why isn't it a straight line.png",
-          },
-          {
-            slug: "a-mechanism-that-repeats-death",
-            title: "A Mechanism That Repeats Death",
-            meta: "Thailand, 2026, 14 min",
-            artists: "Fais Hadsaram",
-            description:
-              "Drawing from lived experience in Thailand's Deep South, A Mechanism That Repeats Death examines how surveillance and state violence transform human lives into data and evidence. Blending fiction with lived reality, the work questions how identity, memory, and life itself are shaped under regimes of security and control.",
-            image: "/assets/SCREENINGS/Countermapping/A Mechanism That Repeats Death.jpg",
-          },
-        ],
-      },
-      {
-        slug: "ecologies-of-becoming",
-        code: "Stack V_Circuits#4",
-        title: "Ecologies of Becoming",
-        date: "12 July 2026",
-        time: "15:00–16:00",
-        venue: "Goethe Saal",
-        intro:
-          "Nothing exists in isolation. Across speculative fiction, artificial life, simulation, and virtual ecologies, these works explore how humans, machines, organisms, and environments continually shape one another through processes of becoming.",
-        films: [
-          {
-            slug: "a-trip-to-the-moon-tardigrade",
-            title: "A Trip to the Moon (Tardigrade)",
-            meta: "Thailand, 2025, 14 min",
-            artists: "Anurak Tanyapalit",
-            description:
-              "Blending science fiction with microscopic imagination, A Trip to the Moon (Tardigrade) follows the extraordinary journey of a tardigrade beyond Earth. The work reflects on survival, adaptation, and the fragile relationship between life and planetary environments through speculative storytelling.",
-          },
-          {
-            slug: "emulator",
-            title: "Emulator",
-            meta: "Singapore, 2024, 12 min",
-            artists: "Brandon Tay",
-            artistSlug: "brandon-tay",
-            description:
-              "Emulator imagines an alternative technological history in which biological processes replace silicon as the foundation of computation. Combining speculative fiction with machinic animism, the work explores hybrid forms of life, intelligence, and technology.",
-            image: "/assets/SCREENINGS/Ecologies of Becoming/emulator2.jpg",
-          },
-          {
-            slug: "alternative-computations",
-            title: "Alternative Computations",
-            meta: "Japan, 2026, 2 min",
-            artists: "Ryuta Aoki",
-            artistSlug: "ryuta-aoki",
-            description: [
-              "The universe computes. Life is computation. Mathematics is the language for this understanding. Change the language, the universe changes — the way of seeing changes. Sometimes, those in power choose which way of seeing prevails. What falls outside that choice is named error — and vanishes.",
-              "Japan once possessed a distinctive mathematics — wasan. Calculation practised as beauty, play, and offering to shrines: festive knowledge comparable to haiku and the tea ceremony. In the late nineteenth century, the Meiji government introduced Western mathematics in pursuit of national strength. Wasan was expelled. The cosmos its culture alone could see was closed. At the destination Western mathematics has since reached stands quantum computing. But its development is governed by utility and optimisation. Quantum noise is expelled as error. Yet quantum noise interferes, entangles, carries the past. There is another cosmos. This work recaptures it through the play and festivity of wasan.",
-              "The Alternative Computations series sculpts the cosmologies of lost vernacular mathematics. Built from quantum noise — discarded by mainstream quantum computing — this automated instrument takes sky, earth, and human as its three-layer structure. Twenty-eight sangi (counting rods) orbit overhead as the Twenty-Eight Lunar Mansions. A tatami floor defines the sacred threshold. More than four thousand reeds fill the space.",
-              "In a corner of Tokyo's concrete forest, in dry reed fragrance, the dancer's movements and tea master's gestures, audience presence, and meteorological data are thrown into a quantum computer embedded in the ceiling's sangi mechanism. High-dimensional dynamics set the sangi's orbits and descend as rain sound. Mechanical creaking holds the weight of matter, anchoring experience between dream and waking. Thunder, wind, insects, cranes and frogs — a 28-minute sound collage. Each cycle ends a universe; another begins.",
-            ],
-            image:
-              "/assets/SCREENINGS/Ecologies of Becoming/Alternative Computations — Worlds Otherwise Calculated.jpg",
-          },
-          {
-            slug: "symbiosyn",
-            title: "Symbiosyn",
-            meta: "Thailand, 2026, 9 min",
-            artists: "Nattawin Musigul",
-            description:
-              "Synthetic lifeforms created by humans to save the planet gradually learn, adapt, and evolve alongside a changing environment. As human civilization collapses, they emerge as a new species that inherits the Earth, questioning humanity's place in a world where life is no longer defined by its creators.",
-            image: "/assets/SCREENINGS/Ecologies of Becoming/Symbiosyn.png",
-          },
-          {
-            slug: "elysium-without-shores",
-            title: "Elysium Without Shores",
-            meta: "Vietnam, 2024, 10 min",
-            artists: "Arlette Quynh-Anh Tran",
-            description:
-              "Set within a speculative virtual landscape, Elysium Without Shores reflects on memory, migration, and digital afterlives. Blending game environments with poetic narration, the work imagines fragile spaces where identity and belonging remain in constant transformation.",
-            image: "/assets/SCREENINGS/Ecologies of Becoming/Elysium Without Shores.jpg",
-          },
-          {
-            slug: "rola-rolls",
-            title: "Rola Rolls",
-            meta: "South Korea, 2024, 10 min",
-            artists: "업체eobchae",
-            description:
-              "Set in a post-petroleum future, Rola Rolls imagines humans evolving into a hybrid species in order to survive ecological collapse. Combining AI-generated imagery, body horror, and speculative fiction, the work questions humanity's relationship with technology, energy, and adaptation.",
-            image: "/assets/SCREENINGS/Ecologies of Becoming/ROLA ROLLS.webp",
-          },
-        ],
-      },
-    ],
+    metaTh: {
+      date: "วันที่",
+      time: "เวลา",
+      venue: "สถานที่",
+    },
+    programs: screeningPrograms,
   },
   installation: {
     title: "Installation",
@@ -328,6 +215,11 @@ export const en = {
       time: "Time",
       venue: "Venue",
     },
+    metaTh: {
+      date: "วันที่",
+      time: "เวลา",
+      venue: "สถานที่",
+    },
     items: [
       {
         slug: "grammars-of-worldmaking",
@@ -344,19 +236,33 @@ export const en = {
             slug: "podcharakrit-to-im",
             name: "Podcharakrit To-im",
             bio: "Author of At-sa-jaan: Writings on the Grammar of Being, Siamese Political Philosophy, and Tropical Ontology",
+            nameTh: "พชรกฤษณ์ โตอิ้ม",
+            bioTh:
+              "ผู้เขียน บทอัศจรรย์: ข้อเขียนว่าด้วยไวยากรณ์แห่งการดำรงอยู่, ปรัชญาการเมืองสยาม และ ภววิทยาป่าฝน",
           },
           {
             slug: "chanida-voraphitak",
             name: "Chanida Voraphitak",
             bio: "Artist whose practice explores worldbuilding through digital media and games",
+            nameTh: "ชนิดา วรพิทักษ์",
+            bioTh: "ศิลปินผู้สำรวจการสร้างโลก (worldbuilding) ผ่านดิจิทัลอาร์ตและเกม",
           },
           {
             slug: "alisa-limpaiboon",
             name: "Alisa Limpaiboon",
             bio: "Translator of The Dispossessed by Ursula K. Le Guin",
+            nameTh: "อลิษา ลิ้มไพบูลย์",
+            bioTh: "ผู้แปล ดาวไร้ครอบครอง ผลงานของ เออร์ซูลา เค. เลอ กวิน",
           },
         ],
         note: "Please note: This conversation will be held in Thai with auto-generated English subtitles.",
+        dateTh: "11 กรกฎาคม 2026",
+        timeTh: "18:00–19:30 น.",
+        venueTh: "Liquid Metal",
+        descriptionTh:
+          "วงสนทนาชวนสำรวจไวยากรณ์ของการสร้างโลก ผ่านเรื่องแต่ง เทคโนโลยี โครงสร้างพื้นฐาน ประวัติศาสตร์ท้องถิ่น จักรวาลวิทยา ตำนาน และประสบการณ์ที่มีชีวิต เพื่อเปิดพื้นที่ให้กับโลกอื่น ความเป็นไปได้ทางการเมือง และรูปแบบการดำรงอยู่ที่อยู่นอกเหนือเรื่องเล่าที่ถูกทำให้เป็นความจริงเพียงชุดเดียว",
+        participantsLabelTh: "ร่วมสนทนา",
+        noteTh: "หมายเหตุ: วงสนทนาดำเนินเป็นภาษาไทย พร้อมคำบรรยายภาษาอังกฤษผ่านระบบอัตโนมัติ",
       },
       {
         slug: "patching-with-an-alternative-system",
@@ -372,15 +278,28 @@ export const en = {
           {
             slug: "ryuta-aoki",
             name: "Ryuta Aoki",
-            bio: "Ryuta Aoki is a Tokyo-based Japanese artist and artistic director. Through large-scale installations and the collectives he gathers, he intervenes in the invisible structures that shape society and opens spaces where another world can take hold. His work Alternative Computations recaptures Japan's lost wasan mathematics through quantum noise discarded by mainstream quantum computing.",
+            bio: "Tokyo-based artist working across art, science, and technology. His piece Alternative Computations uses a quantum computer to revive wasan, an indigenous Japanese mathematics abandoned for western calculation.",
+            nameTh: "Ryuta Aoki",
+            bioTh:
+              "ศิลปินจากโตเกียว ทำงานคาบเกี่ยวระหว่างศิลปะ วิทยาศาสตร์ และเทคโนโลยี ผลงาน Alternative Computations ของเขาใช้คอมพิวเตอร์ควอนตัมในการรื้อฟื้น Wasan คณิตศาสตร์พื้นถิ่นของญี่ปุ่นที่ถูกทอดทิ้งเพื่อหันไปใช้การคำนวณแบบตะวันตก",
           },
           {
             slug: "elekhlekha",
-            name: "elekhlekha อีเหละเขละขละ (Nitcha Tothong & Kengchakaj Kengkarnka)",
-            bio: "elekhlekha อีเหละเขละขละ is a collaborative research-based group consisting of Bangkok-born, Brooklyn-based artists, Kengchakaj Kengkarnka–เก่งฉกาจ and Nitcha Tothong (fame)–ณิชชา(เฟม). They examine, decode, explore, and define decolonized possibilities by creating with code, algorithm, multimedia, and technology.",
+            name: "elekhlekha อิเหละเขละขละ (Nitcha Fame Tothong & Kengchakaj)",
+            bio: "A Thai diaspora, Brooklyn-based collaborative artist practice rooted in research that decodes contested histories and memories of Southeast Asia. Their body of work explores the region's political complexities, grounding algorithmic experimentation in ancestral knowledge and aural/oral history through live coding, participatory performance, audiovisual installation, communal digital archives, and Western instruments altered to echo Southeast Asian sounds.",
+            nameTh: "elekhlekha อิเหละเขละขละ (Nitcha Tothong และ Kengchakaj)",
+            bioTh:
+              "คือกลุ่มศิลปินไทยพลัดถิ่น ที่ปัจจุบันพำนักอยู่ที่บรู๊คลิน นิวยอร์ค ประกอบด้วย เก่งฉกาจ และ ณิชชา โตทอง มีรากฐานการทำงานผ่านการค้นคว้าวิจัยเพื่อคลี่คลายประวัติศาสตร์และความทรงจำอันเป็นข้อพิพาทของภูมิภาคเอเชียตะวันออกเฉียงใต้ ผลงานของพวกเขาสำรวจความซับซ้อนทางการเมืองของภูมิภาคนี้ผ่านการทดลองด้านอัลกอริทึมที่นำองค์ความรู้และข้อมูลมาจากภูมิปัญญาบรรพบุรุษและประวัติศาสตร์บอกเล่า/มุขปาฐะ ผ่าน Live-coding การแสดงแบบมีส่วนร่วม งานอินสตอลเลชันภาพและเสียง คลังบันทึกดิจิทัลชุมชน และเครื่องดนตรีตะวันตกที่ถูกดัดแปลงให้สะท้อนเสียงของเอเชียตะวันออกเฉียงใต้",
           },
         ],
         note: "Please note: This programme will be held in English.",
+        dateTh: "12 กรกฎาคม 2026",
+        timeTh: "16:30–18:30",
+        venueTh: "หอประชุมเกอเธ่",
+        descriptionTh:
+          "การสนทนาระหว่างศิลปินสองคนที่ทำงานข้ามการคำนวณ เสียง และการวิจัยเชิงศิลปะ จะชวนพิจารณาว่าวิธีคิดและองค์ความรู้ที่แตกต่าง ตั้งแต่คณิตศาสตร์พื้นถิ่นไปจนถึงจารีตทางดนตรี สามารถเปิดจินตนาการทางเทคโนโลยีในรูปแบบอื่น นอกเหนือไปจากเรื่องเล่ากระแสหลักว่าด้วยนวัตกรรมและความก้าวหน้าได้อย่างไร",
+        participantsLabelTh: "ศิลปินร่วมสนทนา",
+        noteTh: "หมายเหตุ: วงสนทนาดำเนินเป็นภาษาอังกฤษ",
       },
     ],
   },

@@ -16,11 +16,17 @@ export type Dictionary = {
   home: {
     subtitle: string;
     locations: readonly { date: string; venue: string }[];
+    locationsTh?: {
+      dates: string;
+      venues: string;
+    };
     curatorial: readonly string[];
+    curatorialTh?: readonly string[];
   };
   screening: {
     title: string;
     intro: string;
+    metaTh?: { date: string; time: string; venue: string };
     programs: readonly {
       slug: string;
       code: string;
@@ -29,6 +35,10 @@ export type Dictionary = {
       time: string;
       venue: string;
       intro: string;
+      dateTh?: string;
+      timeTh?: string;
+      venueTh?: string;
+      introTh?: string;
       films: readonly {
         slug: string;
         title: string;
@@ -39,6 +49,10 @@ export type Dictionary = {
         images?: readonly string[];
         artistSlug?: string;
         note?: string;
+        metaTh?: string;
+        artistsTh?: string;
+        descriptionTh?: string | readonly string[];
+        noteTh?: string;
       }[];
     }[];
   };
@@ -78,9 +92,23 @@ export type Dictionary = {
       venue: string;
       description: string;
       participantsLabel: string;
-      participants: readonly { slug: string; name: string; bio: string }[];
+      participants: readonly {
+        slug: string;
+        name: string;
+        bio: string;
+        nameTh?: string;
+        bioTh?: string;
+      }[];
       note: string;
+      kindTh?: string;
+      dateTh?: string;
+      timeTh?: string;
+      venueTh?: string;
+      descriptionTh?: string;
+      participantsLabelTh?: string;
+      noteTh?: string;
     }[];
+    metaTh?: { date: string; time: string; venue: string };
   };
   artists: {
     title: string;

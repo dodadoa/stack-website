@@ -46,7 +46,11 @@ export default async function ScreeningPage({ params }: PageProps) {
       <PageShell full>
         <ScreeningHashSync />
         <PatchPageHeader title={screening.title} intro={screening.intro} label="Program" />
-        <ScreeningProgramList programs={screening.programs} locale={locale} />
+        <ScreeningProgramList
+          programs={screening.programs}
+          locale={locale}
+          metaTh={screening.metaTh}
+        />
       </PageShell>
     </article>
   );

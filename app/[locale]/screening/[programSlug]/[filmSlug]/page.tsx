@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { ArtistCredits } from "@/components/ArtistCredits";
+import { FilmThaiContent } from "@/components/FilmThaiContent";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { getAllScreeningFilmParams, getScreeningFilm, getScreeningProgram } from "@/lib/screening";
@@ -120,6 +121,8 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
             </p>
           ) : null}
         </div>
+
+        <FilmThaiContent film={film} locale={locale} />
 
         {extraImages.length > 0 ? (
           <div className="mt-12 grid max-w-4xl gap-4 sm:grid-cols-2">

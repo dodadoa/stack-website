@@ -1,5 +1,6 @@
 import { PageShell } from "@/components/PageShell";
 import { ArtistName } from "@/components/ArtistName";
+import { TalkThaiContent } from "@/components/TalkThaiContent";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, localePath, type Locale } from "@/lib/i18n";
 import { getArtist } from "@/lib/artists";
@@ -126,6 +127,10 @@ export default async function TalkPage({ params }: PageProps) {
         <p className="type-body detail-text-width mt-10 text-sm leading-relaxed text-pntrsw-body/60">
           {talk.note}
         </p>
+
+        {talks.metaTh ? (
+          <TalkThaiContent talk={talk} meta={talks.metaTh} locale={locale} />
+        ) : null}
       </PageShell>
     </article>
   );

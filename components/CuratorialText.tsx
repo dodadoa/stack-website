@@ -4,6 +4,7 @@ import { TypoWord } from "./TypoWord";
 
 type CuratorialTextProps = {
   paragraphs: readonly string[];
+  paragraphsTh?: readonly string[];
 };
 
 type Segment = string | { wrong: string; correct: string; delay: number };
@@ -91,11 +92,13 @@ function renderSegments(segs: Segment[]) {
   );
 }
 
-export function CuratorialText({ paragraphs }: CuratorialTextProps) {
+export function CuratorialText({ paragraphs, paragraphsTh }: CuratorialTextProps) {
   const [lead, ...body] = paragraphs;
-  const leadSeg = enSegments[0];
+  const [leadTh, ...bodyTh] = paragraphsTh ?? [];
   const leadClass = "type-headline text-[clamp(1.5rem,3.5vw,2rem)] leading-[1.15] text-pntrsw-body";
   const bodyClass = "type-body text-[1.05rem] leading-[1.7] text-pntrsw-body/90";
+  const thLeadClass = "type-headline thai-text text-[clamp(1.5rem,3.5vw,2rem)] leading-[1.35] text-pntrsw-body";
+  const thBodyClass = "type-body thai-text text-[1.05rem] leading-[1.85] text-pntrsw-body/90";
 
   return (
     <section className="max-w-5xl">
@@ -105,7 +108,7 @@ export function CuratorialText({ paragraphs }: CuratorialTextProps) {
 
       {/* Lead paragraph — full width */}
       <p className={`mb-10 ${leadClass}`}>
-        {leadSeg ? renderSegments(leadSeg) : lead}
+        {enSegments[0] ? renderSegments(enSegments[0]) : lead}
       </p>
 
       {/* Body — two columns */}
@@ -119,6 +122,20 @@ export function CuratorialText({ paragraphs }: CuratorialTextProps) {
           );
         })}
       </div>
+
+      {paragraphsTh?.length ? (
+        <div className="mt-14 border-t border-pntrsw-deep/20 pt-14">
+          {leadTh ? <p className={`mb-10 ${thLeadClass}`}>{leadTh}</p> : null}
+
+          <div className="columns-1 gap-10 space-y-6 md:columns-2">
+            {bodyTh.map((paragraph) => (
+              <p key={paragraph.slice(0, 32)} className={`break-inside-avoid ${thBodyClass}`}>
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </section>
   );
 }

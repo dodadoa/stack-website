@@ -1,5 +1,7 @@
 import { CursorHint } from "@/components/CursorHint";
 import { ArtistCredits } from "@/components/ArtistCredits";
+import { ScreeningProgramThai } from "@/components/ScreeningProgramThai";
+import type { Dictionary } from "@/lib/dictionaries";
 import { localePath, type Locale } from "@/lib/i18n";
 import type { ScreeningProgram } from "@/lib/screening";
 import Link from "next/link";
@@ -7,9 +9,10 @@ import Link from "next/link";
 type ScreeningProgramListProps = {
   programs: readonly ScreeningProgram[];
   locale: Locale;
+  metaTh?: Dictionary["screening"]["metaTh"];
 };
 
-export function ScreeningProgramList({ programs, locale }: ScreeningProgramListProps) {
+export function ScreeningProgramList({ programs, locale, metaTh }: ScreeningProgramListProps) {
   return (
     <div className="divide-y divide-pntrsw-deep/15">
       {programs.map((program) => (
@@ -48,6 +51,7 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
             <p className="type-body mb-8 max-w-3xl text-base leading-[1.7] text-pntrsw-body/85">
               {program.intro}
             </p>
+            {metaTh ? <ScreeningProgramThai program={program} meta={metaTh} /> : null}
             <ul className="-mx-4 space-y-0 sm:-mx-6 lg:-mx-8">
               {program.films.map((film) => (
                 <li
@@ -73,6 +77,19 @@ export function ScreeningProgramList({ programs, locale }: ScreeningProgramListP
                       <p className="type-subheadline meta-line mt-2 text-xs text-pntrsw-body/70">
                         {film.meta}
                       </p>
+                      {film.metaTh ? (
+                        <p className="type-subheadline thai-text meta-line mt-1 text-xs text-pntrsw-body/60">
+                          {film.metaTh}
+                        </p>
+                      ) : null}
+                      {film.artistsTh ? (
+                        <ArtistCredits
+                          artists={film.artistsTh}
+                          artistSlug={film.artistSlug}
+                          locale={locale}
+                          className="type-body thai-text mt-1 text-sm text-pntrsw-body/60"
+                        />
+                      ) : null}
                     </div>
                   </div>
                 </li>
