@@ -85,7 +85,9 @@ export default async function InstallationWorkPage({ params }: PageProps) {
 
         {work.description ? (
           <div className="type-body prose detail-text-width space-y-4 text-base leading-[1.65] text-pntrsw-body/85">
-            <p>{work.description}</p>
+            {work.description.split("\n\n").map((paragraph) => (
+              <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+            ))}
             {work.note ? <p className="text-pntrsw-body/70">{work.note}</p> : null}
           </div>
         ) : null}

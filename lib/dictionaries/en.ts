@@ -304,9 +304,18 @@ export const en = {
       },
       {
         slug: "pasuth",
-        title: "To Be Updated",
+        title: "How long will the mountains own the river",
+        year: "2026",
         artists: "Pasuth Sa-ingthong",
         artistSlug: "pasuth",
+        medium: "Video installation, LCD screen, 10.30 mins, 2026",
+        description:
+          "At the seams of time and space, mountains take shape, anchoring the intangible and translating it into a sense of \"void.\" This is the physical embodiment of a fracture... \"Bardo.\" This space is neither the land departed from, nor the destination sought. Just as mountains cannot confine or own the flow of the river... This place is merely a solitary isle, adrift between two realms. It is a moment freed from beginnings and ends... Existing solely as a \"transient sanctuary,\" concealed beyond maps, without coordinates or a compass. It is a twilight zone suspended between the stillness of normalcy and the chaos of madness... It is but a fleeting sigh, wedged between a past just fallen and a future yet to arrive.\n\nAt the core of this fragile fracture, one steps into a realm where the laws of logic and standard geometry fold and warp. A realm where the shortest path is no longer a straight line, and the confinement of space conceals infinite vastness. At this juncture of illusory dimensions, disorder dances, overlaps, and echoes across alien angles... Yet, as we surrender and embrace this chaos, the distortion of space gradually melts and unravels...\n\n\"How long will the mountains own the river\" is a modular aluminum installation that simulates the state of \"Bardo,\" the transitional space of transformation. This work serves as a temporary sanctuary, inviting viewers to cast themselves into the currents of turmoil before the distortion of space and dimension gently unravels and dissolves as they pause to rest, transforming that disorder and allowing it to remain.",
+        descriptionTh: [
+          "ณ รอยตะเข็บของกาลเวลาและปริภูมิ ภูเขาก่อร่างขึ้นเพื่อหยั่งรากสิ่งที่ทอดเงาอยู่เหนือการจับต้อง ให้กลายเป็นผัสสะแห่ง \"ช่องว่าง\" นี่คือรูปธรรมของรอยปริแยก... \"บาร์โด\" พื้นที่แห่งนี้ไม่ใช่แผ่นดินที่จากมา และมิใช่จุดหมายปลายทางที่มุ่งไป ดังเช่นภูเขาที่ไม่อาจกักขังหรือครอบครองการไหลของแม่น้ำไว้ได้... ที่แห่งนี้จึงเป็นเพียงเกาะแก่งอันโดดเดี่ยวที่ทอดตัวลอยล่องอยู่กึ่งกลางระหว่างสองสรรพสิ่ง เป็นห้วงยามที่หลุดพ้นไปจากพันธนาการของจุดเริ่มต้นและจุดจบ... ดำรงอยู่เพียงในฐานะ \"สถานพำนักชั่วคราว \" ที่เร้นกายซ่อนตัวจากขอบเขตของแผนที่ ไร้ซึ่งพิกัด ไร้ซึ่งเข็มทิศ มันคือแดนสนธยาที่ทอดปรากฏอยู่กึ่งกลาง ระหว่างความสงบราบเรียบของความปกติ และความบิดเบี้ยวสับสนวิกลจริต... เป็นเพียงชั่วขณะของการถอนใจ ที่คั่นกลางระหว่างอดีตที่เพิ่งร่วงหล่น และอนาคตที่ยังเดินทางมาไม่ถึง",
+          "และ ณ แก่นกลางของรอยปริแยกอันเปราะบางนี้เอง ก้าวเข้าสู่อาณาเขตที่กฎเกณฑ์แห่งตรรกะและเรขาคณิตสามัญถูกพับทบและบิดเบือน อาณาเขตซึ่งเส้นทางที่สั้นที่สุดมิใช่เส้นตรงอีกต่อไป และความคับแคบของพื้นที่กลับซุกซ่อนความเวิ้งว้างไว้อย่างไร้ที่สิ้นสุด ณ รอยต่อแห่งมิติลวงตานี้เอง ความไร้ระเบียบได้เริงระบำ ทับซ้อน และสะท้อนก้องไปตามเหลี่ยมมุมที่แปลกแยก... ทว่าเมื่อเรายอมจำนนและโอบรับความไร้ระเบียบนั้น ความบิดเบี้ยวของปริภูมิจะค่อยๆ หลอมละลายและคลี่คลาย...",
+          "\"How long will the mountains own the river\" คือศิลปะจัดวางโครงอลูมิเนียมโมดูล่าที่จำลองสภาวะ \"บาร์โด\" หรือพื้นที่รอยต่อแห่งการแปรเปลี่ยน งานชิ้นนี้ทำหน้าที่เป็นสถานพำนักชั่วคราว ให้ผู้ชมก้าวเข้าไปทิ้งตัวท่ามกลางกระแสคลื่นแห่งความวุ่นวาย ก่อนที่ความบิดเบี้ยวของปริภูมิและมิติจะค่อยๆ คลี่คลายและหลอมละลายลงเมื่อได้หยุดพัก เพื่อแปรเปลี่ยนความไร้ระเบียบนั้น ให้คงสถานะต่อไป",
+        ],
       },
     ],
   },
@@ -572,7 +581,7 @@ export const en = {
             kind: "programme",
             link: { type: "talks", slug: "grammars-of-worldmaking" },
           },
-          { time: "19:30–22:00", label: "Opening Ceremony and Game Event", kind: "programme" },
+          { time: "19:30–22:00", label: "Opening ceremony and gathering party", kind: "programme" },
         ],
       },
       {
