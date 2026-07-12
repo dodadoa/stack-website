@@ -72,7 +72,7 @@ export default async function ScreeningFilmPage({ params }: PageProps) {
     <article>
       <PageShell full>
         <Link
-          href={localePath(locale, "screening")}
+          href={`${localePath(locale, "screening")}#${program.slug}`}
           className="type-subheadline label-caps mb-10 inline-block text-pntrsw-body/60 transition-opacity hover:opacity-70"
         >
           ← {screening.title}

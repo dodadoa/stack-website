@@ -11,6 +11,7 @@ const PALETTE = ["#c4ff00"];
 const FILL_DURATION = 420;
 const CLEAR_DURATION = 500;
 const MAX_DELAY = 0.25;
+const STUCK_RESET_MS = 1200;
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (1 - t) * (2 - 2 * t));
 
@@ -40,9 +41,25 @@ export function PageTransition() {
   const clearRafRef = useRef(0);
   const setupRef = useRef<ColumnSetup | null>(null);
   const transitioningRef = useRef(false);
+  const visibleRef = useRef(false);
+  const stuckTimerRef = useRef(0);
   const [visible, setVisible] = useState(false);
 
+  const setOverlayVisible = (next: boolean) => {
+    visibleRef.current = next;
+    setVisible(next);
+  };
+
   useEffect(() => {
+    const resetTransition = () => {
+      transitioningRef.current = false;
+      window.clearTimeout(stuckTimerRef.current);
+      setOverlayVisible(false);
+      setPageRevealed(true);
+      cancelAnimationFrame(fillRafRef.current);
+      cancelAnimationFrame(clearRafRef.current);
+    };
+
     const prepare = (): CanvasRenderingContext2D | null => {
       const canvas = canvasRef.current;
       if (!canvas) return null;
@@ -102,7 +119,7 @@ export function PageTransition() {
 
       const setup = setupRef.current;
       setPageRevealed(false);
-      setVisible(true);
+      setOverlayVisible(true);
       const start = performance.now();
 
       const tick = (now: number) => {
@@ -149,12 +166,24 @@ export function PageTransition() {
       const url = new URL(href, window.location.href);
       if (url.origin !== window.location.origin) return;
 
-      const nextPath = url.pathname + url.search + url.hash;
-      if (nextPath === `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+      const nextRoute = url.pathname + url.search;
+      const currentRoute = window.location.pathname + window.location.search;
+
+      // Hash-only updates on the same page should use native link behaviour.
+      if (nextRoute === currentRoute) {
         return;
       }
 
-      if (transitioningRef.current) return;
+      const nextPath = nextRoute + url.hash;
+      const currentPath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+      if (nextPath === currentPath) {
+        return;
+      }
+
+      if (transitioningRef.current) {
+        resetTransition();
+        return;
+      }
 
       event.preventDefault();
       event.stopPropagation();
@@ -162,33 +191,48 @@ export function PageTransition() {
 
       playFill(() => {
         router.push(nextPath);
+        stuckTimerRef.current = window.setTimeout(resetTransition, STUCK_RESET_MS);
       });
     };
 
+    const handleHashChange = () => {
+      if (transitioningRef.current || visibleRef.current) {
+        resetTransition();
+      }
+    };
+
     document.addEventListener("click", handleClick, true);
+    window.addEventListener("hashchange", handleHashChange);
 
     return () => {
       document.removeEventListener("click", handleClick, true);
+      window.removeEventListener("hashchange", handleHashChange);
+      window.clearTimeout(stuckTimerRef.current);
       cancelAnimationFrame(fillRafRef.current);
     };
   }, [router]);
 
   useEffect(() => {
-    if (!transitioningRef.current) return;
+    window.clearTimeout(stuckTimerRef.current);
+
+    if (!transitioningRef.current && !visibleRef.current) {
+      return;
+    }
+
     transitioningRef.current = false;
 
     cancelAnimationFrame(clearRafRef.current);
     const canvas = canvasRef.current;
     const setup = setupRef.current;
     if (!canvas || !setup) {
-      setVisible(false);
+      setOverlayVisible(false);
       setPageRevealed(true);
       return;
     }
 
     const ctx = canvas.getContext("2d");
     if (!ctx) {
-      setVisible(false);
+      setOverlayVisible(false);
       setPageRevealed(true);
       return;
     }
@@ -223,7 +267,7 @@ export function PageTransition() {
       }
 
       if (allDone) {
-        setVisible(false);
+        setOverlayVisible(false);
         requestAnimationFrame(() => setPageRevealed(true));
         return;
       }
@@ -242,7 +286,7 @@ export function PageTransition() {
       style={{ visibility: visible ? "visible" : "hidden" }}
       aria-hidden={!visible}
     >
-      <canvas ref={canvasRef} className="block h-full w-full" />
+      <canvas ref={canvasRef} className="pointer-events-none block h-full w-full" />
     </div>
   );
 }

@@ -58,20 +58,21 @@ export function ScreeningProgramList({ programs, locale, metaTh }: ScreeningProg
                   key={film.slug}
                   className="list-row border-t border-pntrsw-deep/10 first:border-t-0"
                 >
-                  <div className="clickable-row group relative flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8">
+                  <div className="group flex w-full flex-col gap-2 px-4 py-5 transition-colors hover:bg-pntrsw-lime sm:flex-row sm:items-start sm:justify-between sm:gap-6 sm:px-6 lg:px-8">
                     <Link
                       href={localePath(locale, `screening/${program.slug}/${film.slug}`)}
-                      className="absolute inset-0 z-0"
-                      aria-label={`${film.title} — ${film.artists}`}
-                    />
-                    <h3 className="type-headline pointer-events-none relative z-10 w-full min-w-0 text-left text-base leading-snug tracking-[-0.03em] text-pntrsw-body sm:flex-1 sm:text-lg">
+                      className="type-headline w-full min-w-0 text-left text-base leading-snug tracking-[-0.03em] text-pntrsw-body transition-opacity hover:opacity-70 sm:flex-1 sm:text-lg"
+                    >
                       {film.title}
-                    </h3>
-                    <div className="type-body pointer-events-none relative z-10 w-full text-left sm:w-auto sm:shrink-0 sm:text-right">
+                    </Link>
+                    <div className="type-body w-full text-left sm:w-auto sm:shrink-0 sm:text-right">
                       <ArtistCredits
                         artists={film.artists}
+                        artistsTh={film.artistsTh}
                         artistSlug={film.artistSlug}
                         locale={locale}
+                        showTba={false}
+                        thClassName="type-body thai-text mt-1 text-sm text-pntrsw-body/60"
                         className="type-body-plain text-sm text-pntrsw-body"
                       />
                       <p className="type-subheadline meta-line mt-2 text-xs text-pntrsw-body/70">
@@ -81,14 +82,6 @@ export function ScreeningProgramList({ programs, locale, metaTh }: ScreeningProg
                         <p className="type-subheadline thai-text meta-line mt-1 text-xs text-pntrsw-body/60">
                           {film.metaTh}
                         </p>
-                      ) : null}
-                      {film.artistsTh ? (
-                        <ArtistCredits
-                          artists={film.artistsTh}
-                          artistSlug={film.artistSlug}
-                          locale={locale}
-                          className="type-body thai-text mt-1 text-sm text-pntrsw-body/60"
-                        />
                       ) : null}
                     </div>
                   </div>
