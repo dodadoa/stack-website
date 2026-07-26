@@ -2,7 +2,7 @@
 
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
-import { localePath } from "@/lib/i18n";
+import { localePath, locales, stripPublicPath } from "@/lib/i18n";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -60,10 +60,21 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
     };
   }, [menuOpen]);
 
-  const isActive = (href: string) =>
-    href === ""
-      ? pathname === `/${locale}` || pathname === `/${locale}/`
-      : pathname.startsWith(localePath(locale, href));
+  const isActive = (href: string) => {
+    const { locale: pathLocale, segment } = stripPublicPath(pathname);
+    if (pathLocale !== locale) {
+      return false;
+    }
+    if (href === "") {
+      return segment === "";
+    }
+    return segment === href || segment.startsWith(`${href}/`);
+  };
+
+  const switchLocaleHref = (target: Locale) => {
+    const { segment } = stripPublicPath(pathname);
+    return localePath(target, segment);
+  };
 
   return (
     <header
@@ -85,14 +96,32 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
           ))}
         </nav>
 
-        <button
-          type="button"
-          className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-md text-pntrsw-white transition-colors hover:bg-pntrsw-white/10 md:hidden"
-          aria-expanded={menuOpen}
-          aria-controls="mobile-nav"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
+        <div className="flex items-center gap-1.5">
+          <nav
+            aria-label="Language"
+            className="type-subheadline flex items-center gap-1 text-[0.625rem]"
+          >
+            {locales.map((target) => (
+              <Link
+                key={target}
+                href={switchLocaleHref(target)}
+                hrefLang={target}
+                aria-current={target === locale ? "true" : undefined}
+                className={navLinkClass(target === locale)}
+              >
+                {target.toUpperCase()}
+              </Link>
+            ))}
+          </nav>
+
+          <button
+            type="button"
+            className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-md text-pntrsw-white transition-colors hover:bg-pntrsw-white/10 md:hidden"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-nav"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
           <span className="sr-only">{menuOpen ? "Close menu" : "Open menu"}</span>
           <span className="flex h-4 w-5 flex-col justify-between">
             <span
@@ -111,7 +140,8 @@ export function SiteHeader({ locale, dict }: SiteHeaderProps) {
               }`}
             />
           </span>
-        </button>
+          </button>
+        </div>
       </div>
 
       {menuOpen ? (

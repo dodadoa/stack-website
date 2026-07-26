@@ -1,0 +1,494 @@
+/* Stack V_Circuits — Transitional Images (VML 2026)
+   Palette from the key-visual banner: vivid green ground, chrome-lavender
+   elements, black pills with neon green text, yellow circuit lines. */
+
+.vml-page {
+  --vml-green-bg: #3fc506;
+  --vml-green-deep: #2f9d02;
+  --vml-neon: #5df309;
+  --vml-yellow: #f5ec00;
+  --vml-lav: #b7b1f2;
+  --vml-lav-soft: #cdc9f7;
+  --vml-ink: #0b0b0b;
+
+  background:
+    radial-gradient(90% 60% at 15% 8%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%),
+    radial-gradient(80% 55% at 85% 30%, rgba(223, 255, 205, 0.6) 0%, rgba(223, 255, 205, 0) 55%),
+    radial-gradient(100% 70% at 50% 105%, rgba(160, 225, 130, 0.5) 0%, rgba(160, 225, 130, 0) 60%),
+    linear-gradient(175deg, #ffffff 0%, #f4fdee 18%, #e6f9d8 48%, #d3f2bd 80%, #c2ecaa 100%);
+  color: var(--vml-ink);
+  min-height: 100dvh;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+.vml-rock {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.vml-rock-left {
+  left: 0;
+  top: 8%;
+  width: min(20rem, 34vw);
+  transform: translateX(-38%);
+}
+
+.vml-rock-right {
+  right: 0;
+  bottom: 4%;
+  width: min(22rem, 36vw);
+  transform: translateX(42%) scaleX(-1);
+}
+
+.vml-rock-artist {
+  right: 0;
+  top: 0;
+  width: min(24rem, 45vw);
+  transform: translate(30%, -18%);
+  opacity: 0.9;
+}
+
+.vml-artist-page {
+  position: relative;
+  overflow: hidden;
+}
+
+.vml-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* Hero */
+.vml-hero {
+  position: relative;
+  min-height: 92svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  isolation: isolate;
+}
+
+.vml-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  max-width: 60rem;
+}
+
+.vml-badge {
+  width: min(20rem, 70vw);
+  height: auto;
+}
+
+.vml-hero-logo {
+  width: min(56rem, 92vw);
+  height: auto;
+  filter: drop-shadow(0 6px 24px rgba(11, 11, 11, 0.35));
+}
+
+.vml-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vml-meta-line {
+  color: var(--vml-ink);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.vml-meta-strong {
+  color: var(--vml-neon);
+  background: var(--vml-ink);
+  border-radius: 999px;
+  padding: 0.4rem 1.4rem;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  font-weight: 700;
+}
+
+/* Sections */
+.vml-section {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 4rem 1.5rem 0;
+}
+
+.vml-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--vml-ink);
+  font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 1.75rem;
+}
+
+.vml-heading img {
+  width: 1.6em;
+  height: auto;
+}
+
+.vml-quado {
+  width: min(22rem, 70vw);
+  height: auto;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+.vml-body {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--vml-ink);
+}
+
+.vml-body em {
+  color: #221c66;
+  font-style: italic;
+}
+
+.vml-body strong {
+  color: #221c66;
+  font-weight: 800;
+}
+
+/* Programme grid */
+.vml-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 2.5rem 2rem;
+}
+
+.vml-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.vml-card-link {
+  display: block;
+  width: 100%;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.vml-card-link:hover {
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 14px rgba(245, 236, 0, 0.6));
+}
+
+.vml-artframe {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.vml-artframe-img {
+  position: absolute;
+  inset: 6%;
+  width: 88%;
+  height: 88%;
+  object-fit: cover;
+}
+
+.vml-artframe-border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.vml-nameplate {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 70%;
+  text-decoration: none;
+}
+
+.vml-nameplate img {
+  width: 100%;
+  height: auto;
+  min-height: 2.4rem;
+  object-fit: fill;
+}
+
+.vml-nameplate span {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vml-ink);
+  font-weight: 700;
+  font-size: 0.72rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+a.vml-nameplate:hover {
+  filter: brightness(1.1) drop-shadow(0 0 8px rgba(245, 236, 0, 0.8));
+}
+
+.vml-works {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.vml-works li {
+  color: var(--vml-neon);
+  background: var(--vml-ink);
+  border-radius: 999px;
+  padding: 0.25rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+/* Talk */
+.vml-talk-title {
+  color: #221c66;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+}
+
+/* Statement */
+.vml-statement-body p + p {
+  margin-top: 1.2rem;
+}
+
+.vml-footnote {
+  font-size: 0.74rem;
+  color: rgba(11, 11, 11, 0.75);
+  border-top: 1px solid rgba(11, 11, 11, 0.35);
+  padding-top: 1rem;
+}
+
+.vml-credits {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 3rem;
+  color: var(--vml-ink);
+}
+
+.vml-credits span {
+  color: var(--vml-ink);
+  background: var(--vml-lav);
+  border-radius: 999px;
+  padding: 0.15rem 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+.vml-thai {
+  border-top: 2px solid rgba(11, 11, 11, 0.4);
+  margin-top: 4rem;
+  padding-top: 3rem;
+}
+
+/* Thai typography follows the patch-note spec (LINE Seed Sans TH):
+   body weight 700, headings/emphasis weight 800, tightened tracking. */
+.vml-thai,
+.vml-thai .vml-body {
+  font-family: var(--font-thai);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.vml-thai .vml-heading,
+.vml-thai .vml-talk-title,
+.vml-thai .vml-body strong,
+.vml-thai .vml-body b {
+  font-family: var(--font-thai);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+/* Footer — light lavender band as in the banner */
+.vml-footer {
+  position: relative;
+  margin-top: 5rem;
+  padding: 4rem 1.5rem 3rem;
+  border-top: 3px solid #e0492c;
+  background: linear-gradient(180deg, var(--vml-lav) 0%, #ffffff 55%, var(--vml-lav-soft) 100%);
+  text-align: center;
+  color: var(--vml-ink);
+}
+
+.vml-footer-visual {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(16rem, 40vw);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.vml-footer-note {
+  max-width: 44rem;
+  margin: 0 auto 2.5rem;
+  color: var(--vml-ink);
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.vml-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.vml-logos img {
+  height: 3rem;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Artist detail page */
+.vml-artist-page .vml-section {
+  padding-top: 3rem;
+}
+
+.vml-back {
+  display: inline-block;
+  color: var(--vml-neon);
+  background: var(--vml-ink);
+  border-radius: 999px;
+  padding: 0.35rem 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+}
+
+.vml-back:hover {
+  filter: drop-shadow(0 0 8px rgba(93, 243, 9, 0.7));
+}
+
+.vml-artist-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.vml-artist-portrait {
+  position: relative;
+  width: min(18rem, 70vw);
+  aspect-ratio: 1;
+}
+
+.vml-artist-portrait > img:first-child {
+  position: absolute;
+  inset: 7%;
+  width: 86%;
+  height: 86%;
+  object-fit: cover;
+}
+
+.vml-artist-title {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  min-width: 16rem;
+}
+
+.vml-nameplate-lg {
+  min-width: min(24rem, 100%);
+}
+
+.vml-nameplate-lg span {
+  font-size: 1.1rem;
+}
+
+.vml-artist-title .vml-works {
+  align-items: flex-start;
+}
+
+.vml-artist-block {
+  margin-bottom: 3.5rem;
+}
+
+.vml-videoframe {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.vml-videoframe video {
+  position: absolute;
+  inset: 5%;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  background: var(--vml-ink);
+}
+
+.vml-bio-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.5rem;
+}
+
+.vml-bio-videos video {
+  width: 100%;
+  border: 3px solid var(--vml-ink);
+  border-radius: 0.75rem;
+  background: var(--vml-ink);
+}
+
+.vml-artist-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  border-top: 2px solid rgba(11, 11, 11, 0.4);
+  padding-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.vml-artist-nav a {
+  color: var(--vml-ink);
+  background: var(--vml-lav);
+  border: 2px solid var(--vml-ink);
+  border-radius: 999px;
+  padding: 0.3rem 1rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.vml-artist-nav a:hover {
+  background: var(--vml-yellow);
+}

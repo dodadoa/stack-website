@@ -6,7 +6,7 @@ import { SetHtmlLang } from "@/components/SetHtmlLang";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getDictionary } from "@/lib/dictionaries";
-import { isLocale, type Locale } from "@/lib/i18n";
+import { isLocale, locales, type Locale } from "@/lib/i18n";
 import { buildAlternates, ogLocale } from "@/lib/seo";
 
 type LayoutProps = {
@@ -15,7 +15,7 @@ type LayoutProps = {
 };
 
 export async function generateStaticParams() {
-  return [{ locale: "en" }];
+  return locales.map((locale) => ({ locale }));
 }
 
 export async function generateMetadata({

@@ -1,0 +1,130 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { ARTISTS, getArtist } from "../data";
+import "../vml.css";
+
+const V = "/vmlAssets/Visual";
+
+type PageProps = {
+  params: Promise<{ slug: string }>;
+};
+
+export function generateStaticParams() {
+  return ARTISTS.map((a) => ({ slug: a.slug }));
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const artist = getArtist(slug);
+  if (!artist) {
+    return {};
+  }
+  return {
+    title: `${artist.name} — Transitional Images`,
+    description: `${artist.name} — ${artist.works.join(", ")}. Vietnam Media Show: Transitional Images, Stack V_Circuits, 7 August 2026, Goethe Saal.`,
+    openGraph: {
+      title: `${artist.name} — Transitional Images`,
+      images: [artist.artwork],
+    },
+  };
+}
+
+export default async function VmlArtistPage({ params }: PageProps) {
+  const { slug } = await params;
+  const artist = getArtist(slug);
+
+  if (!artist) {
+    notFound();
+  }
+
+  return (
+    <main className="vml-page vml-artist-page">
+      <img
+        className="vml-rock vml-rock-artist"
+        src={`${V}/rock_artist.png`}
+        alt=""
+        aria-hidden
+      />
+      <div className="vml-section">
+        <Link href="/vml2026" className="vml-back">
+          ← Transitional Images
+        </Link>
+
+        <header className="vml-artist-header">
+          <div className="vml-artist-portrait">
+            <img src={artist.portrait} alt={artist.name} />
+            <img
+              className="vml-artframe-border"
+              src={`${V}/artist_image_frame.png`}
+              alt=""
+              aria-hidden
+            />
+          </div>
+          <div className="vml-artist-title">
+            <div className="vml-nameplate vml-nameplate-lg">
+              <img src={`${V}/Frame_for_ArtistName.png`} alt="" aria-hidden />
+              <span>{artist.name}</span>
+            </div>
+            <ul className="vml-works">
+              {artist.works.map((w) => (
+                <li key={w}>{w}</li>
+              ))}
+            </ul>
+          </div>
+        </header>
+
+        <section className="vml-artist-block">
+          <h2 className="vml-heading">
+            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
+            Work
+          </h2>
+          <div className="vml-videoframe">
+            <video src={artist.video} controls playsInline preload="metadata" />
+            <img
+              className="vml-artframe-border"
+              src={`${V}/artwork_frame.png`}
+              alt=""
+              aria-hidden
+            />
+          </div>
+        </section>
+
+        <section className="vml-artist-block">
+          <h2 className="vml-heading">
+            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
+            About the artist
+          </h2>
+          <div className="vml-bio-videos">
+            {artist.bioVideos.map((src) => (
+              <video
+                key={src}
+                src={src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+              />
+            ))}
+          </div>
+        </section>
+
+        <nav className="vml-artist-nav">
+          {ARTISTS.filter((a) => a.slug !== artist.slug).map((a) => (
+            <Link key={a.slug} href={`/vml2026/${a.slug}`}>
+              {a.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
+
+      <footer className="vml-footer">
+        <p className="vml-footer-note">
+          Stack V_Circuits is organised by Stack, in collaboration with
+          Goethe-Institut Thailand, with support from the Thai Film Archive.
+        </p>
+      </footer>
+    </main>
+  );
+}

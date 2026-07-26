@@ -30,7 +30,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {};
   }
 
-  const description = work.description?.slice(0, 160) ?? `${work.title} by ${work.artists}.`;
+  const plainDescription =
+    typeof work.description === "string"
+      ? work.description
+      : work.description?.join(" ");
+  const description = plainDescription?.slice(0, 160) ?? `${work.title} by ${work.artists}.`;
 
   return {
     title: work.title,
@@ -85,12 +89,7 @@ export default async function InstallationWorkPage({ params }: PageProps) {
           ) : null}
         </header>
 
-        <WorkDescription
-          description={work.description}
-          descriptionTh={work.descriptionTh}
-          note={work.note}
-          noteTh={work.noteTh}
-        />
+        <WorkDescription description={work.description} note={work.note} />
 
         {work.bio ? (
           <div className="detail-text-width mt-12 border-t border-pntrsw-deep/20 pt-10">

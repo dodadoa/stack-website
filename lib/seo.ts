@@ -22,6 +22,7 @@ export const EVENT_END_DATE = "2026-07-12";
 
 const OG_LOCALE: Record<Locale, string> = {
   en: "en_US",
+  th: "th_TH",
 };
 
 export function ogLocale(locale: Locale): string {
@@ -29,12 +30,12 @@ export function ogLocale(locale: Locale): string {
 }
 
 export function buildAlternates(locale: Locale, segment = "") {
-  const path = localePath(locale, segment);
   return {
-    canonical: path,
+    canonical: localePath(locale, segment),
     languages: {
-      en: path,
-      "x-default": path,
+      en: localePath("en", segment),
+      th: localePath("th", segment),
+      "x-default": localePath("en", segment),
     },
   };
 }
