@@ -75,26 +75,6 @@ export default async function VmlArtistPage({ params }: PageProps) {
         </header>
 
         <section className="vml-artist-block">
-          <h2 className="vml-heading">
-            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
-            Work
-          </h2>
-          <div className="vml-videoframe">
-            <video src={artist.video} controls playsInline preload="metadata" />
-            <img
-              className="vml-artframe-border"
-              src={`${V}/artwork_frame.png`}
-              alt=""
-              aria-hidden
-            />
-          </div>
-        </section>
-
-        <section className="vml-artist-block">
-          <h2 className="vml-heading">
-            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
-            About the artist
-          </h2>
           <div className="vml-bio-videos">
             {artist.bioVideos.map((src) => (
               <video

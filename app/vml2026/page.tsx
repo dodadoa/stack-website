@@ -291,11 +291,19 @@ export default function Vml2026Page() {
           Goethe-Institut Thailand, with support from the Thai Film Archive.
         </p>
         <div className="vml-logos">
+          <img
+            className="vml-logo-featured"
+            src={`${L}/goethe.png`}
+            alt="Goethe-Institut Thailand"
+          />
           <img src={`${L}/stack.png`} alt="Stack" />
           <img src={`${L}/VML.png`} alt="Vietnam Media Lab" />
           <img src={`${L}/VMS.png`} alt="Vietnam Media Show" />
-          <img src={`${L}/goethe.png`} alt="Goethe-Institut Thailand" />
-          <img src={`${L}/cinema enlightens.png`} alt="Thai Film Archive — Cinema Enlightens" />
+          <img
+            className="vml-logo-featured"
+            src={`${L}/cinema enlightens.png`}
+            alt="Thai Film Archive — Cinema Enlightens"
+          />
         </div>
       </footer>
     </main>
