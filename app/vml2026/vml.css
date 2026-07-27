@@ -234,6 +234,28 @@
   font-weight: 800;
 }
 
+.vml-text-link {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-color: rgba(11, 11, 11, 0.35);
+  text-underline-offset: 0.15em;
+  transition: opacity 0.15s ease;
+}
+
+.vml-text-link:hover {
+  opacity: 0.7;
+}
+
+.vml-logos a {
+  display: inline-flex;
+  transition: opacity 0.15s ease;
+}
+
+.vml-logos a:hover {
+  opacity: 0.75;
+}
+
 /* Programme grid */
 .vml-grid {
   display: grid;

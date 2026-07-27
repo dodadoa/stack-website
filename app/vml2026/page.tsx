@@ -17,6 +17,8 @@ export const metadata: Metadata = {
 
 const V = "/vmlAssets/Visual";
 const L = "/vmlAssets/Logo";
+const VML_INSTAGRAM = "https://www.instagram.com/vietnam__media__lab/";
+const GIANG_INSTAGRAM = "https://www.instagram.com/giang.it/";
 
 function FramedArtwork({ src, alt }: { src: string; alt: string }) {
   return (
@@ -152,8 +154,16 @@ export default function Vml2026Page() {
         <div className="vml-talk">
           <p className="vml-talk-title">The Transitional Images from Vietnam</p>
           <p className="vml-body">
-            Talk by Nguyễn Hoàng Giang (aka giang.it) of Vietnam Media Lab,
-            followed by Q&amp;A.
+            Talk by Nguyễn Hoàng Giang (aka{" "}
+            <a
+              href={GIANG_INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vml-text-link"
+            >
+              giang.it
+            </a>
+            ) of Vietnam Media Lab, followed by Q&amp;A.
           </p>
         </div>
       </section>
@@ -216,7 +226,16 @@ export default function Vml2026Page() {
         </div>
         <div className="vml-credits">
           <p>
-            <span>Curator</span> giang.it (Vietnam Media Lab)
+            <span>Curator</span>{" "}
+            <a
+              href={GIANG_INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vml-text-link"
+            >
+              giang.it
+            </a>{" "}
+            (Vietnam Media Lab)
           </p>
           <p>
             <span>Graphic Design</span> Trần Phương Bách (Vietnam Media Lab)
@@ -250,7 +269,16 @@ export default function Vml2026Page() {
           </p>
           <p>
             เสวนา: <em>The Transitional Images from Vietnam</em> วงสนทนาโดย
-            Nguyễn Hoàng Giang (giang.it) ตามด้วยช่วงถาม–ตอบ (Q&amp;A)
+            Nguyễn Hoàng Giang (
+            <a
+              href={GIANG_INSTAGRAM}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="vml-text-link"
+            >
+              giang.it
+            </a>
+            ) ตามด้วยช่วงถาม–ตอบ (Q&amp;A)
           </p>
           <p>
             Stack V_Circuits จัดโดย Stack ร่วมกับ Goethe-Institut Thailand
@@ -266,15 +294,30 @@ export default function Vml2026Page() {
           About Vietnam Media Lab
         </h2>
         <p className="vml-body">
-          Vietnam Media Lab (VML) continues to explore the intersection of media
-          art, design, and technology, acting as a bridge between artists,
-          technologists, and creative minds both locally and internationally.
-          The lab is dedicated to three core pillars: <strong>Exchange</strong>,
-          providing platforms for performance and exhibitions;{" "}
-          <strong>Educate</strong>, fostering a media art movement through
-          technical workshops and artist&rsquo;s talks; and{" "}
-          <strong>Experiment</strong>, pushing the boundaries of technologies
-          like AI and XR with artistic practice.
+          <a
+            href={VML_INSTAGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="vml-text-link"
+          >
+            Vietnam Media Lab
+          </a>{" "}
+          (VML) continues to explore the intersection of media art, design, and
+          technology, acting as a bridge between artists, technologists, and
+          creative minds both locally and internationally. The lab is dedicated
+          to three core pillars: <strong>Exchange</strong>, providing platforms
+          for performance and exhibitions; <strong>Educate</strong>, fostering a
+          media art movement through technical workshops and artist&rsquo;s talks;
+          and <strong>Experiment</strong>, pushing the boundaries of technologies
+          like AI and XR with artistic practice.{" "}
+          <a
+            href={VML_INSTAGRAM}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="vml-text-link"
+          >
+            @vietnam__media__lab
+          </a>
         </p>
       </section>
 
@@ -297,7 +340,9 @@ export default function Vml2026Page() {
             alt="Goethe-Institut Thailand"
           />
           <img src={`${L}/stack.png`} alt="Stack" />
-          <img src={`${L}/VML.png`} alt="Vietnam Media Lab" />
+          <a href={VML_INSTAGRAM} target="_blank" rel="noopener noreferrer">
+            <img src={`${L}/VML.png`} alt="Vietnam Media Lab — @vietnam__media__lab on Instagram" />
+          </a>
           <img src={`${L}/VMS.png`} alt="Vietnam Media Show" />
           <img
             className="vml-logo-featured"

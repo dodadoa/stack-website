@@ -33,8 +33,8 @@ export const ARTISTS: VmlArtist[] = [
   },
   {
     slug: "le-bac-tan",
-    name: "Lê Bắc Tân",
-    works: ["Fierce Childhood (2018)"],
+    name: "Le-Bac-Tan",
+    works: ["Il provino (2022)"],
     artwork: `${A}/LeBacTan_artwork_1.png`,
     portrait: `${P}/LeBacTan_image.png`,
     video: `${W}/LeBacTan.mp4`,
@@ -70,7 +70,7 @@ export const ARTISTS: VmlArtist[] = [
   {
     slug: "nguyen-duy-anh",
     name: "Nguyễn Duy Anh",
-    works: ["Catwalk (2023, with Trần Uy Đức)", "Made in Vietnam (2026)"],
+    works: ["Catwalk (2023, with Trần Uy Đức)"],
     artwork: `${A}/DuyAnh_artwork.png`,
     portrait: `${P}/DuyAnh_image.png`,
     video: `${W}/DuyAnh.mp4`,
@@ -105,8 +105,8 @@ export const SCREENING_ORDER: ScreeningEntry[] = [
   },
   {
     artistSlugs: ["le-bac-tan"],
-    label: "Lê Bắc Tân",
-    works: ["Fierce Childhood (2018)"],
+    label: "Le-Bac-Tan",
+    works: ["Il provino (2022)"],
     artwork: `${A}/LeBacTan_artwork_1.png`,
   },
   {
@@ -126,11 +126,5 @@ export const SCREENING_ORDER: ScreeningEntry[] = [
     label: "Huytengmeng",
     works: ["Cardio (2018)"],
     artwork: `${A}/DucHuy_artwork.png`,
-  },
-  {
-    artistSlugs: ["nguyen-duy-anh"],
-    label: "Nguyễn Duy Anh",
-    works: ["Made in Vietnam (2026)"],
-    artwork: `${A}/DuyAnh_artwork.png`,
   },
 ];
