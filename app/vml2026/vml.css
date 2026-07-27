@@ -218,6 +218,17 @@
   display: block;
 }
 
+.vml-intro-columns {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.vml-intro-col {
+  min-width: 0;
+}
+
 .vml-body {
   font-size: 0.92rem;
   line-height: 1.75;
@@ -401,6 +412,24 @@ a.vml-nameplate:hover {
   padding-top: 3rem;
 }
 
+.vml-intro-columns .vml-thai {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+@media (min-width: 768px) {
+  .vml-intro-columns {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3rem;
+  }
+
+  .vml-intro-columns .vml-intro-col + .vml-intro-col {
+    border-left: 1px solid rgba(11, 11, 11, 0.18);
+    padding-left: 3rem;
+  }
+}
+
 /* Thai typography follows the patch-note spec (LINE Seed Sans TH):
    body weight 700, headings/emphasis weight 800, tightened tracking. */
 .vml-thai,
@@ -419,6 +448,10 @@ a.vml-nameplate:hover {
   font-weight: 800;
   letter-spacing: -0.02em;
   text-transform: none;
+}
+
+.vml-thai-word {
+  white-space: nowrap;
 }
 
 /* Footer — light lavender band as in the banner */

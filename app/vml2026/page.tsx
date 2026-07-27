@@ -19,6 +19,7 @@ const V = "/vmlAssets/Visual";
 const L = "/vmlAssets/Logo";
 const VML_INSTAGRAM = "https://www.instagram.com/vietnam__media__lab/";
 const GIANG_INSTAGRAM = "https://www.instagram.com/giang.it/";
+const PHBATCH_INSTAGRAM = "https://www.instagram.com/phbatch/";
 
 function FramedArtwork({ src, alt }: { src: string; alt: string }) {
   return (
@@ -99,16 +100,37 @@ export default function Vml2026Page() {
           src={`${V}/Hinh_anh_qua_do.png`}
           alt="Hình ảnh quá độ"
         />
-        <p className="vml-body">
-          As part of Stack V_Circuits, Stack has invited Vietnam Media Lab to
-          curate <em>Transitional Images</em>, a special programme bringing
-          together newly emerged and emerging expanded cinema works from
-          Vietnam. The programme offers a rare opportunity to encounter
-          contemporary practices across expanded cinema, moving image, and
-          digital art, tracing the country&rsquo;s shifting cultural and
-          technological landscapes. The screening programme will be followed by
-          a conversation with curator Nguyễn Hoàng Giang of Vietnam Media Lab.
-        </p>
+        <div className="vml-intro-columns">
+          <div className="vml-intro-col">
+            <p className="vml-body">
+              As part of Stack V_Circuits, Stack has invited Vietnam Media Lab to
+              curate <em>Transitional Images</em>, a special programme bringing
+              together newly emerged and emerging expanded cinema works from
+              Vietnam. The programme offers a rare opportunity to encounter
+              contemporary practices across expanded cinema, moving image, and
+              digital art, tracing the country&rsquo;s shifting cultural and
+              technological landscapes. The screening programme will be followed by
+              a conversation with curator Nguyễn Hoàng Giang of Vietnam Media Lab.
+            </p>
+          </div>
+
+          <div className="vml-intro-col vml-thai">
+            <div className="vml-body vml-statement-body">
+              <p>
+                Transitional Images เป็นโปรแกรมพิเศษภายใต้ Stack V_Circuits ซึ่ง
+                Stack ได้เชิญ Vietnam Media Lab มาคัดสรรโปรแกรม
+                รวบรวมผลงานภาพเคลื่อนไหวและ Expanded Cinema
+                จากศิลปินรุ่นใหม่และศิลปินร่วมสมัยของเวียดนาม
+                โปรแกรมนี้เปิดโอกาสให้ผู้ชมได้สำรวจผลงานด้านภาพเคลื่อนไหว Expanded
+                Cinema และดิจิทัลอาร์ตร่วมสมัย
+                ที่สะท้อนภูมิทัศน์ทางวัฒนธรรมและเทคโนโลยีของเวียดนามที่กำลังเปลี่ยนแปลงอย่างต่อเนื่อง
+                หลังการฉายภาพยนตร์จะมีวงสนทนากับ Nguyễn Hoàng Giang{" "}
+                <span className="vml-thai-word">ภัณฑารักษ์</span>จาก
+                Vietnam Media Lab
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Programme */}
@@ -152,19 +174,38 @@ export default function Vml2026Page() {
           Talk
         </h2>
         <div className="vml-talk">
-          <p className="vml-talk-title">The Transitional Images from Vietnam</p>
-          <p className="vml-body">
-            Talk by Nguyễn Hoàng Giang (aka{" "}
-            <a
-              href={GIANG_INSTAGRAM}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="vml-text-link"
-            >
-              giang.it
-            </a>
-            ) of Vietnam Media Lab, followed by Q&amp;A.
-          </p>
+          <div className="vml-intro-columns">
+            <div className="vml-intro-col">
+              <p className="vml-talk-title">The Transitional Images from Vietnam</p>
+              <p className="vml-body">
+                Talk by Nguyễn Hoàng Giang (aka{" "}
+                <a
+                  href={GIANG_INSTAGRAM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vml-text-link"
+                >
+                  giang.it
+                </a>
+                ) of Vietnam Media Lab, followed by Q&amp;A.
+              </p>
+            </div>
+            <div className="vml-intro-col vml-thai">
+              <p className="vml-body">
+                เสวนา: <em>The Transitional Images from Vietnam</em> วงสนทนาโดย
+                Nguyễn Hoàng Giang (
+                <a
+                  href={GIANG_INSTAGRAM}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="vml-text-link"
+                >
+                  giang.it
+                </a>
+                ) ตามด้วยช่วงถาม–ตอบ (Q&amp;A)
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -238,51 +279,16 @@ export default function Vml2026Page() {
             (Vietnam Media Lab)
           </p>
           <p>
-            <span>Graphic Design</span> Trần Phương Bách (Vietnam Media Lab)
-          </p>
-        </div>
-      </section>
-
-      {/* Thai */}
-      <section className="vml-section vml-thai">
-        <h2 className="vml-heading">
-          <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
-          ภาษาไทย
-        </h2>
-        <div className="vml-body vml-statement-body">
-          <p className="vml-talk-title">
-            Stack V_Circuits — Vietnam Media Show: Transitional Images
-          </p>
-          <p>
-            วันศุกร์ที่ 7 สิงหาคม 2026 เวลา 18:30–21:30 น. — หอประชุมเกอเธ่
-          </p>
-          <p>
-            Transitional Images เป็นโปรแกรมพิเศษภายใต้ Stack V_Circuits ซึ่ง
-            Stack ได้เชิญ Vietnam Media Lab มาคัดสรรโปรแกรม
-            รวบรวมผลงานภาพเคลื่อนไหวและ Expanded Cinema
-            จากศิลปินรุ่นใหม่และศิลปินร่วมสมัยของเวียดนาม
-            โปรแกรมนี้เปิดโอกาสให้ผู้ชมได้สำรวจผลงานด้านภาพเคลื่อนไหว Expanded
-            Cinema และดิจิทัลอาร์ตร่วมสมัย
-            ที่สะท้อนภูมิทัศน์ทางวัฒนธรรมและเทคโนโลยีของเวียดนามที่กำลังเปลี่ยนแปลงอย่างต่อเนื่อง
-            หลังการฉายภาพยนตร์จะมีวงสนทนากับ Nguyễn Hoàng Giang ภัณฑารักษ์จาก
-            Vietnam Media Lab
-          </p>
-          <p>
-            เสวนา: <em>The Transitional Images from Vietnam</em> วงสนทนาโดย
-            Nguyễn Hoàng Giang (
+            <span>Graphic Design</span>{" "}
             <a
-              href={GIANG_INSTAGRAM}
+              href={PHBATCH_INSTAGRAM}
               target="_blank"
               rel="noopener noreferrer"
               className="vml-text-link"
             >
-              giang.it
-            </a>
-            ) ตามด้วยช่วงถาม–ตอบ (Q&amp;A)
-          </p>
-          <p>
-            Stack V_Circuits จัดโดย Stack ร่วมกับ Goethe-Institut Thailand
-            และได้รับการสนับสนุนจาก หอภาพยนตร์ (องค์การมหาชน)
+              Trần Phương Bách
+            </a>{" "}
+            (Vietnam Media Lab)
           </p>
         </div>
       </section>
