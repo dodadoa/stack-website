@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LandingSound } from "@/components/LandingSound";
 import "./landing.css";
 
 export const metadata: Metadata = {
@@ -37,8 +36,6 @@ export default function StackLandingPage() {
           </div>
         </div>
       </nav>
-
-      <LandingSound src="/vmlAssets/vid/sound.mp3" />
 
       <a
         className="stk-ig"
