@@ -181,6 +181,60 @@
   color: var(--p2-red);
 }
 
+/* Programme roster */
+.p2-tbd {
+  font-style: italic;
+  color: rgba(11, 11, 11, 0.5);
+}
+
+.p2-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.8rem;
+}
+
+.p2-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  background: #ffffff;
+  border: 1.5px solid var(--p2-ink);
+  border-radius: 0.8rem;
+  text-decoration: none;
+  color: var(--p2-ink);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.p2-card:hover {
+  background: var(--p2-lime);
+  transform: translateY(-2px);
+}
+
+.p2-card-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.p2-card-works {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(11, 11, 11, 0.6);
+}
+
+.p2-hero-artist {
+  min-height: 40svh;
+}
+
+.p2-artist-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  border-top: 1px solid rgba(11, 11, 11, 0.25);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
 .p2-footer {
   margin-top: 4rem;
   padding: 2rem 1.5rem 0;

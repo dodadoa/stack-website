@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LandingCursor } from "@/components/LandingCursor";
 import "./landing.css";
 
 export const metadata: Metadata = {
@@ -13,6 +14,7 @@ const SLICES = 5;
 export default function StackLandingPage() {
   return (
     <main className="stk-page">
+      <LandingCursor />
       <nav className="stk-nav">
         <div className="stk-nav-group">
           <p className="stk-nav-label">Coming soon</p>
@@ -27,6 +29,11 @@ export default function StackLandingPage() {
             Patch Notes That Refuse a Settled World
             <span className="stk-nav-year">2026</span>
           </Link>
+        </div>
+        <details className="stk-nav-group stk-archived">
+          <summary className="stk-nav-label stk-archived-summary">
+            Archived
+          </summary>
           <div className="stk-nav-link stk-nav-constructing" aria-disabled>
             PLAYER 2 HAS ENTERED THE SERVER
             <span className="stk-nav-year">
@@ -34,7 +41,7 @@ export default function StackLandingPage() {
             </span>
             <span className="stk-nav-badge">Under construction</span>
           </div>
-        </div>
+        </details>
       </nav>
 
       <a

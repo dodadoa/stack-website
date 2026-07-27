@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { bySection, type P2Artist } from "./data";
 import "./player2.css";
 
 export const metadata: Metadata = {
@@ -34,6 +35,38 @@ const SPECIAL_THANKS = [
   "Phatarawadee Phataranawik",
   "Nitcha Tothong",
 ];
+
+function ProgrammeSection({
+  title,
+  artists,
+}: {
+  title: string;
+  artists: P2Artist[];
+}) {
+  return (
+    <section className="p2-section">
+      <h2 className="p2-heading">{title}</h2>
+      {artists.length === 0 ? (
+        <p className="p2-body p2-tbd">Lineup being restored from the logs…</p>
+      ) : (
+        <div className="p2-roster">
+          {artists.map((artist) => (
+            <Link
+              key={artist.slug}
+              href={`/player-2/${artist.slug}`}
+              className="p2-card"
+            >
+              <span className="p2-card-name">{artist.name}</span>
+              <span className="p2-card-works">
+                {artist.works.map((w) => w.title).join(" · ")}
+              </span>
+            </Link>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default function Player2Page() {
   return (
@@ -76,6 +109,9 @@ export default function Player2Page() {
           motion.
         </p>
       </section>
+
+      <ProgrammeSection title="Exhibition" artists={bySection("exhibition")} />
+      <ProgrammeSection title="Screening" artists={bySection("screening")} />
 
       <section className="p2-section">
         <h2 className="p2-heading">Formats</h2>
