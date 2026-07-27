@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ARTISTS, getArtist } from "../data";
+import VmlCursor from "../VmlCursor";
 import "../vml.css";
 
 const V = "/vmlAssets/Visual";
@@ -42,6 +43,7 @@ export default async function VmlArtistPage({ params }: PageProps) {
 
   return (
     <main className="vml-page vml-artist-page">
+      <VmlCursor />
       <img
         className="vml-rock vml-rock-artist"
         src={`${V}/rock_artist.png`}
@@ -52,33 +54,6 @@ export default async function VmlArtistPage({ params }: PageProps) {
         <Link href="/vml2026" className="vml-back">
           ← Transitional Images
         </Link>
-
-        <section className="vml-artist-block">
-          <h2 className="vml-heading">
-            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
-            Artist
-          </h2>
-
-          <header className="vml-artist-header">
-            <div className="vml-artist-portrait">
-              <img src={artist.portrait} alt={artist.name} />
-              <img
-                className="vml-artframe-border"
-                src={`${V}/artist_image_frame.png`}
-                alt=""
-                aria-hidden
-              />
-            </div>
-            <div className="vml-artist-title">
-              <div className="vml-nameplate vml-nameplate-lg">
-                <img src={`${V}/Frame_for_ArtistName.png`} alt="" aria-hidden />
-                <span>{artist.name}</span>
-              </div>
-            </div>
-          </header>
-
-          <p className="vml-body vml-bio">{artist.bio}</p>
-        </section>
 
         <section className="vml-artist-block">
           <h2 className="vml-heading">
@@ -109,6 +84,33 @@ export default async function VmlArtistPage({ params }: PageProps) {
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="vml-artist-block">
+          <h2 className="vml-heading">
+            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
+            Artist
+          </h2>
+
+          <header className="vml-artist-header">
+            <div className="vml-artist-portrait">
+              <img src={artist.portrait} alt={artist.name} />
+              <img
+                className="vml-artframe-border"
+                src={`${V}/artist_image_frame.png`}
+                alt=""
+                aria-hidden
+              />
+            </div>
+            <div className="vml-artist-title">
+              <div className="vml-nameplate vml-nameplate-lg">
+                <img src={`${V}/Frame_for_ArtistName.png`} alt="" aria-hidden />
+                <span>{artist.name}</span>
+              </div>
+            </div>
+          </header>
+
+          <p className="vml-body vml-bio">{artist.bio}</p>
         </section>
 
         <nav className="vml-artist-nav">

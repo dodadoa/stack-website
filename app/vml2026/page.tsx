@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTISTS, SCREENING_ORDER } from "./data";
+import HeroVideo from "./HeroVideo";
+import VmlCursor from "./VmlCursor";
 import "./vml.css";
 
 export const metadata: Metadata = {
@@ -55,42 +57,13 @@ function NamePlate({ href, children }: { href?: string; children: React.ReactNod
 export default function Vml2026Page() {
   return (
     <main className="vml-page">
+      <VmlCursor />
       {/* Hero */}
       <section className="vml-hero">
-        <img
-          className="vml-rock vml-rock-left"
-          src={`${V}/rock_visual.png`}
-          alt=""
-          aria-hidden
-        />
-        <img
-          className="vml-rock vml-rock-right"
-          src={`${V}/rock_visual.png`}
-          alt=""
-          aria-hidden
-        />
-        <div className="vml-hero-inner">
-          <img
-            className="vml-badge"
-            src={`${V}/Stack V_Circuits_.png`}
-            alt="Stack V_Circuits"
-          />
-          <img
-            className="vml-hero-logo"
-            src={`${V}/full_logo.png`}
-            alt="Transitional Images — Hình ảnh quá độ — 6–9 PM, 7/8"
-          />
-          <h1 className="vml-visually-hidden">
-            Stack V_Circuits — Vietnam Media Show: Transitional Images
-          </h1>
-          <div className="vml-meta">
-            <p className="vml-meta-line">Vietnam Media Show</p>
-            <p className="vml-meta-strong">
-              Friday 7 August 2026 · 6:30 – 9:30 PM
-            </p>
-            <p className="vml-meta-line">Goethe Saal, Goethe-Institut Thailand</p>
-          </div>
-        </div>
+        <HeroVideo src="/vmlAssets/vid/meme+text.mp4" />
+        <h1 className="vml-visually-hidden">
+          Stack V_Circuits — Vietnam Media Show: Transitional Images
+        </h1>
       </section>
 
       {/* Intro */}

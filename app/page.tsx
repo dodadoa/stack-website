@@ -5,7 +5,7 @@ import "./landing.css";
 export const metadata: Metadata = {
   title: "Stack",
   description:
-    "Stack — media art programmes. Ongoing: Stack V_Circuits, Vietnam Media Show: Transitional Images (2026). Archive: Patch Notes That Refuse a Settled World.",
+    "Stack — media art programmes. Coming soon: Stack V_Circuits, Vietnam Media Show: Transitional Images (2026). Archive: Patch Notes That Refuse a Settled World.",
 };
 
 const SLICES = 5;
@@ -15,7 +15,7 @@ export default function StackLandingPage() {
     <main className="stk-page">
       <nav className="stk-nav">
         <div className="stk-nav-group">
-          <p className="stk-nav-label">Ongoing</p>
+          <p className="stk-nav-label">Coming soon</p>
           <Link href="/vml2026" className="stk-nav-link">
             Stack V_Circuits — Transitional Images
             <span className="stk-nav-year">2026</span>

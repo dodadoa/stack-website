@@ -155,7 +155,44 @@
   isolation: isolate;
 }
 
+.vml-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.vml-sound-toggle {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 2;
+  color: var(--vml-neon);
+  background: var(--vml-ink);
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 1.2rem;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.vml-sound-toggle:hover {
+  filter: drop-shadow(0 0 8px rgba(93, 243, 9, 0.7));
+}
+
+.vml-sound-toggle[aria-pressed="false"] {
+  color: rgba(245, 236, 0, 0.85);
+}
+
 .vml-hero-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -646,6 +683,40 @@ a.vml-nameplate:hover {
 
 .vml-artist-nav a:hover {
   background: var(--vml-yellow);
+}
+
+/* Custom cursor — yellow dot, 1px black border, with fading trail */
+body.vml-cursor-active,
+body.vml-cursor-active * {
+  cursor: none !important;
+}
+
+/* Hide the site-wide ASCII glyph cursor on VML pages — yellow circle only */
+body.vml-cursor-active .ascii-cursor {
+  display: none;
+}
+
+.vml-cursor {
+  position: fixed;
+  top: -9px;
+  left: -9px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--vml-yellow, #f5ec00);
+  border: 1px solid #0b0b0b;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.vml-cursor-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
 }
 
 /* Large screens (1920px and up) — scale type up */

@@ -7,19 +7,24 @@
   color: #0b0b0b;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 3rem;
-  padding: 2.5rem 2.5rem 0;
+  padding: 2.5rem;
   overflow: hidden;
   font-family: "General Sans", "Helvetica Neue", Arial, sans-serif;
 }
 
-/* Left topics */
+/* Centered overlay topics */
 .stk-nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
-  max-width: 26rem;
+  gap: 1.5rem;
+  width: min(32rem, 88vw);
 }
 
 .stk-nav-label {
@@ -27,34 +32,55 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(11, 11, 11, 0.45);
-  margin-bottom: 0.6rem;
+  color: #e00b0b;
+  margin-bottom: 0.4rem;
+}
+
+.stk-nav-group:nth-child(2) .stk-nav-label {
+  color: #7d9200;
 }
 
 .stk-nav-link {
   display: block;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.35;
-  color: #0b0b0b;
+  color: var(--pntrsw-white);
+  background: #e00b0b;
   text-decoration: none;
-  border-bottom: 1px solid rgba(11, 11, 11, 0.25);
-  padding-bottom: 0.7rem;
-  transition: opacity 0.2s ease, transform 0.25s ease;
+  border-radius: 999px;
+  padding: 0.7rem 1.5rem;
+  box-shadow: 0 0 18px rgba(224, 11, 11, 0.55), 0 0 46px rgba(224, 11, 11, 0.3);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .stk-nav-link:hover {
-  opacity: 0.55;
-  transform: translateX(0.4rem);
+  background: rgba(0, 0, 255, 0.45);
+  color: var(--pntrsw-white);
+  transform: scale(1.02);
+  box-shadow: 0 0 22px rgba(0, 0, 255, 0.45), 0 0 60px rgba(0, 0, 255, 0.25);
+}
+
+.stk-nav-group:nth-child(2) .stk-nav-link {
+  background: var(--pntrsw-lime);
+  color: var(--pntrsw-navy);
+  box-shadow: 0 0 18px rgba(196, 255, 0, 0.6), 0 0 46px rgba(196, 255, 0, 0.35);
+}
+
+.stk-nav-group:nth-child(2) .stk-nav-link:hover {
+  background: rgba(0, 0, 255, 0.45);
+  color: var(--pntrsw-white);
+  box-shadow: 0 0 22px rgba(0, 0, 255, 0.45), 0 0 60px rgba(0, 0, 255, 0.25);
 }
 
 .stk-nav-year {
-  display: block;
+  display: inline;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
-  color: rgba(11, 11, 11, 0.45);
-  margin-top: 0.35rem;
+  opacity: 0.7;
+  margin-left: 0.5rem;
 }
 
 /* Instagram link — pinned bottom-left */
