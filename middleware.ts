@@ -17,9 +17,7 @@ export function middleware(request: NextRequest) {
   }
 
   if (pathname === "/") {
-    const url = request.nextUrl.clone();
-    url.pathname = "/vml2026";
-    return NextResponse.redirect(url);
+    return NextResponse.next();
   }
 
   if (pathname === "/en" || pathname.startsWith("/en/")) {

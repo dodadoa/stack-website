@@ -22,7 +22,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
   return {
     title: `${artist.name} — Transitional Images`,
-    description: `${artist.name} — ${artist.works.join(", ")}. Vietnam Media Show: Transitional Images, Stack V_Circuits, 7 August 2026, Goethe Saal.`,
+    description: `${artist.name} — ${artist.works
+      .map((w) => w.title)
+      .join(", ")}. Vietnam Media Show: Transitional Images, Stack V_Circuits, 7 August 2026, Goethe Saal.`,
     openGraph: {
       title: `${artist.name} — Transitional Images`,
       images: [artist.artwork],
@@ -51,41 +53,60 @@ export default async function VmlArtistPage({ params }: PageProps) {
           ← Transitional Images
         </Link>
 
-        <header className="vml-artist-header">
-          <div className="vml-artist-portrait">
-            <img src={artist.portrait} alt={artist.name} />
+        <section className="vml-artist-block">
+          <h2 className="vml-heading">
+            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
+            Artist
+          </h2>
+
+          <header className="vml-artist-header">
+            <div className="vml-artist-portrait">
+              <img src={artist.portrait} alt={artist.name} />
+              <img
+                className="vml-artframe-border"
+                src={`${V}/artist_image_frame.png`}
+                alt=""
+                aria-hidden
+              />
+            </div>
+            <div className="vml-artist-title">
+              <div className="vml-nameplate vml-nameplate-lg">
+                <img src={`${V}/Frame_for_ArtistName.png`} alt="" aria-hidden />
+                <span>{artist.name}</span>
+              </div>
+            </div>
+          </header>
+
+          <p className="vml-body vml-bio">{artist.bio}</p>
+        </section>
+
+        <section className="vml-artist-block">
+          <h2 className="vml-heading">
+            <img src={`${V}/circle_visual.png`} alt="" aria-hidden />
+            {artist.works.length > 1 ? "Works" : "Work"}
+          </h2>
+
+          <div className="vml-artframe vml-artist-artwork">
+            <img
+              className="vml-artframe-img"
+              src={artist.artwork}
+              alt={`${artist.name} — ${artist.works[0]?.title ?? ""}`}
+              loading="lazy"
+            />
             <img
               className="vml-artframe-border"
-              src={`${V}/artist_image_frame.png`}
+              src={`${V}/artwork_frame.png`}
               alt=""
               aria-hidden
             />
           </div>
-          <div className="vml-artist-title">
-            <div className="vml-nameplate vml-nameplate-lg">
-              <img src={`${V}/Frame_for_ArtistName.png`} alt="" aria-hidden />
-              <span>{artist.name}</span>
-            </div>
-            <ul className="vml-works">
-              {artist.works.map((w) => (
-                <li key={w}>{w}</li>
-              ))}
-            </ul>
-          </div>
-        </header>
 
-        <section className="vml-artist-block">
-          <div className="vml-bio-videos">
-            {artist.bioVideos.map((src) => (
-              <video
-                key={src}
-                src={src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-              />
+          <div className="vml-work-notes">
+            {artist.works.map((w) => (
+              <div key={w.title} className="vml-work-note">
+                <p className="vml-work-title">{w.title}</p>
+                <p className="vml-body">{w.description}</p>
+              </div>
             ))}
           </div>
         </section>

@@ -1,0 +1,137 @@
+/* Stack landing — "STACK" sliced into drifting rows */
+
+.stk-page {
+  position: relative;
+  min-height: 100dvh;
+  background: #f4f2ee;
+  color: #0b0b0b;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2.5rem 2.5rem 0;
+  overflow: hidden;
+  font-family: "General Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Left topics */
+.stk-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  max-width: 26rem;
+}
+
+.stk-nav-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(11, 11, 11, 0.45);
+  margin-bottom: 0.6rem;
+}
+
+.stk-nav-link {
+  display: block;
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #0b0b0b;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(11, 11, 11, 0.25);
+  padding-bottom: 0.7rem;
+  transition: opacity 0.2s ease, transform 0.25s ease;
+}
+
+.stk-nav-link:hover {
+  opacity: 0.55;
+  transform: translateX(0.4rem);
+}
+
+.stk-nav-year {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(11, 11, 11, 0.45);
+  margin-top: 0.35rem;
+}
+
+/* Instagram link — pinned bottom-left */
+.stk-ig {
+  position: absolute;
+  left: 2.5rem;
+  bottom: 2rem;
+  z-index: 1;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #f4f2ee;
+  background: #0b0b0b;
+  border-radius: 999px;
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stk-ig:hover {
+  background: #ff2d20;
+  color: #fff;
+}
+
+/* Sliced word */
+.stk-word {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.stk-slice {
+  --stk-f: clamp(6rem, 27vw, 26rem);
+  display: block;
+  height: calc(var(--stk-f) / 5);
+  overflow: hidden;
+  animation: stk-drift 7s ease-in-out infinite alternate;
+}
+
+.stk-slice-text {
+  display: block;
+  font-size: var(--stk-f);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.stk-slice:nth-child(1) { animation-duration: 9s; animation-delay: -2s; }
+.stk-slice:nth-child(2) { animation-duration: 7.5s; animation-delay: -5s; }
+.stk-slice:nth-child(3) { animation-duration: 11s; animation-delay: -1s; }
+.stk-slice:nth-child(4) { animation-duration: 8.5s; animation-delay: -6s; }
+.stk-slice:nth-child(5) { animation-duration: 10s; animation-delay: -3.5s; }
+
+@keyframes stk-drift {
+  0% { transform: translateX(-1.5%); }
+  100% { transform: translateX(1.5%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stk-slice {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .stk-page {
+    padding: 1.5rem 1.5rem 0;
+  }
+
+  .stk-ig {
+    left: 1.5rem;
+    bottom: 1.5rem;
+  }
+}
