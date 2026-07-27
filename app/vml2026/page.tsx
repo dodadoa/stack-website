@@ -60,10 +60,29 @@ export default function Vml2026Page() {
       <VmlCursor />
       {/* Hero */}
       <section className="vml-hero">
-        <HeroVideo src="/vmlAssets/vid/meme+text.mp4" />
-        <h1 className="vml-visually-hidden">
-          Stack V_Circuits — Vietnam Media Show: Transitional Images
-        </h1>
+        <HeroVideo src="/vmlAssets/vid/workshop+text-10s.mp4" />
+        <div className="vml-hero-inner">
+          <img
+            className="vml-badge"
+            src={`${V}/Stack V_Circuits_.png`}
+            alt="Stack V_Circuits"
+          />
+          <img
+            className="vml-hero-logo"
+            src={`${V}/full_logo.png`}
+            alt="Transitional Images — Hình ảnh quá độ — 6–9 PM, 7/8"
+          />
+          <h1 className="vml-visually-hidden">
+            Stack V_Circuits — Vietnam Media Show: Transitional Images
+          </h1>
+          <div className="vml-meta">
+            <p className="vml-meta-line">Vietnam Media Show</p>
+            <p className="vml-meta-strong">
+              Friday 7 August 2026 · 6:30 – 9:30 PM
+            </p>
+            <p className="vml-meta-line">Goethe Saal, Goethe-Institut Thailand</p>
+          </div>
+        </div>
       </section>
 
       {/* Intro */}
