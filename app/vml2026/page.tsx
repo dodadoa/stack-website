@@ -236,8 +236,7 @@ export default function Vml2026Page() {
             shaped by conflict.
           </p>
           <p>
-            On the other side are artists like Trần Uy Đức and Nguyễn Duy Anh,
-            who are pushing beyond these familiar framings of Vietnamese art.
+            On the other side are artists like Trần Uy Đức, who are pushing beyond these familiar framings of Vietnamese art.
             Their works reveal a growing interest in the post-digital condition:
             a reality in which digital technologies and the screen — the very
             apparatus that once defined cinema — are now invisibly embedded

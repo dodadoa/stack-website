@@ -105,20 +105,6 @@ export const ARTISTS: VmlArtist[] = [
     artwork: `${A}/DucHuy_artwork.png`,
     portrait: `${P}/DucHuy_image.png`,
   },
-  {
-    slug: "nguyen-duy-anh",
-    name: "Nguyễn Duy Anh",
-    bio: "Nguyen Duy Anh is a queer moving image artist based in Vietnam whose work explores how larger systems shape individual freedom and expression. His films and installations have been presented at Documenta Fifteen, Singapore International Film Festival, daadgalerie, and videoEX. He is a member of Ba-bau Collective, co-founder of Hoa Quynh Cinema, and recipient of the 2023 Prince Claus Seed Award. A Cleaning Service won Best Short at Aternativa Film Festival 2024.",
-    works: [
-      {
-        title: "Đường Về (2026)",
-        description:
-          "When comfort arrives in another guise, what remains once the truth is laid bare?",
-      },
-    ],
-    artwork: `${A}/DuyAnh_artwork.png`,
-    portrait: `${P}/DuyAnh_image.png`,
-  },
 ];
 
 export function getArtist(slug: string): VmlArtist | undefined {
@@ -157,12 +143,6 @@ export const SCREENING_ORDER: ScreeningEntry[] = [
     label: "Trần Uy Đức",
     works: ["Catwalk (2022)"],
     artwork: `${A}/UyDuc_artwork.png`,
-  },
-  {
-    artistSlugs: ["nguyen-duy-anh"],
-    label: "Nguyễn Duy Anh",
-    works: ["Đường Về (2026)"],
-    artwork: `${A}/DuyAnh_artwork.png`,
   },
   {
     artistSlugs: ["hachul"],

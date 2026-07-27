@@ -452,6 +452,10 @@ a.vml-nameplate:hover {
   text-transform: none;
 }
 
+.vml-thai .vml-body {
+  font-size: 0.84rem;
+}
+
 .vml-thai .vml-heading,
 .vml-thai .vml-talk-title,
 .vml-thai .vml-body strong,
@@ -642,4 +646,71 @@ a.vml-nameplate:hover {
 
 .vml-artist-nav a:hover {
   background: var(--vml-yellow);
+}
+
+/* Large screens (1920px and up) — scale type up */
+@media (min-width: 1920px) {
+  .vml-section {
+    max-width: 72rem;
+  }
+
+  .vml-body {
+    font-size: 1.1rem;
+  }
+
+  .vml-thai .vml-body {
+    font-size: 1rem;
+  }
+
+  .vml-heading {
+    font-size: 1.9rem;
+  }
+
+  .vml-meta-line {
+    font-size: 0.9rem;
+  }
+
+  .vml-meta-strong {
+    font-size: 1.35rem;
+  }
+
+  .vml-nameplate span {
+    font-size: 0.9rem;
+  }
+
+  .vml-nameplate-lg span {
+    font-size: 1.3rem;
+  }
+
+  .vml-works li {
+    font-size: 0.9rem;
+  }
+
+  .vml-talk-title,
+  .vml-work-title {
+    font-size: 1.55rem;
+  }
+
+  .vml-footnote {
+    font-size: 0.9rem;
+  }
+
+  .vml-credits span,
+  .vml-artist-nav a {
+    font-size: 0.9rem;
+  }
+
+  .vml-footer-note {
+    max-width: 52rem;
+    font-size: 1.1rem;
+  }
+
+  .vml-back {
+    font-size: 1.05rem;
+  }
+
+  .vml-bio,
+  .vml-work-note {
+    max-width: 52rem;
+  }
 }

@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "/Users/wasawat.som.adm/.nvm/versions/node/v22.21.0/bin/node",
-      "runtimeArgs": ["node_modules/next/dist/bin/next", "dev"],
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
       "port": 3000,
       "autoPort": true
     }
