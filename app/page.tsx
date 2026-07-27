@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LandingSound } from "@/components/LandingSound";
 import "./landing.css";
 
 export const metadata: Metadata = {
@@ -22,13 +23,22 @@ export default function StackLandingPage() {
           </Link>
         </div>
         <div className="stk-nav-group">
-          <p className="stk-nav-label">Archive</p>
+          <p className="stk-nav-label">Finished</p>
           <Link href="/patch-note" className="stk-nav-link">
             Patch Notes That Refuse a Settled World
             <span className="stk-nav-year">2026</span>
           </Link>
+          <div className="stk-nav-link stk-nav-constructing" aria-disabled>
+            PLAYER 2 HAS ENTERED THE SERVER
+            <span className="stk-nav-year">
+              Goethe-Institut Thailand · 21–22 June 2025
+            </span>
+            <span className="stk-nav-badge">Under construction</span>
+          </div>
         </div>
       </nav>
+
+      <LandingSound src="/vmlAssets/vid/sound.mp3" />
 
       <a
         className="stk-ig"

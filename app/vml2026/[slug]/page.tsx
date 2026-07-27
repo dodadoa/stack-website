@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { StackMenu } from "@/components/StackMenu";
 import { ARTISTS, getArtist } from "../data";
 import VmlCursor from "../VmlCursor";
 import "../vml.css";
@@ -42,6 +43,8 @@ export default async function VmlArtistPage({ params }: PageProps) {
   }
 
   return (
+    <>
+    <StackMenu />
     <main className="vml-page vml-artist-page">
       <VmlCursor />
       <img
@@ -129,5 +132,6 @@ export default async function VmlArtistPage({ params }: PageProps) {
         </p>
       </footer>
     </main>
+    </>
   );
 }

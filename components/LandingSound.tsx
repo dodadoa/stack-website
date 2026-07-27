@@ -2,18 +2,10 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/* Hero background video (always muted) with a separate soundtrack.
-   Sound defaults to on, but browsers block audio autoplay — if the first
-   play is refused we start it on the visitor's first gesture, unless they
-   have switched sound off in the meantime. The toggle pauses the audio
-   directly, synchronously, so no pending listener can override it. */
-export default function HeroVideo({
-  src,
-  audioSrc,
-}: {
-  src: string;
-  audioSrc: string;
-}) {
+/* Landing-page soundtrack. Defaults to on; browsers block audio autoplay,
+   so if the first play is refused we start on the visitor's first gesture,
+   unless they toggled sound off in the meantime. */
+export function LandingSound({ src }: { src: string }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [soundOn, setSoundOn] = useState(true);
   const unlockRef = useRef<(() => void) | null>(null);
@@ -23,7 +15,6 @@ export default function HeroVideo({
     if (!audio) return;
 
     audio.play().catch(() => {
-      // audio autoplay refused — start on first gesture
       const unlock = () => {
         unlockRef.current = null;
         audio.play().catch(() => {});
@@ -45,7 +36,6 @@ export default function HeroVideo({
     const audio = audioRef.current;
     if (!audio) return;
 
-    // a pending first-gesture unlock must never fight the explicit toggle
     if (unlockRef.current) {
       window.removeEventListener("pointerdown", unlockRef.current);
       unlockRef.current = null;
@@ -62,19 +52,10 @@ export default function HeroVideo({
 
   return (
     <>
-      <video
-        className="vml-hero-video"
-        src={src}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden
-      />
-      <audio ref={audioRef} src={audioSrc} loop />
+      <audio ref={audioRef} src={src} loop />
       <button
         type="button"
-        className="vml-sound-toggle"
+        className="stk-sound-toggle"
         aria-pressed={soundOn}
         onClick={toggle}
       >

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTISTS, SCREENING_ORDER } from "./data";
+import { StackMenu } from "@/components/StackMenu";
 import HeroVideo from "./HeroVideo";
 import VmlCursor from "./VmlCursor";
 import "./vml.css";
@@ -56,11 +57,16 @@ function NamePlate({ href, children }: { href?: string; children: React.ReactNod
 
 export default function Vml2026Page() {
   return (
+    <>
+      <StackMenu />
     <main className="vml-page">
       <VmlCursor />
       {/* Hero */}
       <section className="vml-hero">
-        <HeroVideo src="/vmlAssets/vid/workshop+text-10s.mp4" />
+        <HeroVideo
+          src="/vmlAssets/vid/workshop+text-10s.mp4"
+          audioSrc="/vmlAssets/vid/sound.mp3"
+        />
         <div className="vml-hero-inner">
           <img
             className="vml-badge"
@@ -349,5 +355,6 @@ export default function Vml2026Page() {
         </div>
       </footer>
     </main>
+    </>
   );
 }
